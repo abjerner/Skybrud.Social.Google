@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A62C276-4BFC-4885-93DC-8067A2FB362D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Skybrud.Social.Google</RootNamespace>
+    <AssemblyName>Skybrud.Social.Google</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skybrud.Social">
+      <HintPath>..\..\Skybrud.Social\src\Skybrud.Social\bin\Release\Skybrud.Social.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analytics\AnalyticsEndpoint.cs" />
+    <Compile Include="Analytics\AnalyticsRawEndpoint.cs" />
+    <Compile Include="Analytics\AnalyticsScope.cs" />
+    <Compile Include="Analytics\AnalyticsScopes.cs" />
+    <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs" />
+    <Compile Include="Analytics\Dimensions\AnalyticsRealtimeDimensions.cs" />
+    <Compile Include="Analytics\Endpoints\AnalyticsDataEndpoint.cs" />
+    <Compile Include="Analytics\Endpoints\AnalyticsManagementEndpoint.cs" />
+    <Compile Include="Analytics\Endpoints\Raw\AnalyticsDataRawEndpoint.cs" />
+    <Compile Include="Analytics\Endpoints\Raw\AnalyticsManagementRawEndpoint.cs" />
+    <Compile Include="Analytics\Exceptions\AnalyticsException.cs" />
+    <Compile Include="Analytics\Interfaces\IAnalyticsField.cs" />
+    <Compile Include="Analytics\Interfaces\IAnalyticsFieldOperator.cs" />
+    <Compile Include="Analytics\Interfaces\IAnalyticsFilter.cs" />
+    <Compile Include="Analytics\Interfaces\IAnalyticsFilterBlock.cs" />
+    <Compile Include="Analytics\Interfaces\IAnalyticsSortField.cs" />
+    <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs" />
+    <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs" />
+    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsResponseBody.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsAccount.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDataCell.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDataColumnHeader.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDataOptions.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDataQuery.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDataRow.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDimension.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDimensionCollection.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDimensionFilter.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDimensionOperator.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsDimensionSortField.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsFilterOperator.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsFilterOptions.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetric.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetricCollection.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetricFilter.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetricOperator.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetrics.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsMetricSortField.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsProfile.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsRealtimeDataOptions.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsRealtimeDataQuery.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsSortOptions.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsSortOrder.cs" />
+    <Compile Include="Analytics\Objects\AnalyticsWebProperty.cs" />
+    <Compile Include="Analytics\Objects\Common\AnalyticsPermissions.cs" />
+    <Compile Include="Analytics\Objects\Data\AnalyticsDataResponseBody.cs" />
+    <Compile Include="Analytics\Objects\Data\AnalyticsProfileInfo.cs" />
+    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfilesResponseBody.cs" />
+    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebPropertiesResponseBody.cs" />
+    <Compile Include="Analytics\Options\Data\AnalyticsDataOptions.cs" />
+    <Compile Include="Analytics\Options\Data\AnalyticsRealtimeDataOptions.cs" />
+    <Compile Include="Analytics\Options\Management\AnalyticsAccountsOptions.cs" />
+    <Compile Include="Analytics\Options\Management\AnalyticsProfilesOptions.cs" />
+    <Compile Include="Analytics\Options\Management\AnalyticsWebPropertiesOptions.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsAccountsResponse.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsDataResponse.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsProfilesResponse.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsRealtimeDataResponse.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsResponse.cs" />
+    <Compile Include="Analytics\Responses\AnalyticsWebPropertiesResponse.cs" />
+    <Compile Include="Analytics\Responses\Data\AnalyticsDataResponse.cs" />
+    <Compile Include="Analytics\Responses\Data\AnalyticsRealtimeDataResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsAccountsResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsProfilesResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsWebPropertiesResponse.cs" />
+    <Compile Include="Exceptions\GoogleApiException.cs" />
+    <Compile Include="Exceptions\GoogleOAuthException.cs" />
+    <Compile Include="GoogleApiObject.cs" />
+    <Compile Include="GoogleApiResource.cs" />
+    <Compile Include="GoogleApiResponse.cs" />
+    <Compile Include="GoogleService.cs" />
+    <Compile Include="GoogleUserInfo.cs" />
+    <Compile Include="OAuth\GoogleAccessTokenResponse.cs" />
+    <Compile Include="OAuth\GoogleAccessType.cs" />
+    <Compile Include="OAuth\GoogleApprovalPrompt.cs" />
+    <Compile Include="OAuth\GoogleOAuthClient.cs" />
+    <Compile Include="OAuth\GoogleScope.cs" />
+    <Compile Include="OAuth\GoogleScopeCollection.cs" />
+    <Compile Include="OAuth\GoogleScopes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfoGenerated.cs" />
+    <Compile Include="YouTube\Endpoints\Raw\YouTubeChannelsRawEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\Raw\YouTubePlaylistItemsRawEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\Raw\YouTubePlaylistsRawEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\Raw\YouTubeRawEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\Raw\YouTubeVideosRawEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\YouTubeChannelsEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\YouTubeEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\YouTubePlaylistItemsEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\YouTubePlaylistsEndpoint.cs" />
+    <Compile Include="YouTube\Endpoints\YouTubeVideosEndpoint.cs" />
+    <Compile Include="YouTube\Exceptions\YouTubeException.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannel.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelList.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelLocalized.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelPart.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelPartsCollection.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelSnippet.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelStatistics.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelThumbnail.cs" />
+    <Compile Include="YouTube\Objects\Channels\YouTubeChannelThumbnails.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItem.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemContentDetails.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemList.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemPart.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemPartsCollection.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemResourceId.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemSnippet.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemStatus.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemThumbnail.cs" />
+    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemThumbnails.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylist.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistContentDetails.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistList.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistPart.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistPartsCollection.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistSnippet.cs" />
+    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistStatus.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideo.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoContentDetails.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoDuration.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoFailureReason.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoLicense.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoList.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoLiveBroadcastContent.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoPart.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoPartsCollection.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoRejectionReason.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoSnippet.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoStatistics.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoStatus.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoThumbnail.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoThumbnails.cs" />
+    <Compile Include="YouTube\Objects\Videos\YouTubeVideoUploadStatus.cs" />
+    <Compile Include="YouTube\Objects\YouTubePageInfo.cs" />
+    <Compile Include="YouTube\Objects\YouTubePrivacyStatus.cs" />
+    <Compile Include="YouTube\Options\YouTubeChannelListOptions.cs" />
+    <Compile Include="YouTube\Options\YouTubePlaylistItemListOptions.cs" />
+    <Compile Include="YouTube\Options\YouTubePlaylistListOptions.cs" />
+    <Compile Include="YouTube\Options\YouTubeVideoListOptions.cs" />
+    <Compile Include="YouTube\Responses\YouTubeChannelListResponse.cs" />
+    <Compile Include="YouTube\Responses\YouTubePlaylistItemListResponse.cs" />
+    <Compile Include="YouTube\Responses\YouTubePlaylistListResponse.cs" />
+    <Compile Include="YouTube\Responses\YouTubeResponse.cs" />
+    <Compile Include="YouTube\Responses\YouTubeVideoListResponse.cs" />
+    <Compile Include="YouTube\YouTubeScope.cs" />
+    <Compile Include="YouTube\YouTubeScopes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)Skybrud.Social.PreBuildTool.exe" 2013-09-22 "$(ProjectPath)"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
