@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
@@ -17,17 +19,17 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Constructors
 
-        protected YouTubeChannelList(JsonObject obj) : base(obj) { }
+        protected YouTubeChannelList(JObject obj) : base(obj) { }
 
         #endregion
         
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeChannelList</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>YouTubeChannelList</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static YouTubeChannelList Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static YouTubeChannelList Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeChannelList(obj) {
                 PageInfo = obj.GetObject("pageInfo", YouTubePageInfo.Parse),

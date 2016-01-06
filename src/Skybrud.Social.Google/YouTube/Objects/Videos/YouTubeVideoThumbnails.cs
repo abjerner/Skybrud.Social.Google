@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
@@ -23,13 +25,13 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
         #region Constructors
 
-        protected YouTubeVideoThumbnails(JsonObject obj) : base(obj) { }
+        protected YouTubeVideoThumbnails(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
-        public static YouTubeVideoThumbnails Parse(JsonObject obj) {
+        public static YouTubeVideoThumbnails Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeVideoThumbnails(obj) {
                 Default = obj.GetObject("default", YouTubeVideoThumbnail.Parse),

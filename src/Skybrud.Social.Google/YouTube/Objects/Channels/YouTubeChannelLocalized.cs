@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
@@ -14,13 +16,13 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Constructors
 
-        protected YouTubeChannelLocalized(JsonObject obj) : base(obj) { }
+        protected YouTubeChannelLocalized(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
-        public static YouTubeChannelLocalized Parse(JsonObject obj) {
+        public static YouTubeChannelLocalized Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeChannelLocalized(obj) {
                 Title = obj.GetString("title"),

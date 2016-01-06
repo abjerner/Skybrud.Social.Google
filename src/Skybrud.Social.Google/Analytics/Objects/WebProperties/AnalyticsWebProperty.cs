@@ -1,9 +1,11 @@
 using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Objects.WebProperties {
 
-    public class AnalyticsWebProperty {
+    public class AnalyticsWebProperty : GoogleApiObject {
         
         public string Id { get; private set; }
         public string AccountId { get; private set; }
@@ -14,12 +16,10 @@ namespace Skybrud.Social.Google.Analytics.Objects {
         public DateTime Created { get; private set; }
         public DateTime Updated { get; private set; }
 
-        private AnalyticsWebProperty() {
-            // make constructor private
-        }
+        private AnalyticsWebProperty(JObject obj) : base(obj) { }
 
-        public static AnalyticsWebProperty Parse(JsonObject obj) {
-            return new AnalyticsWebProperty {
+        public static AnalyticsWebProperty Parse(JObject obj) {
+            return new AnalyticsWebProperty(obj) {
                 Id = obj.GetString("id"),
                 AccountId = obj.GetString("accountId"),
                 InternalWebPropertyId = obj.GetString("internalWebPropertyId"),

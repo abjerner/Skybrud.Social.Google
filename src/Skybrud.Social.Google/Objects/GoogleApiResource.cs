@@ -1,10 +1,11 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google {
+namespace Skybrud.Social.Google.Objects {
     
     /// <summary>
     /// Class representing a resource in the Google ecosystem. A resource can be described as an object that can be
-    /// requested through one of the various APIs, and holds properties fir <code>kind</code> and <code>etag</code>.
+    /// requested through one of the various APIs, and holds properties for <code>kind</code> and <code>etag</code>.
     /// </summary>
     public class GoogleApiResource : GoogleApiObject {
 
@@ -24,7 +25,7 @@ namespace Skybrud.Social.Google {
 
         #region Constructors
 
-        protected GoogleApiResource(JsonObject obj) : base(obj) {
+        protected GoogleApiResource(JObject obj) : base(obj) {
             Kind = obj.GetString("kind");
             ETag = obj.GetString("etag");
         }

@@ -1,7 +1,8 @@
 using System;
-using Skybrud.Social.Google.Analytics.Objects.Accounts;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Analytics.Objects.Common;
-using Skybrud.Social.Json;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Analytics.Objects {
 
@@ -10,8 +11,6 @@ namespace Skybrud.Social.Google.Analytics.Objects {
     /// since a Google Account can have multiple Analytics accounts.
     /// </summary>
     public class AnalyticsAccount : GoogleApiObject {
-
-        // TODO: Move class to the "Skybrud.Social.Google.Analytics.Objects.Accounts" namespace for v1.0
 
         #region Properties
         
@@ -44,33 +43,17 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Constructors
 
-        private AnalyticsAccount(JsonObject obj) : base(obj) { }
+        private AnalyticsAccount(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
-
+        
         /// <summary>
-        /// Loads an account from the JSON file at the specified <code>path</code>.
+        /// Gets an account from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="path">The path to the file.</param>
-        public static AnalyticsAccount LoadJson(string path) {
-            return JsonObject.LoadJson(path, Parse);
-        }
-
-        /// <summary>
-        /// Gets an account from the specified JSON string.
-        /// </summary>
-        /// <param name="json">The JSON string representation of the object.</param>
-        public static AnalyticsAccount ParseJson(string json) {
-            return JsonObject.ParseJson(json, Parse);
-        }
-
-        /// <summary>
-        /// Gets an account from the specified <code>JsonObject</code>.
-        /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static AnalyticsAccount Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static AnalyticsAccount Parse(JObject obj) {
             return new AnalyticsAccount(obj) {
                 Id = obj.GetString("id"),
                 Name = obj.GetString("name"),

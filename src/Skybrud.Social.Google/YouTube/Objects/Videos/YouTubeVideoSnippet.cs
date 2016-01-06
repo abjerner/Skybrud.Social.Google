@@ -1,5 +1,7 @@
 using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
@@ -56,17 +58,17 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
         
         #region Constructors
 
-        private YouTubeVideoSnippet(JsonObject obj) : base(obj) { }
+        private YouTubeVideoSnippet(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideoSnippet</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>YouTubeVideoSnippet</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static YouTubeVideoSnippet Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static YouTubeVideoSnippet Parse(JObject obj) {
             
             // Check whether "obj" is NULL
             if (obj == null) return null;
@@ -77,9 +79,6 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
             if (!Enum.TryParse(strBroadcast, true, out broadcast)) {
                 throw new Exception("Unknown value for liveBroadcastContent \"" + strBroadcast + "\" - please create an issue so it can be fixed https://github.com/abjerner/Skybrud.Social/issues/new");
             }
-
-            // Get the array of tags (may not be present)
-            JsonArray tags = obj.GetArray("tags");
             
             // Initialize the snippet object
             YouTubeVideoSnippet snippet = new YouTubeVideoSnippet(obj) {
@@ -89,7 +88,7 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
                 Description = obj.GetString("description"),
                 Thumbnails = obj.GetObject("thumbnails", YouTubeVideoThumbnails.Parse),
                 ChannelTitle = obj.GetString("channelTitle"),
-                Tags = tags == null ? new string[0] : obj.GetArray("tags").Cast<string>(),
+                Tags = obj.GetStringArray("tags"),
                 CategoryId = obj.GetString("categoryId"),
                 LiveBroadcastContent = broadcast
             };

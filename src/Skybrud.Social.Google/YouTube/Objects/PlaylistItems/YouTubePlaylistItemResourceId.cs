@@ -1,4 +1,6 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
@@ -17,17 +19,17 @@ namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
         
         #region Constructors
 
-        private YouTubePlaylistItemResourceId(JsonObject obj) : base(obj) { }
+        private YouTubePlaylistItemResourceId(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubePlaylistItemResourceId</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>YouTubePlaylistItemResourceId</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static YouTubePlaylistItemResourceId Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static YouTubePlaylistItemResourceId Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubePlaylistItemResourceId(obj) {
                 Kind = obj.GetString("kind"),

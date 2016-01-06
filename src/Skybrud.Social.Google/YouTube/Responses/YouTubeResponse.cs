@@ -1,7 +1,9 @@
 ﻿using System.Net;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Analytics.Exceptions;
 using Skybrud.Social.Google.YouTube.Exceptions;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Responses {
 
@@ -22,13 +24,14 @@ namespace Skybrud.Social.Google.YouTube.Responses {
         /// Validates the specified <code>response</code>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
-        /// <param name="obj">The object representing the response object.</param>
-        public static void ValidateResponse(SocialHttpResponse response, JsonObject obj) {
+        public static void ValidateResponse(SocialHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
 
-            JsonObject error = obj.GetObject("error");
+            JObject obj = ParseJsonObject(response.Body);
+
+            JObject error = obj.GetObject("error");
 
             int code = error.GetInt32("code");
             string message = error.GetString("message");

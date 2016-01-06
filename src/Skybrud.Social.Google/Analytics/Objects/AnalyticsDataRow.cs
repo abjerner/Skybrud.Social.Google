@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Analytics.Interfaces;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Analytics.Objects {
     
@@ -107,26 +108,26 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Static methods
 
-        internal static AnalyticsDataRow[] Parse(AnalyticsDataColumnHeader[] columnHeaders, JsonArray array) {
+        internal static AnalyticsDataRow[] Parse(AnalyticsDataColumnHeader[] columnHeaders, JArray array) {
 
             // If the query returns no rows, the array will be NULL
             if (array == null) return new AnalyticsDataRow[0];
             
             // Initialize the array of rows with a fixed length based on the input array
-            AnalyticsDataRow[] rows = new AnalyticsDataRow[array.Length];
+            AnalyticsDataRow[] rows = new AnalyticsDataRow[array.Count];
 
             // Iterate through each row
-            for (int i = 0; i < array.Length; i++) {
+            for (int i = 0; i < array.Count; i++) {
 
                 // Get the array of the row
-                JsonArray row = array.GetArray(i);
+                JArray row = array.GetArray(i);
                 
                 rows[i] = new AnalyticsDataRow {
                     Index = i
                 };
 
                 // Iterate through each cell
-                for (int j = 0; j < row.Length; j++) {
+                for (int j = 0; j < row.Count; j++) {
 
                     // Get the column header
                     AnalyticsDataColumnHeader column = columnHeaders[j];

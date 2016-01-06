@@ -1,6 +1,8 @@
 using System;
-using Skybrud.Social.Google.Analytics;
+using Skybrud.Social.Google.Analytics.Endpoints;
 using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.OAuth.Responses;
+using Skybrud.Social.Google.Objects;
 using Skybrud.Social.Google.YouTube.Endpoints;
 
 namespace Skybrud.Social.Google {
@@ -53,7 +55,7 @@ namespace Skybrud.Social.Google {
         /// </summary>
         /// <returns></returns>
         public GoogleUserInfo GetUserInfo() {
-            return GoogleUserInfo.ParseJson(Client.GetUserInfo());
+            return SocialUtils.ParseJsonObject(Client.GetUserInfo(), GoogleUserInfo.Parse);
         }
 
         #endregion
@@ -127,13 +129,8 @@ namespace Skybrud.Social.Google {
             // Get a new access token from the specified request token
             GoogleAccessTokenResponse response = client.GetAccessTokenFromRefreshToken(refreshToken);
 
-            // Set the access token on the client
-            client.AccessToken = response.AccessToken;
-
-            // Initialize a new GoogleService instance based on the OAuth client
-            return new GoogleService {
-                Client = client
-            };
+            // Initialize a new GoogleService instance based on the received access token
+            return CreateFromAccessToken(response.Body.AccessToken);
 
         }
 

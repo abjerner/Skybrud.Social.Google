@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
@@ -19,13 +21,13 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Constructors
 
-        protected YouTubeChannelThumbnails(JsonObject obj) : base(obj) { }
+        protected YouTubeChannelThumbnails(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
-        public static YouTubeChannelThumbnails Parse(JsonObject obj) {
+        public static YouTubeChannelThumbnails Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeChannelThumbnails(obj) {
                 Default = obj.GetObject("default", YouTubeChannelThumbnail.Parse),

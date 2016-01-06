@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
@@ -43,17 +45,17 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
         #region Constructors
 
-        private AnalyticsProfileInfo(JsonObject obj) : base(obj) { }
+        private AnalyticsProfileInfo(JObject obj) : base(obj) { }
 
         #endregion
         
         #region Static methods
         
         /// <summary>
-        /// Gets an instance of <code>AnalyticsProfileInfo</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>AnalyticsProfileInfo</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static AnalyticsProfileInfo Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static AnalyticsProfileInfo Parse(JObject obj) {
             if (obj == null) return null;
             return new AnalyticsProfileInfo(obj) {
                 ProfileId = obj.GetString("profileId"),

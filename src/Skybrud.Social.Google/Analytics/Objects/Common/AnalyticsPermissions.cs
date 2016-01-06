@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Analytics.Objects.Common {
     
@@ -18,7 +20,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Common {
 
         #region Constructors
 
-        private AnalyticsPermissions(JsonObject obj) : base(obj) {
+        private AnalyticsPermissions(JObject obj) : base(obj) {
             Effective = obj.GetStringArray("effective") ?? new string[0];
         }
 
@@ -27,10 +29,10 @@ namespace Skybrud.Social.Google.Analytics.Objects.Common {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>AnalyticsPermissions</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>AnalyticsPermissions</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static AnalyticsPermissions Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static AnalyticsPermissions Parse(JObject obj) {
             return obj == null ? null : new AnalyticsPermissions(obj);
         }
 

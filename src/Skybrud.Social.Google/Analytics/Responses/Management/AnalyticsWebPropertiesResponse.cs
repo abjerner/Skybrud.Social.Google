@@ -1,6 +1,5 @@
 using Skybrud.Social.Google.Analytics.Objects.WebProperties;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Google.Analytics.Responses.Management {
 
@@ -11,7 +10,15 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
         
         #region Constructors
 
-        private AnalyticsWebPropertiesResponse(SocialHttpResponse response) : base(response) { }
+        private AnalyticsWebPropertiesResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, AnalyticsWebPropertiesResponseBody.Parse);
+
+        }
 
         #endregion
 
@@ -23,22 +30,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
         /// <param name="response">The response to be parsed.</param>
         /// <returns></returns>
         public static AnalyticsWebPropertiesResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            // TODO: Should we throw an exception here?
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new AnalyticsWebPropertiesResponse(response) {
-                Body = AnalyticsWebPropertiesResponseBody.Parse(obj)
-            };
-
+            return response == null ? null : new AnalyticsWebPropertiesResponse(response);
         }
 
         #endregion

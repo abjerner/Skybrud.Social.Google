@@ -1,6 +1,5 @@
 using Skybrud.Social.Google.YouTube.Objects.Videos;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Google.YouTube.Responses {
 
@@ -8,28 +7,22 @@ namespace Skybrud.Social.Google.YouTube.Responses {
 
         #region Constructors
 
-        private YouTubeVideoListResponse(SocialHttpResponse response) : base(response) { }
+        private YouTubeVideoListResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, YouTubeVideoList.Parse);
+
+        }
 
         #endregion
 
         #region Static methods
 
         public static YouTubeVideoListResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new YouTubeVideoListResponse(response) {
-                Body = YouTubeVideoList.Parse(obj)
-            };
-
+            return response == null ? null : new YouTubeVideoListResponse(response);
         }
 
         #endregion

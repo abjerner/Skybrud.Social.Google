@@ -1,6 +1,5 @@
 using Skybrud.Social.Google.Analytics.Objects.Data;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Google.Analytics.Responses.Data {
 
@@ -11,7 +10,15 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
         
         #region Constructors
 
-        private AnalyticsRealtimeDataResponse(SocialHttpResponse response) : base(response) { }
+        private AnalyticsRealtimeDataResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, AnalyticsDataResponseBody.Parse);
+
+        }
 
         #endregion
 
@@ -23,23 +30,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
         /// <param name="response">The response to be parsed.</param>
         /// <returns></returns>
         public static AnalyticsRealtimeDataResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            // TODO: Should we throw an exception here?
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new AnalyticsRealtimeDataResponse(response) {
-                // TODO: Check whether the realtime data response body is the same as for historical data
-                Body = AnalyticsDataResponseBody.Parse(obj)
-            };
-
+            return response == null ? null : new AnalyticsRealtimeDataResponse(response);
         }
 
         #endregion

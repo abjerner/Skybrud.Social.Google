@@ -1,4 +1,6 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
@@ -58,17 +60,17 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
         #region Constructors
 
-        private AnalyticsDataResponseBody(JsonObject obj) : base(obj) { }
+        private AnalyticsDataResponseBody(JObject obj) : base(obj) { }
 
         #endregion
         
         #region Static methods
         
         /// <summary>
-        /// Gets an instance of <code>AnalyticsDataResponseBody</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>AnalyticsDataResponseBody</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static AnalyticsDataResponseBody Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static AnalyticsDataResponseBody Parse(JObject obj) {
             
             // Check whether "obj" is NULL
             if (obj == null) return null;

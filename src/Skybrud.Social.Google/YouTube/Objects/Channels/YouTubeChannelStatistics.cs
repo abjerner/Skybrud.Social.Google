@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
@@ -23,17 +25,17 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Constructors
 
-        protected YouTubeChannelStatistics(JsonObject obj) : base(obj) { }
+        protected YouTubeChannelStatistics(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeChannelStatistics</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>YouTubeChannelStatistics</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static YouTubeChannelStatistics Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static YouTubeChannelStatistics Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeChannelStatistics(obj) {
                 ViewCount = obj.GetInt64("viewCount"),

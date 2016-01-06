@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
@@ -23,13 +25,13 @@ namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
         #region Constructors
 
-        protected YouTubePlaylistItemThumbnails(JsonObject obj) : base(obj) { }
+        protected YouTubePlaylistItemThumbnails(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
-        public static YouTubePlaylistItemThumbnails Parse(JsonObject obj) {
+        public static YouTubePlaylistItemThumbnails Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubePlaylistItemThumbnails(obj) {
                 Default = obj.GetObject("default", YouTubePlaylistItemThumbnail.Parse),

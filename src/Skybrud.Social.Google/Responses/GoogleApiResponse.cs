@@ -1,19 +1,19 @@
 using System.Net;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Analytics.Exceptions;
+using Skybrud.Social.Google.Exceptions;
 using Skybrud.Social.Http;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.Analytics.Responses {
-    
+namespace Skybrud.Social.Google.Responses {
+
     /// <summary>
-    /// Class representing a response from the Analytics API.
+    /// Class representing a response from the one of the Google APIs.
     /// </summary>
-    public class AnalyticsResponse : SocialResponse {
+    public class GoogleApiResponse : SocialResponse {
 
         #region Constructors
-        
-        protected AnalyticsResponse(SocialHttpResponse response) : base(response) { }
+
+        protected GoogleApiResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
 
@@ -23,33 +23,25 @@ namespace Skybrud.Social.Google.Analytics.Responses {
         /// Validates the specified <code>response</code>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
-        /// <param name="obj">The object representing the response object.</param>
         public static void ValidateResponse(SocialHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
 
-            JObject obj = ParseJsonObject(response.Body);
-
-            JObject error = obj.GetObject("error");
-
-            int code = error.GetInt32("code");
-            string message = error.GetString("message");
-
-            // TODO: Parse "errors"
-
-            throw new AnalyticsException(response, code, message);
+            JObject body = JObject.Parse(response.Body);
+            JObject error = body.GetObject("error");
+            throw new GoogleApiException(error.GetInt32("code"), error.GetString("message"));
 
         }
 
         #endregion
-        
+
     }
 
     /// <summary>
-    /// Class representing a response from the Analytics API.
+    /// Class representing a response from the one of the Google APIs.
     /// </summary>
-    public class AnalyticsResponse<T> : AnalyticsResponse {
+    public class GoogleApiResponse<T> : GoogleApiResponse {
 
         #region Properties
 
@@ -62,7 +54,7 @@ namespace Skybrud.Social.Google.Analytics.Responses {
 
         #region Constructors
 
-        protected AnalyticsResponse(SocialHttpResponse response) : base(response) { }
+        protected GoogleApiResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
 

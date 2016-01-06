@@ -34,8 +34,9 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Skybrud.Social">
-      <HintPath>..\..\Skybrud.Social\src\Skybrud.Social\bin\Release\Skybrud.Social.dll</HintPath>
+    <Reference Include="Skybrud.Social.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Social.Core.1.0.0-alpha1\lib\net45\Skybrud.Social.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analytics\AnalyticsEndpoint.cs" />
-    <Compile Include="Analytics\AnalyticsRawEndpoint.cs" />
+    <Compile Include="Analytics\Endpoints\AnalyticsEndpoint.cs" />
+    <Compile Include="Analytics\Endpoints\Raw\AnalyticsRawEndpoint.cs" />
     <Compile Include="Analytics\AnalyticsScope.cs" />
     <Compile Include="Analytics\AnalyticsScopes.cs" />
     <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs" />
     <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs" />
     <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsResponseBody.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsAccount.cs" />
+    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccount.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataCell.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataColumnHeader.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataOptions.cs" />
@@ -84,12 +85,12 @@
     <Compile Include="Analytics\Objects\AnalyticsMetricOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetrics.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricSortField.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsProfile.cs" />
+    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfile.cs" />
     <Compile Include="Analytics\Objects\AnalyticsRealtimeDataOptions.cs" />
     <Compile Include="Analytics\Objects\AnalyticsRealtimeDataQuery.cs" />
     <Compile Include="Analytics\Objects\AnalyticsSortOptions.cs" />
     <Compile Include="Analytics\Objects\AnalyticsSortOrder.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsWebProperty.cs" />
+    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebProperty.cs" />
     <Compile Include="Analytics\Objects\Common\AnalyticsPermissions.cs" />
     <Compile Include="Analytics\Objects\Data\AnalyticsDataResponseBody.cs" />
     <Compile Include="Analytics\Objects\Data\AnalyticsProfileInfo.cs" />
@@ -100,12 +101,7 @@
     <Compile Include="Analytics\Options\Management\AnalyticsAccountsOptions.cs" />
     <Compile Include="Analytics\Options\Management\AnalyticsProfilesOptions.cs" />
     <Compile Include="Analytics\Options\Management\AnalyticsWebPropertiesOptions.cs" />
-    <Compile Include="Analytics\Responses\AnalyticsAccountsResponse.cs" />
-    <Compile Include="Analytics\Responses\AnalyticsDataResponse.cs" />
-    <Compile Include="Analytics\Responses\AnalyticsProfilesResponse.cs" />
-    <Compile Include="Analytics\Responses\AnalyticsRealtimeDataResponse.cs" />
     <Compile Include="Analytics\Responses\AnalyticsResponse.cs" />
-    <Compile Include="Analytics\Responses\AnalyticsWebPropertiesResponse.cs" />
     <Compile Include="Analytics\Responses\Data\AnalyticsDataResponse.cs" />
     <Compile Include="Analytics\Responses\Data\AnalyticsRealtimeDataResponse.cs" />
     <Compile Include="Analytics\Responses\Management\AnalyticsAccountsResponse.cs" />
@@ -113,18 +109,19 @@
     <Compile Include="Analytics\Responses\Management\AnalyticsWebPropertiesResponse.cs" />
     <Compile Include="Exceptions\GoogleApiException.cs" />
     <Compile Include="Exceptions\GoogleOAuthException.cs" />
-    <Compile Include="GoogleApiObject.cs" />
-    <Compile Include="GoogleApiResource.cs" />
-    <Compile Include="GoogleApiResponse.cs" />
+    <Compile Include="OAuth\Objects\GoogleAccessToken.cs" />
+    <Compile Include="Objects\GoogleApiObject.cs" />
+    <Compile Include="Objects\GoogleApiResource.cs" />
+    <Compile Include="Responses\GoogleApiResponse.cs" />
     <Compile Include="GoogleService.cs" />
-    <Compile Include="GoogleUserInfo.cs" />
-    <Compile Include="OAuth\GoogleAccessTokenResponse.cs" />
-    <Compile Include="OAuth\GoogleAccessType.cs" />
-    <Compile Include="OAuth\GoogleApprovalPrompt.cs" />
+    <Compile Include="Objects\GoogleUserInfo.cs" />
+    <Compile Include="OAuth\Responses\GoogleAccessTokenResponse.cs" />
+    <Compile Include="OAuth\Enums\GoogleAccessType.cs" />
+    <Compile Include="OAuth\Enums\GoogleApprovalPrompt.cs" />
     <Compile Include="OAuth\GoogleOAuthClient.cs" />
-    <Compile Include="OAuth\GoogleScope.cs" />
-    <Compile Include="OAuth\GoogleScopeCollection.cs" />
-    <Compile Include="OAuth\GoogleScopes.cs" />
+    <Compile Include="Scopes\GoogleScope.cs" />
+    <Compile Include="Scopes\GoogleScopeCollection.cs" />
+    <Compile Include="Scopes\GoogleScopes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfoGenerated.cs" />
     <Compile Include="YouTube\Endpoints\Raw\YouTubeChannelsRawEndpoint.cs" />
@@ -197,6 +194,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)Skybrud.Social.PreBuildTool.exe" 2013-09-22 "$(ProjectPath)"</PreBuildEvent>

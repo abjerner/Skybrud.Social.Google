@@ -1,40 +1,10 @@
-using System;
-
-namespace Skybrud.Social.Google.OAuth {
+namespace Skybrud.Social.Google.Scopes {
     
     /// <summary>
     /// Class representing a scope in the Google ecosystem.
     /// </summary>
     public class GoogleScope {
-
-        #region Constants (global Google scopes)
-
-        /// <see>
-        ///     <cref>https://developers.google.com/+/web/api/rest/oauth#openid</cref>
-        /// </see>
-        [Obsolete("Use GoogleScopes.OpenId instead.")]
-        public static readonly GoogleScope OpenId = GoogleScopes.OpenId;
-
-        /// <summary>
-        /// Scope giving access the email address of the authenticated user.
-        /// </summary>
-        /// <see>
-        ///     <cref>https://developers.google.com/+/web/api/rest/oauth#email</cref>
-        /// </see>
-        [Obsolete("Use GoogleScopes.Email instead.")]
-        public static readonly GoogleScope Email = GoogleScopes.Email;
-
-        /// <summary>
-        /// Scope giving access to profile information of the authenticated user.
-        /// </summary>
-        /// <see>
-        ///     <cref>https://developers.google.com/+/web/api/rest/oauth#profile</cref>
-        /// </see>
-        [Obsolete("Use GoogleScopes.Profile instead.")]
-        public static readonly GoogleScope Profile = GoogleScopes.Profile;
-
-        #endregion
-
+        
         #region Properties
 
         /// <summary>

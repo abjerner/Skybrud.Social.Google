@@ -1,5 +1,6 @@
 using System;
 using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Scopes;
 
 namespace Skybrud.Social.Google.Analytics {
     

@@ -1,4 +1,6 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
@@ -40,18 +42,17 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
         
         #region Constructors
 
-        private YouTubeVideoContentDetails(JsonObject obj) : base(obj) { }
+        private YouTubeVideoContentDetails(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideoContentDetails</code> from the specified
-        /// <var>JsonObject</var>.
+        /// Gets an instance of <code>YouTubeVideoContentDetails</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static YouTubeVideoContentDetails Parse(JsonObject obj) {
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static YouTubeVideoContentDetails Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeVideoContentDetails(obj) {
                 Duration = YouTubeVideoDuration.Parse(obj.GetString("duration")),
