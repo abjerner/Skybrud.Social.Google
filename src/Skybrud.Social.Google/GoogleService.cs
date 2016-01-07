@@ -1,5 +1,6 @@
 using System;
 using Skybrud.Social.Google.Analytics.Endpoints;
+using Skybrud.Social.Google.Calendar.Endpoints;
 using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.OAuth.Responses;
 using Skybrud.Social.Google.Objects;
@@ -12,39 +13,38 @@ namespace Skybrud.Social.Google {
     /// </summary>
     public class GoogleService {
 
-        #region Private fields
-
-        private AnalyticsEndpoint _analytics;
-        private YouTubeEndpoint _youtube;
-
-        #endregion
-
         #region Properties
 
         /// <summary>
-        /// Gets the internal OAuth client.
+        /// Gets a reference to the internal OAuth client.
         /// </summary>
         public GoogleOAuthClient Client { get; private set; }
 
         /// <summary>
         /// Gets the endpoint for the Analytics API.
         /// </summary>
-        public AnalyticsEndpoint Analytics {
-            get { return _analytics ?? (_analytics = new AnalyticsEndpoint(this)); }
-        }
+        public AnalyticsEndpoint Analytics { get; private set; }
+
+        /// <summary>
+        /// Gets the endpoint for the Calendar API.
+        /// </summary>
+        public CalendarEndpoint Calendar { get; private set; }
 
         /// <summary>
         /// Gets the endpoint for the YouTube API.
         /// </summary>
-        public YouTubeEndpoint YouTube {
-            get { return _youtube ?? (_youtube = new YouTubeEndpoint(this)); }
-        }
+        public YouTubeEndpoint YouTube { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        private GoogleService() { }
+        private GoogleService(GoogleOAuthClient client) {
+            Client = client;
+            Analytics = new AnalyticsEndpoint(this);
+            Calendar = new CalendarEndpoint(this);
+            YouTube = new YouTubeEndpoint(this);
+        }
 
         #endregion
 
@@ -69,9 +69,7 @@ namespace Skybrud.Social.Google {
         /// <param name="client">The OAuth client.</param>
         public static GoogleService CreateFromOAuthClient(GoogleOAuthClient client) {
             if (String.IsNullOrWhiteSpace(client.AccessToken)) throw new ArgumentException("An access token must be present in the OAuth Client");
-            return new GoogleService {
-                Client = client
-            };
+            return new GoogleService(client);
         }
 
         /// <summary>
@@ -80,11 +78,15 @@ namespace Skybrud.Social.Google {
         /// </summary>
         /// <param name="accessToken">The access token.</param>
         public static GoogleService CreateFromAccessToken(string accessToken) {
-            return new GoogleService {
-                Client = new GoogleOAuthClient {
-                    AccessToken = accessToken
-                }
+
+            // Initialize a new OAuth client
+            GoogleOAuthClient client = new GoogleOAuthClient {
+                AccessToken = accessToken
             };
+
+            // Initialize a new service
+            return new GoogleService(client);
+        
         }
 
         /// <summary>
@@ -94,11 +96,15 @@ namespace Skybrud.Social.Google {
         /// </summary>
         /// <param name="serverKey">The server key of your app.</param>
         public static GoogleService CreateFromServerKey(string serverKey) {
-            return new GoogleService {
-                Client = new GoogleOAuthClient {
-                    ServerKey = serverKey
-                }
+
+            // Initialize a new OAuth client
+            GoogleOAuthClient client = new GoogleOAuthClient {
+                ServerKey = serverKey
             };
+
+            // Initialize a new service
+            return new GoogleService(client);
+        
         }
 
         /// <summary>
