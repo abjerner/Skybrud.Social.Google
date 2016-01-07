@@ -13,10 +13,8 @@ namespace Skybrud.Social.Google.Calendar.Objects.Common {
 
         private CalendarDate(string propertyName, JObject obj) : base(obj) {
 
-            JValue dateTime = obj.GetValue("dateTime") as JValue;
-
-            if (dateTime != null && dateTime.Type == JTokenType.Date) {
-                DateTime = (DateTime)dateTime.Value;
+            if (obj.HasValue("dateTime")) {
+                DateTime = obj.GetDateTime("dateTime");
             } else if (obj.GetValue("date") != null) {
                 DateTime = obj.GetString("date", DateTime.Parse);
                 if (propertyName == "end") {

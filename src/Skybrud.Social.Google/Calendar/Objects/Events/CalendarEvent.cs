@@ -20,28 +20,14 @@ namespace Skybrud.Social.Google.Calendar.Objects.Events {
         public CalendarDate End { get; private set; }
 
         protected CalendarEvent(JObject obj) : base(obj) {
-
             Id = obj.GetString("id");
             Status = obj.GetString("status");
             HtmlLink = obj.GetString("htmlLink");
-
-            JValue created = obj.GetValue("created") as JValue;
-            JValue updated = obj.GetValue("updated") as JValue;
-
-            if (created != null && created.Type == JTokenType.Date) {
-                Created = (DateTime)created.Value;
-            }
-
-            if (updated != null && updated.Type == JTokenType.Date) {
-                Updated = (DateTime)updated.Value;
-            }
-
+            Created = obj.GetDateTime("created");
+            Updated = obj.GetDateTime("updated");
             Summary = obj.GetString("summary");
-
-
             Start = obj.GetObject("start", x => CalendarDate.Parse("start", x));
             End = obj.GetObject("end", x => CalendarDate.Parse("end", x));
-
         }
 
         public static CalendarEvent Parse(JObject obj) {
