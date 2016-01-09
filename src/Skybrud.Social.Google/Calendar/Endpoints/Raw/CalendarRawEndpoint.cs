@@ -1,8 +1,4 @@
-﻿using System;
-using Skybrud.Social.Exceptions;
-using Skybrud.Social.Google.Calendar.Options.Events;
-using Skybrud.Social.Google.OAuth;
-using Skybrud.Social.Http;
+﻿using Skybrud.Social.Google.OAuth;
 
 namespace Skybrud.Social.Google.Calendar.Endpoints.Raw {
 
@@ -12,35 +8,18 @@ namespace Skybrud.Social.Google.Calendar.Endpoints.Raw {
 
         public GoogleOAuthClient Client { get; private set; }
 
+        public CalendarCalendarsRawEndpoint Calendars { get; private set; }
+
+        public CalendarEventsRawEndpoint Events { get; private set; }
+
         #endregion
 
         #region Constructors
 
         internal CalendarRawEndpoint(GoogleOAuthClient client) {
             Client = client;
-        }
-
-        #endregion
-
-        #region Member methods
-
-        public SocialHttpResponse GetEvents() {
-            return GetEvents(new CalendarGetEventsOptions());
-        }
-
-        public SocialHttpResponse GetEvents(string calendarId) {
-            return GetEvents(new CalendarGetEventsOptions(calendarId));
-        }
-
-        public SocialHttpResponse GetEvents(CalendarGetEventsOptions options) {
-
-            // Some validation
-            if (options == null) throw new ArgumentNullException("options", "wtf?");
-            if (String.IsNullOrWhiteSpace(options.CalendarId)) throw new PropertyNotSetException("options.CalendarId");
-
-            // Make the call to the API
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/calendar/v3/calendars/" + options.CalendarId + "/events", options);
-        
+            Calendars = new CalendarCalendarsRawEndpoint(client);
+            Events = new CalendarEventsRawEndpoint(client);
         }
 
         #endregion

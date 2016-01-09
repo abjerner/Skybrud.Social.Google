@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Social.Google.Calendar.Endpoints.Raw;
+﻿using Skybrud.Social.Google.Calendar.Endpoints.Raw;
 using Skybrud.Social.Google.Calendar.Options.Events;
 using Skybrud.Social.Google.Calendar.Responses.Events;
 
@@ -13,6 +12,10 @@ namespace Skybrud.Social.Google.Calendar.Endpoints {
 
         public CalendarRawEndpoint Raw { get; private set; }
 
+        public CalendarCalendarsEndpoint Calendars { get; private set; }
+
+        public CalendarEventsEndpoint Events { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -20,22 +23,8 @@ namespace Skybrud.Social.Google.Calendar.Endpoints {
         public CalendarEndpoint(GoogleService service) {
             Service = service;
             Raw = new CalendarRawEndpoint(Service.Client);
-        }
-
-        #endregion
-
-        #region Constructors
-
-        public CalendarGetEventsResponse GetEvents() {
-            return CalendarGetEventsResponse.ParseResponse(Raw.GetEvents());
-        }
-
-        public CalendarGetEventsResponse GetEvents(string calendarId) {
-            return CalendarGetEventsResponse.ParseResponse(Raw.GetEvents(calendarId));
-        }
-
-        public CalendarGetEventsResponse GetEvents(CalendarGetEventsOptions options) {
-            return CalendarGetEventsResponse.ParseResponse(Raw.GetEvents(options));
+            Calendars = new CalendarCalendarsEndpoint(this);
+            Events = new CalendarEventsEndpoint(this);
         }
 
         #endregion
