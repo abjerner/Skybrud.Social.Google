@@ -144,6 +144,13 @@
     <Compile Include="OAuth\Objects\GoogleAccessToken.cs" />
     <Compile Include="Objects\GoogleApiObject.cs" />
     <Compile Include="Objects\GoogleApiResource.cs" />
+    <Compile Include="Plus\Objects\People\PlusPersonName.cs" />
+    <Compile Include="Plus\Objects\People\PlusPersonEmail.cs" />
+    <Compile Include="Plus\Objects\People\PlusPersonLink.cs" />
+    <Compile Include="Plus\Objects\People\PlusPersonImage.cs" />
+    <Compile Include="Plus\Objects\People\PlusPerson.cs" />
+    <Compile Include="Plus\Scopes\PlusScope.cs" />
+    <Compile Include="Plus\Scopes\PlusScopes.cs" />
     <Compile Include="Responses\GoogleApiResponse.cs" />
     <Compile Include="GoogleService.cs" />
     <Compile Include="Objects\GoogleUserInfo.cs" />
