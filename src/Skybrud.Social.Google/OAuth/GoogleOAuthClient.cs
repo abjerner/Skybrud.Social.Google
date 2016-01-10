@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using Skybrud.Social.Exceptions;
 using Skybrud.Social.Google.Analytics.Endpoints.Raw;
 using Skybrud.Social.Google.Calendar.Endpoints.Raw;
+using Skybrud.Social.Google.Drive.Endpoints.Raw;
 using Skybrud.Social.Google.OAuth.Enums;
 using Skybrud.Social.Google.OAuth.Responses;
 using Skybrud.Social.Google.Scopes;
@@ -56,6 +57,11 @@ namespace Skybrud.Social.Google.OAuth {
         public CalendarRawEndpoint Calendar { get; private set; }
 
         /// <summary>
+        /// Gets a reference to the raw Drive endpoint.
+        /// </summary>
+        public DriveRawEndpoint Drive { get; private set; }
+
+        /// <summary>
         /// Gets a reference to the raw YouTube endpoint.
         /// </summary>
         public YouTubeRawEndpoint YouTube { get; private set; }
@@ -67,6 +73,7 @@ namespace Skybrud.Social.Google.OAuth {
         public GoogleOAuthClient() {
             Analytics = new AnalyticsRawEndpoint(this);
             Calendar = new CalendarRawEndpoint(this);
+            Drive = new DriveRawEndpoint(this);
             YouTube = new YouTubeRawEndpoint(this);
         }
 

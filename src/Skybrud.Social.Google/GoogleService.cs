@@ -1,6 +1,7 @@
 using System;
 using Skybrud.Social.Google.Analytics.Endpoints;
 using Skybrud.Social.Google.Calendar.Endpoints;
+using Skybrud.Social.Google.Drive.Endpoints;
 using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.OAuth.Responses;
 using Skybrud.Social.Google.Objects;
@@ -32,6 +33,11 @@ namespace Skybrud.Social.Google {
         public CalendarEndpoint Calendar { get; private set; }
 
         /// <summary>
+        /// Gets the endpoint for the Drive API.
+        /// </summary>
+        public DriveEndpoint Drive { get; private set; }
+
+        /// <summary>
         /// Gets the endpoint for the YouTube API.
         /// </summary>
         public YouTubeEndpoint YouTube { get; private set; }
@@ -44,6 +50,7 @@ namespace Skybrud.Social.Google {
             Client = client;
             Analytics = new AnalyticsEndpoint(this);
             Calendar = new CalendarEndpoint(this);
+            Drive = new DriveEndpoint(this);
             YouTube = new YouTubeEndpoint(this);
         }
 
