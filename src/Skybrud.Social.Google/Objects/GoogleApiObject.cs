@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Skybrud.Social.Google.Objects {
@@ -9,6 +10,7 @@ namespace Skybrud.Social.Google.Objects {
 
         #region Properties
 
+        [JsonIgnore]
         public JObject JObject { get; private set; }
 
         #endregion

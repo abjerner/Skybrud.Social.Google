@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json.Extensions.JObject;
 
@@ -33,22 +34,26 @@ namespace Skybrud.Social.Google.Objects {
         public string FamilyName { get; private set; }
 
         /// <summary>
-        /// Gets the link to the user's Google+ profile (if the user is on Google+).
+        /// Gets the URL to the Google+ profile of the user, or <code>null</code> if the user doesn't have a Google+
+        /// profile.
         /// </summary>
         public string Profile { get; private set; }
 
         /// <summary>
-        /// Gets the URL for the user's profile picture if present.
+        /// Gets the URL to the profile picture of the user, or <code>null</code> if the user doesn't have a profile
+        /// picture.
         /// </summary>
         public string Picture { get; private set; }
 
         /// <summary>
-        /// Gets the email address of the user.
+        /// Gets the email address of the user. The underlying <code>email</code> property is only part of the response
+        /// if the <code>email</code> scope has been granted by the user.
         /// </summary>
         public string Email { get; private set; }
 
         /// <summary>
-        /// Gets whether the email address of the user has been verified.
+        /// Gets whether the email address of the user has been verified. The underlying <code>email_verified</code>
+        /// property is only part of the response if the <code>email</code> scope has been granted by the user.
         /// </summary>
         public bool IsEmailVerified { get; private set; }
 
@@ -67,12 +72,33 @@ namespace Skybrud.Social.Google.Objects {
         /// </summary>
         public string Locale { get; private set; }
 
+        /// <summary>
+        /// Gets the hosted Google Apps domain of the user, or <code>null</code> if the user is not a part of a hosted
+        /// domain.
+        /// </summary>
+        public string HostedDomain { get; private set; }
+
+        /// <summary>
+        /// Gets whether the user is part of a hosted Google Apps domain. The underlying <code>hd</code> property is
+        /// only part of the response if the <code>email</code> scope has been granted by the user.
+        /// </summary>
+        public bool HasHostedDomain {
+            get { return !String.IsNullOrWhiteSpace(HostedDomain); }
+        }
+
+        /// <summary>
+        /// Gets whether the email of the user was part of the properties returned in the response.
+        /// </summary>
+        public bool HasEmail {
+            get { return !String.IsNullOrWhiteSpace(Email); }
+        }
+
         #endregion
 
         #region Constructors
 
         private GoogleUserInfo(JObject obj) : base(obj) {
-            Id = obj.GetString("sub");
+            Id = obj.GetString("id");
             Name = obj.GetString("name");
             GivenName = obj.GetString("given_name");
             FamilyName = obj.GetString("family_name");
@@ -83,6 +109,7 @@ namespace Skybrud.Social.Google.Objects {
             Gender = obj.GetString("gender");
             Birthdate = obj.GetString("birthdate");
             Locale = obj.GetString("locale");
+            HostedDomain = obj.GetString("hd");
         }
 
         #endregion
@@ -90,9 +117,10 @@ namespace Skybrud.Social.Google.Objects {
         #region Static methods
         
         /// <summary>
-        /// Gets a user from the specified <code>JObject</code>.
+        /// Gets a user from the specified <code>obj</code>.
         /// </summary>
         /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <returns>Returns an instance of <code>GoogleUserInfo</code> representing the user.</returns>
         public static GoogleUserInfo Parse(JObject obj) {
             return obj == null ? null : new GoogleUserInfo(obj);
         }

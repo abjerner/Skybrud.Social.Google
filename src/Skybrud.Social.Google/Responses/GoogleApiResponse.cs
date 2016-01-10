@@ -30,7 +30,7 @@ namespace Skybrud.Social.Google.Responses {
 
             JObject body = JObject.Parse(response.Body);
             JObject error = body.GetObject("error");
-            throw new GoogleApiException(error.GetInt32("code"), error.GetString("message"));
+            throw new GoogleApiException(response, error.GetInt32("code"), error.GetString("message"));
 
         }
 

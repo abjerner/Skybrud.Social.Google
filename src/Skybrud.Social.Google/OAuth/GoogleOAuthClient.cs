@@ -195,8 +195,8 @@ namespace Skybrud.Social.Google.OAuth {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        public string GetUserInfo() {
-            return DoAuthenticatedGetRequest("https://www.googleapis.com/oauth2/v3/userinfo");
+        public SocialHttpResponse GetUserInfo() {
+            return DoAuthenticatedGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
         }
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// automatically appended to the query string.
         /// </summary>
         /// <param name="url">The URL to call.</param>
-        public string DoAuthenticatedGetRequest(string url) {
+        public SocialHttpResponse DoAuthenticatedGetRequest(string url) {
             return DoAuthenticatedGetRequest(url, default(NameValueCollection));
         }
 
@@ -214,7 +214,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="url">The URL to call.</param>
         /// <param name="query">The query string for the call.</param>
-        public string DoAuthenticatedGetRequest(string url, NameValueCollection query) {
+        public SocialHttpResponse DoAuthenticatedGetRequest(string url, NameValueCollection query) {
 
             // Initialize a new NameValueCollection if NULL
             if (query == null) query = new NameValueCollection();
@@ -228,7 +228,7 @@ namespace Skybrud.Social.Google.OAuth {
             }
 
             // Make a call to the API
-            return SocialUtils.DoHttpGetRequestAndGetBodyAsString(url, query);
+            return SocialHttpResponse.GetFromWebResponse(SocialUtils.DoHttpGetRequest(url, query));
 
         }
 

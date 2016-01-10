@@ -4,6 +4,7 @@ using Skybrud.Social.Google.Calendar.Endpoints;
 using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.OAuth.Responses;
 using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Google.Responses;
 using Skybrud.Social.Google.YouTube.Endpoints;
 
 namespace Skybrud.Social.Google {
@@ -53,9 +54,9 @@ namespace Skybrud.Social.Google {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        /// <returns></returns>
-        public GoogleUserInfo GetUserInfo() {
-            return SocialUtils.ParseJsonObject(Client.GetUserInfo(), GoogleUserInfo.Parse);
+        /// <returns>Returns an instance of <code>GoogleGetUserInfoResponse</code> representing the response.</returns>
+        public GoogleGetUserInfoResponse GetUserInfo() {
+            return GoogleGetUserInfoResponse.ParseResponse(Client.GetUserInfo());
         }
 
         #endregion

@@ -1,10 +1,13 @@
 using System;
+using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Exceptions {
     
     public class GoogleApiException : Exception {
 
         #region Properties
+
+        public SocialHttpResponse Response { get; private set; }
 
         public int Code { get; private set; }
 
@@ -14,7 +17,8 @@ namespace Skybrud.Social.Google.Exceptions {
 
         #region Constructors
 
-        public GoogleApiException(int code, string message) : base(code + ": " + message) {
+        public GoogleApiException(SocialHttpResponse response, int code, string message) : base(code + ": " + message) {
+            Response = response;
             Code = code;
             Message = message;
         }

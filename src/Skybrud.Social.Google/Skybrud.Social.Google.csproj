@@ -137,6 +137,7 @@
     <Compile Include="OAuth\Enums\GoogleAccessType.cs" />
     <Compile Include="OAuth\Enums\GoogleApprovalPrompt.cs" />
     <Compile Include="OAuth\GoogleOAuthClient.cs" />
+    <Compile Include="Responses\GoogleGetUserInfoResponse.cs" />
     <Compile Include="Scopes\GoogleScope.cs" />
     <Compile Include="Scopes\GoogleScopeCollection.cs" />
     <Compile Include="Scopes\GoogleScopes.cs" />
