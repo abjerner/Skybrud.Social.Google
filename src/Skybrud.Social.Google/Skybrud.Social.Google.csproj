@@ -139,6 +139,8 @@
     <Compile Include="Drive\Scopes\DriveScope.cs" />
     <Compile Include="Exceptions\GoogleApiException.cs" />
     <Compile Include="Exceptions\GoogleOAuthException.cs" />
+    <Compile Include="Gmail\Scopes\GmailScope.cs" />
+    <Compile Include="Gmail\Scopes\GmailScopes.cs" />
     <Compile Include="OAuth\Objects\GoogleAccessToken.cs" />
     <Compile Include="Objects\GoogleApiObject.cs" />
     <Compile Include="Objects\GoogleApiResource.cs" />
