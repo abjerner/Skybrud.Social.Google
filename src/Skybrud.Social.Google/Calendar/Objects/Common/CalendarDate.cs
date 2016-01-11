@@ -5,11 +5,26 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Calendar.Objects.Common {
     
+    /// <summary>
+    /// Class representing a date returned by the Google Calendae API.
+    /// </summary>
     public class CalendarDate : GoogleApiObject {
 
+        #region Properties
+
+        /// <summary>
+        /// Gets the date value parsed from either the <code>dateTime</code> property or the <code>date</code> property.
+        /// </summary>
         public DateTime DateTime { get; private set; }
         
+        /// <summary>
+        /// Gets the time zone of the date.
+        /// </summary>
         public string TimeZone { get; private set; }
+
+        #endregion
+
+        #region Constructors
 
         private CalendarDate(string propertyName, JObject obj) : base(obj) {
 
@@ -26,9 +41,21 @@ namespace Skybrud.Social.Google.Calendar.Objects.Common {
 
         }
 
+        #endregion
+
+        #region Static methods
+        
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <code>CalendarDate</code>.
+        /// </summary>
+        /// <param name="propertyName">The name of the property.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        /// <returns>Returns an instance of <code>CalendarDate</code>.</returns>
         public static CalendarDate Parse(string propertyName, JObject obj) {
             return obj == null ? null : new CalendarDate(propertyName, obj);
         }
+
+        #endregion
 
     }
 

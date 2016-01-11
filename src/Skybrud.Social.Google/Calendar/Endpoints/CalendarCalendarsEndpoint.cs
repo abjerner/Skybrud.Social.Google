@@ -2,6 +2,9 @@
 
 namespace Skybrud.Social.Google.Calendar.Endpoints {
 
+    /// <summary>
+    /// Class representing the calendars endpoint.
+    /// </summary>
     public class CalendarCalendarsEndpoint {
 
         #region Properties

@@ -10,6 +10,9 @@ namespace Skybrud.Social.Google.Objects {
 
         #region Properties
 
+        /// <summary>
+        /// Gets a reference to the underlying instance of <code>JObject</code>.
+        /// </summary>
         [JsonIgnore]
         public JObject JObject { get; private set; }
 
@@ -17,6 +20,10 @@ namespace Skybrud.Social.Google.Objects {
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes instance from the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <code>JObject</code> representing the object.</param>
         protected GoogleApiObject(JObject obj) {
             JObject = obj;
         }

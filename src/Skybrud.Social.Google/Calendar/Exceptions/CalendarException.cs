@@ -3,6 +3,9 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Calendar.Exceptions {
 
+    /// <summary>
+    /// Class representing an error returned by the Google Calendar API.
+    /// </summary>
     public class CalendarException : Exception {
 
         #region Properties
@@ -12,6 +15,9 @@ namespace Skybrud.Social.Google.Calendar.Exceptions {
         /// </summary>
         public SocialHttpResponse Response { get; private set; }
 
+        /// <summary>
+        /// Gets the error code.
+        /// </summary>
         public int Code { get; private set; }
 
         #endregion

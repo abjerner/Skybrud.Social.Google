@@ -5,7 +5,10 @@ using Skybrud.Social.Google.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Calendar.Objects.Events {
-    
+
+    /// <summary>
+    /// Class representing an event in the Google Calendar API.
+    /// </summary>
     public class CalendarEvent : GoogleApiResource {
 
         public string Id { get; private set; }
@@ -29,10 +32,19 @@ namespace Skybrud.Social.Google.Calendar.Objects.Events {
             Start = obj.GetObject("start", x => CalendarDate.Parse("start", x));
             End = obj.GetObject("end", x => CalendarDate.Parse("end", x));
         }
+        
+        #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <code>CalendarEvent</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        /// <returns>Returns an instance of <code>CalendarEvent</code>.</returns>
         public static CalendarEvent Parse(JObject obj) {
             return obj == null ? null : new CalendarEvent(obj);
         }
+
+        #endregion
 
     }
 

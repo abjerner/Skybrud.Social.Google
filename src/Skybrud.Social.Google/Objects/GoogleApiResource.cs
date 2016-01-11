@@ -25,6 +25,10 @@ namespace Skybrud.Social.Google.Objects {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes instance from the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <code>JObject</code> representing the object.</param>
         protected GoogleApiResource(JObject obj) : base(obj) {
             Kind = obj.GetString("kind");
             ETag = obj.GetString("etag");

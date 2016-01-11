@@ -5,7 +5,10 @@ using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Calendar.Endpoints.Raw {
-    
+
+    /// <summary>
+    /// Class representing the raw calendars endpoint.
+    /// </summary>
     public class CalendarCalendarsRawEndpoint {
 
         #region Properties

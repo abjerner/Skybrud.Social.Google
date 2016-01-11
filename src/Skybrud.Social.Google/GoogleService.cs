@@ -4,7 +4,6 @@ using Skybrud.Social.Google.Calendar.Endpoints;
 using Skybrud.Social.Google.Drive.Endpoints;
 using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.OAuth.Responses;
-using Skybrud.Social.Google.Objects;
 using Skybrud.Social.Google.Responses;
 using Skybrud.Social.Google.YouTube.Endpoints;
 
@@ -116,10 +115,9 @@ namespace Skybrud.Social.Google {
         }
 
         /// <summary>
-        /// Initializes a new instance based on the specified refresh token.
-        /// The refresh token is used for making a call to the Google Accounts
-        /// API to get a new access token. Access tokens typically expire after
-        /// an hour (3600 seconds).
+        /// Initializes a new instance based on the specified refresh token. The refresh token is used for making a
+        /// call to the Google Accounts API to get a new access token. Access tokens typically expire after an hour
+        /// (3600 seconds).
         /// </summary>
         /// <param name="clientId">The client ID.</param>
         /// <param name="clientSecret">The client secret.</param>
@@ -130,9 +128,6 @@ namespace Skybrud.Social.Google {
             if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentException("Parameter \"clientId\" cannot be NULL or empty", "clientId");
             if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentException("Parameter \"clientSecret\" cannot be NULL or empty", "clientSecret");
             if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentException("Parameter \"refreshToken\" cannot be NULL or empty", "refreshToken");
-
-            // Partial client ID?
-            if (!clientId.EndsWith(".apps.googleusercontent.com")) clientId = clientId + ".apps.googleusercontent.com";
 
             // Initialize a new OAuth client with the specified client id and client secret
             GoogleOAuthClient client = new GoogleOAuthClient {

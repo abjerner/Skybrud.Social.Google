@@ -3,11 +3,14 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Responses {
 
+    /// <summary>
+    /// Class representing the response for getting information about the authenticated user.
+    /// </summary>
     public class GoogleGetUserInfoResponse : GoogleApiResponse<GoogleUserInfo> {
 
         #region Constructors
 
-        protected GoogleGetUserInfoResponse(SocialHttpResponse response) : base(response) {
+        private GoogleGetUserInfoResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,6 +24,11 @@ namespace Skybrud.Social.Google.Responses {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>response</code> into an instance of <code>GoogleGetUserInfoResponse</code>.
+        /// </summary>
+        /// <param name="response">The response to be parsed.</param>
+        /// <returns>Returns an instance of <code>GoogleGetUserInfoResponse</code> representing the response.</returns>
         public static GoogleGetUserInfoResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new GoogleGetUserInfoResponse(response);
         }
