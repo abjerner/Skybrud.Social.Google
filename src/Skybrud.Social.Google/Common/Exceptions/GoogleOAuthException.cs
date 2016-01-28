@@ -1,6 +1,6 @@
 using System;
 
-namespace Skybrud.Social.Google.Exceptions {
+namespace Skybrud.Social.Google.Common.Exceptions {
     
     public class GoogleOAuthException : Exception {
 

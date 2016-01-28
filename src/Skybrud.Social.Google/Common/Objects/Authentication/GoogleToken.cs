@@ -1,14 +1,13 @@
 using System;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.OAuth.Objects {
+namespace Skybrud.Social.Google.Common.Objects.Authentication {
     
     /// <summary>
     /// Class representing information about an access token.
     /// </summary>
-    public class GoogleAccessToken : GoogleApiObject {
+    public class GoogleToken : GoogleApiObject {
 
         #region Properties
 
@@ -37,7 +36,7 @@ namespace Skybrud.Social.Google.OAuth.Objects {
 
         #region Constructors
 
-        private GoogleAccessToken(JObject obj) : base(obj) {
+        private GoogleToken(JObject obj) : base(obj) {
             AccessToken = obj.GetString("access_token");
             RefreshToken = obj.GetString("refresh_token");
             ExpiresIn = obj.GetDouble("expires_in", TimeSpan.FromSeconds);
@@ -48,8 +47,8 @@ namespace Skybrud.Social.Google.OAuth.Objects {
 
         #region Static methods
 
-        public static GoogleAccessToken Parse(JObject obj) {
-            return obj == null ? null : new GoogleAccessToken(obj);
+        public static GoogleToken Parse(JObject obj) {
+            return obj == null ? null : new GoogleToken(obj);
         }
 
         #endregion

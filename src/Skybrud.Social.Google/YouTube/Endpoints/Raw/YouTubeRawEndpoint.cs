@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Common.OAuth;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
     

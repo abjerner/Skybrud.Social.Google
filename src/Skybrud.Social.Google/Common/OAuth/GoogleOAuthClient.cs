@@ -3,15 +3,15 @@ using System.Collections.Specialized;
 using Skybrud.Social.Exceptions;
 using Skybrud.Social.Google.Analytics.Endpoints.Raw;
 using Skybrud.Social.Google.Calendar.Endpoints.Raw;
+using Skybrud.Social.Google.Common.Enums;
+using Skybrud.Social.Google.Common.Responses.Authentication;
+using Skybrud.Social.Google.Common.Scopes;
 using Skybrud.Social.Google.Drive.Endpoints.Raw;
-using Skybrud.Social.Google.OAuth.Enums;
-using Skybrud.Social.Google.OAuth.Responses;
-using Skybrud.Social.Google.Scopes;
 using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
-namespace Skybrud.Social.Google.OAuth {
+namespace Skybrud.Social.Google.Common.OAuth {
     
     /// <summary>
     /// A client for handling the communication with the Google APIs using OAuth 2.0. The client is also responsible
@@ -141,7 +141,7 @@ namespace Skybrud.Social.Google.OAuth {
             return url + (query.Count == 0 ? "" : "?" + SocialUtils.NameValueCollectionToQueryString(query));
         }
 
-        public GoogleAccessTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
+        public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
 
             // Validate the required properties
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
@@ -166,11 +166,11 @@ namespace Skybrud.Social.Google.OAuth {
             SocialHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
-            return GoogleAccessTokenResponse.ParseResponse(response);
+            return GoogleTokenResponse.ParseResponse(response);
 
         }
 
-        public GoogleAccessTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
+        public GoogleTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
 
             // Validate the required properties
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
@@ -195,7 +195,7 @@ namespace Skybrud.Social.Google.OAuth {
             SocialHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
-            return GoogleAccessTokenResponse.ParseResponse(response);
+            return GoogleTokenResponse.ParseResponse(response);
 
         }
 

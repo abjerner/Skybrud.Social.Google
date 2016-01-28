@@ -1,6 +1,6 @@
 ﻿using System;
+using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Google.Drive.Options.Files;
-using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Drive.Endpoints.Raw {

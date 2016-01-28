@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Scopes {
+namespace Skybrud.Social.Google.Common.Scopes {
     
     /// <summary>
     /// Static class containing references to global scopes of the Google APIs.

@@ -1,7 +1,7 @@
 ﻿using System;
 using Skybrud.Social.Exceptions;
 using Skybrud.Social.Google.Calendar.Options.Calendars;
-using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Calendar.Endpoints.Raw {

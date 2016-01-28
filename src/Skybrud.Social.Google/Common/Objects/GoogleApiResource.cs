@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.Objects {
+namespace Skybrud.Social.Google.Common.Objects {
     
     /// <summary>
     /// Class representing a resource in the Google ecosystem. A resource can be described as an object that can be

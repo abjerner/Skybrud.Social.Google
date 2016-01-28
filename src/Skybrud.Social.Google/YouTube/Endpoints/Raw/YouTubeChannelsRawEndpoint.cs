@@ -1,5 +1,5 @@
 ﻿using System;
-using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Google.YouTube.Objects.Channels;
 using Skybrud.Social.Google.YouTube.Options;
 using Skybrud.Social.Http;

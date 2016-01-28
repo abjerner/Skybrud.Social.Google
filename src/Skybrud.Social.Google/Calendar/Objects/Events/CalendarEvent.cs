@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Calendar.Objects.Common;
-using Skybrud.Social.Google.Objects;
+using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.Calendar.Objects.Events {

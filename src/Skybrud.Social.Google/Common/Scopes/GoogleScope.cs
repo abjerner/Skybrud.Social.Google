@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Scopes {
+namespace Skybrud.Social.Google.Common.Scopes {
     
     /// <summary>
     /// Class representing a scope in the Google ecosystem.

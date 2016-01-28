@@ -1,6 +1,6 @@
 ﻿using System;
 using Skybrud.Social.Google.Analytics.Options.Data;
-using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {

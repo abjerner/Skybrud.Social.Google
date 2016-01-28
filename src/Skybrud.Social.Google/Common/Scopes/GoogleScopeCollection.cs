@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Google.Scopes {
+namespace Skybrud.Social.Google.Common.Scopes {
 
     /// <summary>
     /// Class representing a collection of scopes for the Google ecosystem.

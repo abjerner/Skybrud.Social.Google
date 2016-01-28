@@ -1,13 +1,13 @@
 using System;
 using Skybrud.Social.Google.Analytics.Endpoints;
 using Skybrud.Social.Google.Calendar.Endpoints;
+using Skybrud.Social.Google.Common.OAuth;
+using Skybrud.Social.Google.Common.Responses;
+using Skybrud.Social.Google.Common.Responses.Authentication;
 using Skybrud.Social.Google.Drive.Endpoints;
-using Skybrud.Social.Google.OAuth;
-using Skybrud.Social.Google.OAuth.Responses;
-using Skybrud.Social.Google.Responses;
 using Skybrud.Social.Google.YouTube.Endpoints;
 
-namespace Skybrud.Social.Google {
+namespace Skybrud.Social.Google.Common {
 
     /// <summary>
     /// Class working as an entry point to the Google APIs supported by Skybrud.Social.
@@ -136,7 +136,7 @@ namespace Skybrud.Social.Google {
             };
 
             // Get a new access token from the specified request token
-            GoogleAccessTokenResponse response = client.GetAccessTokenFromRefreshToken(refreshToken);
+            GoogleTokenResponse response = client.GetAccessTokenFromRefreshToken(refreshToken);
 
             // Initialize a new GoogleService instance based on the received access token
             return CreateFromAccessToken(response.Body.AccessToken);

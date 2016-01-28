@@ -1,4 +1,5 @@
 using Skybrud.Social.Google.Analytics.Endpoints.Raw;
+using Skybrud.Social.Google.Common;
 
 namespace Skybrud.Social.Google.Analytics.Endpoints {
 

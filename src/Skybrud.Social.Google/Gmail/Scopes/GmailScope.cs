@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Scopes;
+using Skybrud.Social.Google.Common.Scopes;
 
 namespace Skybrud.Social.Google.Gmail.Scopes {
     
