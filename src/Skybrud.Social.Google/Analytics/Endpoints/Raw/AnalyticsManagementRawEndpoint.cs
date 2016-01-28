@@ -46,7 +46,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
         public SocialHttpResponse GetAccounts(AnalyticsAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/analytics/v3/management/accounts", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/management/accounts", options);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
                options.AccountId
             );
             
-            return Client.DoAuthenticatedGetRequest(url, options);
+            return Client.DoHttpGetRequest(url, options);
         
         }
 
@@ -90,7 +90,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
             );
 
             // Make the call to the API
-            return Client.DoAuthenticatedGetRequest(url, options);
+            return Client.DoHttpGetRequest(url, options);
 
         }
         

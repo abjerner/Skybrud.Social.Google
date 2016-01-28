@@ -29,7 +29,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetVideos(YouTubeVideoListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/youtube/v3/videos", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/videos", options);
         }
 
         #endregion

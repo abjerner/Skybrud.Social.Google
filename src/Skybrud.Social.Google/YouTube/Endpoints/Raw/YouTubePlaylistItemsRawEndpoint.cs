@@ -41,7 +41,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetPlaylistItems(YouTubePlaylistItemListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/youtube/v3/playlistItems", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/playlistItems", options);
 
         }
 

@@ -36,7 +36,7 @@ namespace Skybrud.Social.Google.Drive.Endpoints.Raw {
             if (options == null) throw new ArgumentNullException("options");
 
             // Make the call to the API
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/drive/v2/files", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v2/files", options);
         
         }
 

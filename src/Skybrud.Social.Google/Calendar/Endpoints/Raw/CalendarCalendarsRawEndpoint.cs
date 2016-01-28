@@ -51,7 +51,7 @@ namespace Skybrud.Social.Google.Calendar.Endpoints.Raw {
             if (String.IsNullOrWhiteSpace(options.CalendarId)) throw new PropertyNotSetException("options.CalendarId");
 
             // Make the call to the API
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/calendar/v3/calendars/" + options.CalendarId, options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/calendar/v3/calendars/" + options.CalendarId, options);
         
         }
 

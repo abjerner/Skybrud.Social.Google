@@ -36,7 +36,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
         public SocialHttpResponse GetData(AnalyticsDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/analytics/v3/data/ga", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/data/ga", options);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
         public SocialHttpResponse GetRealtimeData(AnalyticsRealtimeDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("https://www.googleapis.com/analytics/v3/data/realtime", options);
+            return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/data/realtime", options);
         }
         
         #endregion
