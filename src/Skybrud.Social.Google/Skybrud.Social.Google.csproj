@@ -48,12 +48,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Dimensions\AnalyticsRealtimeDimensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Analytics\Endpoints\AnalyticsEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsRawEndpoint.cs" />
+    <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Objects\AnalyticsDimension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Objects\AnalyticsMetric.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analytics\Objects\AnalyticsMetrics.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Analytics\Scopes\AnalyticsScope.cs" />
     <Compile Include="Analytics\Scopes\AnalyticsScopes.cs" />
-    <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs" />
-    <Compile Include="Analytics\Dimensions\AnalyticsRealtimeDimensions.cs" />
     <Compile Include="Analytics\Endpoints\AnalyticsDataEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\AnalyticsManagementEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsDataRawEndpoint.cs" />
@@ -64,30 +83,23 @@
     <Compile Include="Analytics\Interfaces\IAnalyticsFilter.cs" />
     <Compile Include="Analytics\Interfaces\IAnalyticsFilterBlock.cs" />
     <Compile Include="Analytics\Interfaces\IAnalyticsSortField.cs" />
-    <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs" />
-    <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs" />
     <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsResponseBody.cs" />
     <Compile Include="Analytics\Objects\Accounts\AnalyticsAccount.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataCell.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataColumnHeader.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsDataOptions.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataQuery.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataRow.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsDimension.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionCollection.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionFilter.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionSortField.cs" />
     <Compile Include="Analytics\Objects\AnalyticsFilterOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsFilterOptions.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsMetric.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricCollection.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricFilter.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricOperator.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsMetrics.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricSortField.cs" />
     <Compile Include="Analytics\Objects\Profiles\AnalyticsProfile.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsRealtimeDataOptions.cs" />
     <Compile Include="Analytics\Objects\AnalyticsRealtimeDataQuery.cs" />
     <Compile Include="Analytics\Objects\AnalyticsSortOptions.cs" />
     <Compile Include="Analytics\Objects\AnalyticsSortOrder.cs" />

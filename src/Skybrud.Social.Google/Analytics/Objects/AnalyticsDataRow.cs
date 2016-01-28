@@ -38,16 +38,6 @@ namespace Skybrud.Social.Google.Analytics.Objects {
         #endregion
 
         #region Member methods
-
-        /// <summary>
-        /// Gets the call value with the specified index and converts it to <var>T</var>.
-        /// </summary>
-        /// <typeparam name="T">The type to which the cell value should be converted.</typeparam>
-        /// <param name="index">The index of the cell.</param>
-        [Obsolete("Use method GetValue<T> instead")]
-        public T GetCellValue<T>(int index) {
-            return GetValue<T>(index);
-        }
         
         /// <summary>
         /// Gets the value of the cell with the specified index and converts it to <var>T</var>.
