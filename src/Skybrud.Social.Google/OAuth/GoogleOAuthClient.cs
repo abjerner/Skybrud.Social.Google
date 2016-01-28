@@ -235,7 +235,7 @@ namespace Skybrud.Social.Google.OAuth {
             }
 
             // Make a call to the API
-            return SocialHttpResponse.GetFromWebResponse(SocialUtils.DoHttpGetRequest(url, query));
+            return SocialUtils.DoHttpGetRequest(url, query);
 
         }
 
@@ -259,7 +259,7 @@ namespace Skybrud.Social.Google.OAuth {
             }
 
             // Make a call to the API
-            return SocialHttpResponse.GetFromWebResponse(SocialUtils.DoHttpGetRequest(url, query));
+            return SocialUtils.DoHttpGetRequest(url, query);
 
         }
 
