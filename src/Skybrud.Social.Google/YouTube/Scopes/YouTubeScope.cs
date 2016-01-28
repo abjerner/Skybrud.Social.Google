@@ -1,4 +1,3 @@
-using System;
 using Skybrud.Social.Google.Scopes;
 
 namespace Skybrud.Social.Google.YouTube.Scopes {
@@ -10,34 +9,6 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
     ///     <cref>https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps#Obtaining_Access_Tokens</cref>
     /// </see>
     public class YouTubeScope : GoogleScope {
-
-        #region Readonly properties
-
-        /// <summary>
-        /// Manage your YouTube account.
-        /// </summary>
-        [Obsolete("Use YouTubeScopes.Manage instead.")]
-        public static readonly YouTubeScope Manage = YouTubeScopes.Manage;
-
-        /// <summary>
-        /// View your YouTube account.
-        /// </summary>
-        [Obsolete("Use YouTubeScopes.Readonly instead.")]
-        public static readonly YouTubeScope Readonly = YouTubeScopes.Readonly;
-
-        /// <summary>
-        /// Upload YouTube videos and manage your YouTube videos.
-        /// </summary>
-        [Obsolete("Use YouTubeScopes.Upload instead.")]
-        public static readonly YouTubeScope Upload = YouTubeScopes.Upload;
-
-        /// <summary>
-        /// Retrieve the auditDetails part in a channel resource.
-        /// </summary>
-        [Obsolete("Use YouTubeScopes.PartnerChannelAudit instead.")]
-        public static readonly YouTubeScope PartnerChannelAudit = YouTubeScopes.PartnerChannelAudit;
-
-        #endregion
 
         #region Constructor
 

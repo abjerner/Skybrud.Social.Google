@@ -1,4 +1,3 @@
-using System;
 using Skybrud.Social.Google.Scopes;
 
 namespace Skybrud.Social.Google.Analytics.Scopes {
@@ -8,40 +7,6 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
     /// </summary>
     public class AnalyticsScope : GoogleScope {
         
-        #region Constants (Analytics-related scopes)
-
-        /// <summary>
-        /// Read-only access to the Analytics API.
-        /// </summary>
-        [Obsolete("Use AnalyticsScopes.Readonly instead.")]
-        public static readonly AnalyticsScope Readonly = AnalyticsScopes.Readonly;
-
-        /// <summary>
-        /// Write access to the Analytics API.
-        /// </summary>
-        [Obsolete("Use AnalyticsScopes.Write instead.")]
-        public static readonly AnalyticsScope Write = AnalyticsScopes.Write;
-
-        /// <summary>
-        /// Edit Google Analytics management entities.
-        /// </summary>
-        [Obsolete("Use AnalyticsScopes.Edit instead.")]
-        public static readonly AnalyticsScope Edit = AnalyticsScopes.Edit;
-
-        /// <summary>
-        /// View and manage user permissions for Analytics accounts.
-        /// </summary>
-        [Obsolete("Use AnalyticsScopes.ManageUsers instead.")]
-        public static readonly AnalyticsScope ManageUsers = AnalyticsScopes.ManageUsers;
-
-        /// <summary>
-        /// View Google Analytics user permissions.
-        /// </summary>
-        [Obsolete("Use AnalyticsScopes.ManageUsersReadonly instead.")]
-        public static readonly AnalyticsScope ManageUsersReadonly = AnalyticsScopes.ManageUsersReadonly;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>
