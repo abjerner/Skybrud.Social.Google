@@ -1,8 +1,7 @@
 using System;
-using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.Scopes;
 
-namespace Skybrud.Social.Google.Analytics {
+namespace Skybrud.Social.Google.Analytics.Scopes {
     
     /// <summary>
     /// Class representing a scope in the Google Analytics API.

@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Analytics {
+namespace Skybrud.Social.Google.Analytics.Scopes {
     
     /// <summary>
     /// Static class containing references to known scopes of the Analytics API.

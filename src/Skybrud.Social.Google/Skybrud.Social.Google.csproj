@@ -50,8 +50,8 @@
   <ItemGroup>
     <Compile Include="Analytics\Endpoints\AnalyticsEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsRawEndpoint.cs" />
-    <Compile Include="Analytics\AnalyticsScope.cs" />
-    <Compile Include="Analytics\AnalyticsScopes.cs" />
+    <Compile Include="Analytics\Scopes\AnalyticsScope.cs" />
+    <Compile Include="Analytics\Scopes\AnalyticsScopes.cs" />
     <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs" />
     <Compile Include="Analytics\Dimensions\AnalyticsRealtimeDimensions.cs" />
     <Compile Include="Analytics\Endpoints\AnalyticsDataEndpoint.cs" />
@@ -229,8 +229,8 @@
     <Compile Include="YouTube\Responses\YouTubePlaylistListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubeResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubeVideoListResponse.cs" />
-    <Compile Include="YouTube\YouTubeScope.cs" />
-    <Compile Include="YouTube\YouTubeScopes.cs" />
+    <Compile Include="YouTube\Scopes\YouTubeScope.cs" />
+    <Compile Include="YouTube\Scopes\YouTubeScopes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

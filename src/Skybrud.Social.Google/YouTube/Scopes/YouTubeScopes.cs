@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.YouTube {
+namespace Skybrud.Social.Google.YouTube.Scopes {
     
     /// <summary>
     /// Static class containing references to known scopes of the YouTube API.

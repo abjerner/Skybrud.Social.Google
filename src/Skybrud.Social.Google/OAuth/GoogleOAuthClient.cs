@@ -203,7 +203,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// Gets information about the authenticated user.
         /// </summary>
         public SocialHttpResponse GetUserInfo() {
-            return DoAuthenticatedGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
+            return DoHttpGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
         }
 
         /// <summary>
@@ -211,8 +211,8 @@ namespace Skybrud.Social.Google.OAuth {
         /// automatically appended to the query string.
         /// </summary>
         /// <param name="url">The URL to call.</param>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url) {
-            return DoAuthenticatedGetRequest(url, default(NameValueCollection));
+        public SocialHttpResponse DoHttpGetRequest(string url) {
+            return DoHttpGetRequest(url, default(NameValueCollection));
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="url">The URL to call.</param>
         /// <param name="query">The query string for the call.</param>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url, NameValueCollection query) {
+        public SocialHttpResponse DoHttpGetRequest(string url, NameValueCollection query) {
 
             // Initialize a new NameValueCollection if NULL
             if (query == null) query = new NameValueCollection();
@@ -245,7 +245,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="url">The URL to call.</param>
         /// <param name="options">The options for the call to the API.</param>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url, IGetOptions options) {
+        public SocialHttpResponse DoHttpGetRequest(string url, IGetOptions options) {
 
             // Generate a NameValueCollection for the query string
             NameValueCollection query = options.GetQueryString().NameValueCollection;
