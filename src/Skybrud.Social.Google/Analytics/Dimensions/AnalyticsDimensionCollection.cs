@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Dimensions {
     
+    /// <summary>
+    /// Class representing a collection of dimensions.
+    /// </summary>
     public class AnalyticsDimensionCollection {
 
         #region Private fields
 
-        private List<AnalyticsDimension> _list = new List<AnalyticsDimension>();
+        private readonly List<AnalyticsDimension> _list = new List<AnalyticsDimension>();
 
         #endregion
 
@@ -28,9 +31,7 @@ namespace Skybrud.Social.Google.Analytics.Objects {
         /// <summary>
         /// Initializes an empty collection.
         /// </summary>
-        public AnalyticsDimensionCollection() {
-            // Expose parameterless constructor
-        }
+        public AnalyticsDimensionCollection() { }
 
         /// <summary>
         /// Initializes a collection containing the specified dimensions.
@@ -93,19 +94,40 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Operator overloading
 
+        /// <summary>
+        /// Initializes a new collection from the specified <code>dimension</code>.
+        /// </summary>
+        /// <param name="dimension">The dimension to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
         public static implicit operator AnalyticsDimensionCollection(AnalyticsDimension dimension) {
             return new AnalyticsDimensionCollection(dimension);
         }
 
+        /// <summary>
+        /// Initializes a new collection based on the specified array of <code>dimensions</code>.
+        /// </summary>
+        /// <param name="dimensions">The array of dimensions to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
         public static implicit operator AnalyticsDimensionCollection(AnalyticsDimension[] dimensions) {
             return new AnalyticsDimensionCollection(dimensions);
         }
 
-        public static AnalyticsDimensionCollection operator +(AnalyticsDimensionCollection left, AnalyticsDimension right) {
-            left.Add(right);
-            return left;
+        /// <summary>
+        /// Adds the specified <code>dimension</code> to <code>collection</code>.
+        /// </summary>
+        /// <param name="collection">The collection to which the dimension should be added.</param>
+        /// <param name="dimension">The dimension to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        public static AnalyticsDimensionCollection operator +(AnalyticsDimensionCollection collection, AnalyticsDimension dimension) {
+            collection.Add(dimension);
+            return collection;
         }
 
+        /// <summary>
+        /// Initializes a new collection based on the specified string array of <code>dimensions</code>.
+        /// </summary>
+        /// <param name="dimensions">A string array containing the names of the dimensions to be added.</param>
+        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
         public static implicit operator AnalyticsDimensionCollection(string[] dimensions) {
             return new AnalyticsDimensionCollection(from AnalyticsDimension dimension in dimensions select dimension);
         }

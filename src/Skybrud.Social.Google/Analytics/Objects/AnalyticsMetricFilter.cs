@@ -1,5 +1,6 @@
 using System;
 using Skybrud.Social.Google.Analytics.Interfaces;
+using Skybrud.Social.Google.Analytics.Metrics;
 
 namespace Skybrud.Social.Google.Analytics.Objects {
 

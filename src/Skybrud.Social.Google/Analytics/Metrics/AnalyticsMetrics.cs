@@ -2,7 +2,6 @@
 // changes, please create a new issue at https://github.com/abjerner/Skybrud.Social/issues/new
 
 using System;
-using Skybrud.Social.Google.Analytics.Objects;
 
 namespace Skybrud.Social.Google.Analytics.Metrics {
 

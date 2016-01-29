@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Metrics {
 
+    /// <summary>
+    /// Class representing a collection of metrics.
+    /// </summary>
     public class AnalyticsMetricCollection {
 
         #region Private fields
 
-        private List<AnalyticsMetric> _list = new List<AnalyticsMetric>();
+        private readonly List<AnalyticsMetric> _list = new List<AnalyticsMetric>();
 
         #endregion
 
@@ -94,19 +97,40 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Operator overloading
 
+        /// <summary>
+        /// Initializes a new collection from the specified <code>metric</code>.
+        /// </summary>
+        /// <param name="metric">The metric to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsMetricCollection</code>.</returns>
         public static implicit operator AnalyticsMetricCollection(AnalyticsMetric metric) {
             return new AnalyticsMetricCollection(metric);
         }
 
+        /// <summary>
+        /// Initializes a new collection based on the specified array of <code>metrics</code>.
+        /// </summary>
+        /// <param name="metrics">The array of metrics to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsMetricCollection</code>.</returns>
         public static implicit operator AnalyticsMetricCollection(AnalyticsMetric[] metrics) {
             return new AnalyticsMetricCollection(metrics);
         }
 
-        public static AnalyticsMetricCollection operator +(AnalyticsMetricCollection left, AnalyticsMetric right) {
-            left.Add(right);
-            return left;
+        /// <summary>
+        /// Adds the specified <code>metric</code> to <code>collection</code>.
+        /// </summary>
+        /// <param name="collection">The collection to which the metric should be added.</param>
+        /// <param name="metric">The metric to be added to the collection.</param>
+        /// <returns>Returns an instance of <code>AnalyticsMetricCollection</code>.</returns>
+        public static AnalyticsMetricCollection operator +(AnalyticsMetricCollection collection, AnalyticsMetric metric) {
+            collection.Add(metric);
+            return collection;
         }
 
+        /// <summary>
+        /// Initializes a new collection based on the specified string array of <code>metrics</code>.
+        /// </summary>
+        /// <param name="metrics">A string array containing the names of the metrics to be added.</param>
+        /// <returns>Returns an instance of <code>AnalyticsMetricCollection</code>.</returns>
         public static implicit operator AnalyticsMetricCollection(string[] metrics) {
             return new AnalyticsMetricCollection(from AnalyticsMetric metric in metrics select metric);
         }

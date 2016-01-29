@@ -62,10 +62,10 @@
     <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Objects\AnalyticsDimension.cs">
+    <Compile Include="Analytics\Dimensions\AnalyticsDimension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Objects\AnalyticsMetric.cs">
+    <Compile Include="Analytics\Metrics\AnalyticsMetric.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Analytics\Objects\AnalyticsMetrics.cs">
@@ -89,13 +89,13 @@
     <Compile Include="Analytics\Objects\AnalyticsDataColumnHeader.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataQuery.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataRow.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsDimensionCollection.cs" />
+    <Compile Include="Analytics\Dimensions\AnalyticsDimensionCollection.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionFilter.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDimensionSortField.cs" />
     <Compile Include="Analytics\Objects\AnalyticsFilterOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsFilterOptions.cs" />
-    <Compile Include="Analytics\Objects\AnalyticsMetricCollection.cs" />
+    <Compile Include="Analytics\Metrics\AnalyticsMetricCollection.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricFilter.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricOperator.cs" />
     <Compile Include="Analytics\Objects\AnalyticsMetricSortField.cs" />

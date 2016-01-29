@@ -1,4 +1,6 @@
 using System;
+using Skybrud.Social.Google.Analytics.Dimensions;
+using Skybrud.Social.Google.Analytics.Metrics;
 using Skybrud.Social.Google.Analytics.Objects;
 using Skybrud.Social.Google.Analytics.Objects.Profiles;
 using Skybrud.Social.Http;
