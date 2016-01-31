@@ -1,3 +1,5 @@
+using Skybrud.Social.Google.Common.Scopes;
+
 namespace Skybrud.Social.Google.Analytics.Scopes {
     
     /// <summary>
@@ -46,6 +48,18 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
             "https://www.googleapis.com/auth/analytics.manage.users.readonly",
             "View Google Analytics user permissions."
         );
+
+        #endregion
+
+        #region Static methods
+
+        /// <summary>
+        /// Gets an array of all Google Analytics scopes.
+        /// </summary>
+        /// <returns>Returns an array of <code>AnalyticsScope</code>.</returns>
+        public static AnalyticsScope[] GetAll() {
+            return new[] { Readonly, Write, Edit, ManageUsers, ManageUsersReadonly };
+        }
 
         #endregion
 
