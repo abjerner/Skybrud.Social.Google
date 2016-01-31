@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skybrud.Social.Google.Analytics.Interfaces;
 
 namespace Skybrud.Social.Google.Analytics.Metrics {
@@ -8,7 +9,24 @@ namespace Skybrud.Social.Google.Analytics.Metrics {
     /// </summary>
     public class AnalyticsMetric : IAnalyticsField {
 
+        #region Private fields
+
+        private static readonly Dictionary<string, AnalyticsMetric> Metrics = new Dictionary<string, AnalyticsMetric>();
+
+        #endregion
+
         #region Properties
+
+        /// <summary>
+        /// Gets a dictionary containing all metrics. 
+        /// </summary>
+        public static Dictionary<string, AnalyticsMetric> All {
+            get {
+                AnalyticsMetrics.GetAll();
+                AnalyticsRealtimeMetrics.GetAll();
+                return Metrics;
+            }
+        }
 
         /// <summary>
         /// Gets the name of the metric.
@@ -28,32 +46,14 @@ namespace Skybrud.Social.Google.Analytics.Metrics {
         #endregion
 
         #region Constructor
-
-        /// <summary>
-        /// Initializes a new metric from the specified <code>name</code>.
-        /// </summary>
-        /// <param name="name">The name of the metric.</param>
-        public AnalyticsMetric(string name) {
-            Name = name;
-        }
-
-        /// <summary>
-        /// Initializes a new metric from the specified <code>name</code> and <code>groupName</code>.
-        /// </summary>
-        /// <param name="name">The name of the metric.</param>
-        /// <param name="groupName">The name of group of the metric.</param>
-        public AnalyticsMetric(string name, string groupName) {
-            Name = name;
-            GroupName = groupName;
-        }
-
+        
         /// <summary>
         /// Initializes a new metric from the specified <code>name</code> and <code>groupName</code>.
         /// </summary>
         /// <param name="name">The name of the metric.</param>
         /// <param name="groupName">The name of group of the metric.</param>
         /// <param name="obsolete">Indicates whether the metric is obsolete.</param>
-        public AnalyticsMetric(string name, string groupName, bool obsolete) {
+        private AnalyticsMetric(string name, string groupName, bool obsolete) {
             Name = name;
             GroupName = groupName;
             IsObsolete = obsolete;
@@ -72,6 +72,73 @@ namespace Skybrud.Social.Google.Analytics.Metrics {
 
         #endregion
 
+        #region Static methods
+
+        /// <summary>
+        /// Registers a new metric with the specified <code>name</code> and returns the created metric. If a metric
+        /// with the specified name already exists, the existing metric will be returned instead.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        public static AnalyticsMetric Register(string name) {
+            return Register(name, null, false);
+        }
+
+        /// <summary>
+        /// Registers a new dmetricimension with the specified <code>name</code> and returns the created metric. If a
+        /// metric with the specified name already exists, the existing metric will be returned instead.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        /// <param name="groupName">The group name of the metric.</param>
+        public static AnalyticsMetric Register(string name, string groupName) {
+            return Register(name, groupName, false);
+        }
+
+        /// <summary>
+        /// Registers a new metric with the specified <code>name</code> and returns the created metric. If a metric
+        /// with the specified name already exists, the existing metric will be returned instead.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        /// <param name="groupName">The group name of the metric.</param>
+        /// <param name="obsolete">Whether the metric is obsolete.</param>
+        public static AnalyticsMetric Register(string name, string groupName, bool obsolete) {
+            AnalyticsMetric metric;
+            if (All.TryGetValue(name, out metric)) return metric;
+            metric = new AnalyticsMetric(name, groupName, obsolete);
+            All.Add(metric.Name, metric);
+            return metric;
+        }
+
+        /// <summary>
+        /// Gets a reference to the metric with the specified <code>name</code>, or <code>null</code> if not found.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        /// <returns>Returns an instance of <code>AnalyticsMetric</code> if the metric is found, otherwise <code>null</code>.</returns>
+        public static AnalyticsMetric Get(string name) {
+            AnalyticsMetric metric;
+            return All.TryGetValue(name, out metric) ? metric : null;
+        }
+
+        /// <summary>
+        /// Attempts to find metric with the specified <code>name</code>.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        /// <param name="metric">The metric.</param>
+        /// <returns>Returns <code>true</code> if the metric was found, otherwise <code>false</code>.</returns>
+        public static bool TryGet(string name, out AnalyticsMetric metric) {
+            return All.TryGetValue(name, out metric);
+        }
+
+        /// <summary>
+        /// Gets whether a metric with the specified <code>name</code> already exists.
+        /// </summary>
+        /// <param name="name">The name of the metric.</param>
+        /// <returns>Returns <code>true</code> if the metric exists, otherwise <code>false</code>.</returns>
+        public static bool Exists(string name) {
+            return All.ContainsKey(name);
+        }
+
+        #endregion
+
         #region Operator overloading
 
         /// <summary>
@@ -81,7 +148,7 @@ namespace Skybrud.Social.Google.Analytics.Metrics {
         /// <returns>Returns an instance of <code>AnalyticsMetric</code> representing the metric.</returns>
         public static implicit operator AnalyticsMetric(string name) {
             if (String.IsNullOrWhiteSpace(name)) throw new ArgumentNullException("name");
-            return new AnalyticsMetric(name);
+            return Register(name);
         }
 
         /// <summary>

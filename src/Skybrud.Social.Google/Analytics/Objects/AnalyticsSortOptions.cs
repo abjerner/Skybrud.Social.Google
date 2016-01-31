@@ -113,9 +113,9 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
                 AnalyticsMetric metric;
                 AnalyticsDimension dimension;
-                if (AnalyticsMetric.TryParse(m.Groups[1].Value, out metric)) {
+                if (AnalyticsMetric.TryGet(m.Groups[1].Value, out metric)) {
                     options.Add(metric, order);
-                } else if (AnalyticsDimension.TryParse(m.Groups[1].Value, out dimension)) {
+                } else if (AnalyticsDimension.TryGet(m.Groups[1].Value, out dimension)) {
                     options.Add(dimension, order);
                 } else {
                     // Currently the parsing will only work if the specified dimension or

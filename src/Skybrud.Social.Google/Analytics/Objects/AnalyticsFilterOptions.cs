@@ -185,9 +185,9 @@ namespace Skybrud.Social.Google.Analytics.Objects {
                     AnalyticsDimension dimension;
                     AnalyticsDimensionOperator dimensionOperator;
 
-                    if (AnalyticsMetric.TryParse(m.Groups[1].Value, out metric) && AnalyticsMetricOperator.TryParse(m.Groups[2].Value, out metricOperator)) {
+                    if (AnalyticsMetric.TryGet(m.Groups[1].Value, out metric) && AnalyticsMetricOperator.TryParse(m.Groups[2].Value, out metricOperator)) {
                         options._filters.Add(new AnalyticsMetricFilter(metric, metricOperator, SocialUtils.UrlDecode(m.Groups[3].Value)));
-                    } else if (AnalyticsDimension.TryParse(m.Groups[1].Value, out dimension) && AnalyticsDimensionOperator.TryParse(m.Groups[2].Value, out dimensionOperator)) {
+                    } else if (AnalyticsDimension.TryGet(m.Groups[1].Value, out dimension) && AnalyticsDimensionOperator.TryParse(m.Groups[2].Value, out dimensionOperator)) {
                         options._filters.Add(new AnalyticsDimensionFilter(dimension, dimensionOperator, SocialUtils.UrlDecode(m.Groups[3].Value)));
                     } else {
                         // Currently the parsing will only work if the specified dimension or
