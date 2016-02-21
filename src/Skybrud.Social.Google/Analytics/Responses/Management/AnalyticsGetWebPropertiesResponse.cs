@@ -6,11 +6,11 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
     /// <summary>
     /// Class representing the response of a request to get a list of web properties.
     /// </summary>
-    public class AnalyticsWebPropertiesResponse : AnalyticsResponse<AnalyticsWebPropertiesResponseBody> {
+    public class AnalyticsGetWebPropertiesResponse : AnalyticsResponse<AnalyticsWebPropertiesResponseBody> {
         
         #region Constructors
 
-        private AnalyticsWebPropertiesResponse(SocialHttpResponse response) : base(response) {
+        private AnalyticsGetWebPropertiesResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -25,12 +25,12 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsWebPropertiesResponse</code>.
+        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsGetWebPropertiesResponse</code>.
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
         /// <returns></returns>
-        public static AnalyticsWebPropertiesResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new AnalyticsWebPropertiesResponse(response);
+        public static AnalyticsGetWebPropertiesResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new AnalyticsGetWebPropertiesResponse(response);
         }
 
         #endregion

@@ -115,11 +115,11 @@
     <Compile Include="Analytics\Options\Management\AnalyticsProfilesOptions.cs" />
     <Compile Include="Analytics\Options\Management\AnalyticsWebPropertiesOptions.cs" />
     <Compile Include="Analytics\Responses\AnalyticsResponse.cs" />
-    <Compile Include="Analytics\Responses\Data\AnalyticsDataResponse.cs" />
-    <Compile Include="Analytics\Responses\Data\AnalyticsRealtimeDataResponse.cs" />
-    <Compile Include="Analytics\Responses\Management\AnalyticsAccountsResponse.cs" />
-    <Compile Include="Analytics\Responses\Management\AnalyticsProfilesResponse.cs" />
-    <Compile Include="Analytics\Responses\Management\AnalyticsWebPropertiesResponse.cs" />
+    <Compile Include="Analytics\Responses\Data\AnalyticsGetDataResponse.cs" />
+    <Compile Include="Analytics\Responses\Data\AnalyticsGetRealtimeDataResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsGetAccountsResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsGetProfilesResponse.cs" />
+    <Compile Include="Analytics\Responses\Management\AnalyticsGetWebPropertiesResponse.cs" />
     <Compile Include="Calendar\Constants\CalendarConstants.cs" />
     <Compile Include="Calendar\Endpoints\CalendarEventsEndpoint.cs" />
     <Compile Include="Calendar\Endpoints\CalendarEndpoint.cs" />

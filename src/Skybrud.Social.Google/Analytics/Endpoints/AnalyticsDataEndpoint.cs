@@ -40,10 +40,10 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// Gets historical data based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDataResponse</code> representing the response.</returns>
-        public AnalyticsDataResponse GetData(AnalyticsDataOptions options) {
+        /// <returns>Returns an instance of <code>AnalyticsGetDataResponse</code> representing the response.</returns>
+        public AnalyticsGetDataResponse GetData(AnalyticsDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return AnalyticsDataResponse.ParseResponse(Raw.GetData(options));
+            return AnalyticsGetDataResponse.ParseResponse(Raw.GetData(options));
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// </summary>
         /// <param name="profileId">The ID of the Analytics profile.</param>
         /// <param name="options">The options specifying the query.</param>
-        /// <returns>Returns an instance of <code>AnalyticsRealtimeDataResponse</code> representing the response.</returns>
-        public AnalyticsRealtimeDataResponse GetRealtimeData(string profileId, AnalyticsRealtimeDataOptions options) {
+        /// <returns>Returns an instance of <code>AnalyticsGetRealtimeDataResponse</code> representing the response.</returns>
+        public AnalyticsGetRealtimeDataResponse GetRealtimeData(string profileId, AnalyticsRealtimeDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return AnalyticsRealtimeDataResponse.ParseResponse(Raw.GetRealtimeData(options));
+            return AnalyticsGetRealtimeDataResponse.ParseResponse(Raw.GetRealtimeData(options));
         }
         
         #endregion

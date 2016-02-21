@@ -6,11 +6,11 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
     /// <summary>
     /// Class representing the response of a request to get a list of profiles.
     /// </summary>
-    public class AnalyticsProfilesResponse : AnalyticsResponse<AnalyticsProfilesResponseBody> {
+    public class AnalyticsGetProfilesResponse : AnalyticsResponse<AnalyticsProfilesResponseBody> {
         
         #region Constructors
 
-        private AnalyticsProfilesResponse(SocialHttpResponse response) : base(response) {
+        private AnalyticsGetProfilesResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -25,12 +25,12 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsProfilesResponse</code>.
+        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsGetProfilesResponse</code>.
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
         /// <returns></returns>
-        public static AnalyticsProfilesResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new AnalyticsProfilesResponse(response);
+        public static AnalyticsGetProfilesResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new AnalyticsGetProfilesResponse(response);
         }
 
         #endregion

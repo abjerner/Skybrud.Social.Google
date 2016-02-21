@@ -6,11 +6,11 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
     /// <summary>
     /// Class representing the response of a request to get Analytics data.
     /// </summary>
-    public class AnalyticsDataResponse : AnalyticsResponse<AnalyticsDataResponseBody> {
+    public class AnalyticsGetDataResponse : AnalyticsResponse<AnalyticsDataResponseBody> {
         
         #region Constructors
 
-        private AnalyticsDataResponse(SocialHttpResponse response) : base(response) {
+        private AnalyticsGetDataResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -25,11 +25,11 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsDataResponse</code>.
+        /// Parses the specified <code>response</code> into an instance of <code>AnalyticsGetDataResponse</code>.
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
-        public static AnalyticsDataResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new AnalyticsDataResponse(response);
+        public static AnalyticsGetDataResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new AnalyticsGetDataResponse(response);
         }
 
         #endregion
