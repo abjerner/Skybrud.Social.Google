@@ -10,26 +10,44 @@ namespace Skybrud.Social.Google.Common.Scopes {
 
         #region Constants (global Google scopes)
 
+        /// <summary>
+        /// This scope informs the authorization server that the client is making an OpenID Connect request, and
+        /// requests access to the authenticated user’s ID. You must include this scope with the other OpenID Connect
+        /// scopes.
+        /// </summary>
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#openid</cref>
         /// </see>
-        public static readonly GoogleScope OpenId = new GoogleScope("openid");
+        public static readonly GoogleScope OpenId = new GoogleScope(
+            "openid",
+            "OpenII",
+            "This scope informs the authorization server that the client is making an OpenID Connect request, and requests access to the authenticated user’s ID."
+        );
 
         /// <summary>
-        /// Scope giving access the email address of the authenticated user.
+        /// This scope grants access to the email of the authenticated user. The scope will also grant access to the
+        /// domain, if the user belongs to a Google Apps domain.
         /// </summary>
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#email</cref>
         /// </see>
-        public static readonly GoogleScope Email = new GoogleScope("email");
+        public static readonly GoogleScope Email = new GoogleScope(
+            "email",
+            "Email",
+            "This scope grants access to the email of the authenticated user. The scope will also grant access to the domain, if the user belongs to a Google Apps domain."
+         );
 
         /// <summary>
-        /// Scope giving access to profile information of the authenticated user.
+        /// This scope grants access to basic profile information of the authenticated user.
         /// </summary>
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#profile</cref>
         /// </see>
-        public static readonly GoogleScope Profile = new GoogleScope("profile");
+        public static readonly GoogleScope Profile = new GoogleScope(
+            "profile",
+            "Profile",
+            "This scope grants access to basic profile information of the authenticated user."
+        );
 
         #endregion
 

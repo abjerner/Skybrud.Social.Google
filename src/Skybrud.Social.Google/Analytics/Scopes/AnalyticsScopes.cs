@@ -1,5 +1,3 @@
-using Skybrud.Social.Google.Common.Scopes;
-
 namespace Skybrud.Social.Google.Analytics.Scopes {
     
     /// <summary>
@@ -14,6 +12,7 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
         /// </summary>
         public static readonly AnalyticsScope Readonly = new AnalyticsScope(
             "https://www.googleapis.com/auth/analytics.readonly",
+            "Readonly",
             "Read-only access to the Analytics API."
         );
 
@@ -22,6 +21,7 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
         /// </summary>
         public static readonly AnalyticsScope Write = new AnalyticsScope(
             "https://www.googleapis.com/auth/analytics",
+            "Write",
             "Write access to the Analytics API."
         );
 
@@ -30,6 +30,7 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
         /// </summary>
         public static readonly AnalyticsScope Edit = new AnalyticsScope(
             "https://www.googleapis.com/auth/analytics.edit",
+            "Edit",
             "Edit Google Analytics management entities."
         );
 
@@ -38,6 +39,7 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
         /// </summary>
         public static readonly AnalyticsScope ManageUsers = new AnalyticsScope(
             "https://www.googleapis.com/auth/analytics.readonly",
+            "Manage users",
             "View and manage user permissions for Analytics accounts."
         );
 
@@ -46,6 +48,7 @@ namespace Skybrud.Social.Google.Analytics.Scopes {
         /// </summary>
         public static readonly AnalyticsScope ManageUsersReadonly = new AnalyticsScope(
             "https://www.googleapis.com/auth/analytics.manage.users.readonly",
+            "Manage users (readonly)",
             "View Google Analytics user permissions."
         );
 

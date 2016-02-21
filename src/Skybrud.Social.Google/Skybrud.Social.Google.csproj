@@ -137,6 +137,7 @@
     <Compile Include="Calendar\Options\Events\CalendarGetEventsOptions.cs" />
     <Compile Include="Calendar\Responses\CalendarResponse.cs" />
     <Compile Include="Calendar\Responses\Events\CalendarGetEventsResponse.cs" />
+    <Compile Include="Calendar\Scopes\CalendarScope.cs" />
     <Compile Include="Calendar\Scopes\CalendarScopes.cs" />
     <Compile Include="Drive\Endpoints\DriveFilesEndpoint.cs" />
     <Compile Include="Drive\Endpoints\DriveEndpoint.cs" />

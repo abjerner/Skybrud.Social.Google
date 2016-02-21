@@ -8,19 +8,14 @@ namespace Skybrud.Social.Google.Gmail.Scopes {
     public class GmailScope : GoogleScope {
         
         #region Constructors
-
+        
         /// <summary>
-        /// Initializes a new scope with the specified <code>name</code>.
+        /// Initializes a new scope with the specified <code>name</code>, <code>title</code> and <code>description</code>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
-        public GmailScope(string name) : base(name) { }
-
-        /// <summary>
-        /// Initializes a new scope with the specified <code>name</code> and <code>description</code>.
-        /// </summary>
-        /// <param name="name">The name of the scope.</param>
+        /// <param name="title">The title of the scope.</param>
         /// <param name="description">The description of the scope.</param>
-        public GmailScope(string name, string description) : base(name, description) { }
+        public GmailScope(string name, string title, string description) : base(name, title, description) { }
 
         #endregion
 

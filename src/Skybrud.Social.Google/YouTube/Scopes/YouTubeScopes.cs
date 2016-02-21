@@ -15,6 +15,7 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
         /// </summary>
         public static readonly YouTubeScope Manage = new YouTubeScope(
             "https://www.googleapis.com/auth/youtube",
+            "Manage",
             "Manage your YouTube account."
         );
 
@@ -23,6 +24,7 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
         /// </summary>
         public static readonly YouTubeScope Readonly = new YouTubeScope(
             "https://www.googleapis.com/auth/youtube.readonly",
+            "Readonly",
             "View your YouTube account."
         );
 
@@ -31,6 +33,7 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
         /// </summary>
         public static readonly YouTubeScope Upload = new YouTubeScope(
             "https://www.googleapis.com/auth/youtube.upload",
+            "Upload",
             "Upload YouTube videos and manage your YouTube videos."
         );
 
@@ -39,6 +42,7 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
         /// </summary>
         public static readonly YouTubeScope PartnerChannelAudit = new YouTubeScope(
             "https://www.googleapis.com/auth/youtubepartner-channel-audit",
+            "Audit partner channel",
             "Retrieve the auditDetails part in a channel resource."
         );
 

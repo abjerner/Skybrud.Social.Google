@@ -4,13 +4,18 @@ namespace Skybrud.Social.Google.Common.Scopes {
     /// Class representing a scope in the Google ecosystem.
     /// </summary>
     public class GoogleScope {
-        
+
         #region Properties
 
         /// <summary>
         /// Gets the name of the scope.
         /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets the title of the scope.
+        /// </summary>
+        public string Title { get; private set; }
 
         /// <summary>
         /// Gets the description of the scope.
@@ -25,17 +30,19 @@ namespace Skybrud.Social.Google.Common.Scopes {
         /// Initializes a new scope with the specified <code>name</code>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
-        public GoogleScope(string name) {
+        internal GoogleScope(string name) {
             Name = name;
         }
-
+        
         /// <summary>
-        /// Initializes a new scope with the specified <code>name</code> and <code>description</code>.
+        /// Initializes a new scope with the specified <code>name</code>, <code>title</code> and <code>description</code>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
+        /// <param name="title">The title of the scope.</param>
         /// <param name="description">The description of the scope.</param>
-        public GoogleScope(string name, string description) {
+        public GoogleScope(string name, string title, string description) {
             Name = name;
+            Title = title ?? name;
             Description = description;
         }
 

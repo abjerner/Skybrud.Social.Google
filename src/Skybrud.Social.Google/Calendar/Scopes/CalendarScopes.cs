@@ -1,5 +1,3 @@
-using Skybrud.Social.Google.Common.Scopes;
-
 namespace Skybrud.Social.Google.Calendar.Scopes {
     
     /// <summary>
@@ -15,16 +13,18 @@ namespace Skybrud.Social.Google.Calendar.Scopes {
         /// <summary>
         /// Grants read-only access to the Calendar API.
         /// </summary>
-        public static readonly GoogleScope Readonly = new GoogleScope(
+        public static readonly CalendarScope Readonly = new CalendarScope(
             "https://www.googleapis.com/auth/calendar.readonly",
+            "Readonly",
             "Grants read-only access to the Analytics API."
         );
 
         /// <summary>
         /// Grants read and write access to the Calendar API.
         /// </summary>
-        public static readonly GoogleScope Write = new GoogleScope(
+        public static readonly CalendarScope Write = new CalendarScope(
             "https://www.googleapis.com/auth/calendar",
+            "Write",
             "Grants read and write access to the Analytics API."
         );
 
