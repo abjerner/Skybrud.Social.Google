@@ -4,12 +4,15 @@ using Skybrud.Social.Google.Analytics.Objects.Common;
 using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
-
+namespace Skybrud.Social.Google.Analytics.Objects.Accounts {
+    
     /// <summary>
     /// Class representing a Google Analytics account. This is not the same as a Google Account,
     /// since a Google Account can have multiple Analytics accounts.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.google.com/analytics/devguides/config/mgmt/v3/mgmtReference/management/accounts</cref>
+    /// </see>
     public class AnalyticsAccount : GoogleApiObject {
 
         #region Properties
@@ -43,24 +46,25 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Constructors
 
-        private AnalyticsAccount(JObject obj) : base(obj) { }
+        private AnalyticsAccount(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+            Permissions = obj.GetObject("permissions", AnalyticsPermissions.Parse);
+            Created = obj.GetDateTime("created");
+            Updated = obj.GetDateTime("updated");
+        }
 
         #endregion
 
         #region Static methods
         
         /// <summary>
-        /// Gets an account from the specified <code>JObject</code>.
+        /// Gets an account from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns the parsed instance of <see cref="AnalyticsAccount"/>, or <code>null</code> if <code>obj</code> is <code>null</code>.</returns>
         public static AnalyticsAccount Parse(JObject obj) {
-            return new AnalyticsAccount(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name"),
-                Permissions = obj.GetObject("permissions", AnalyticsPermissions.Parse),
-                Created = obj.GetDateTime("created"),
-                Updated = obj.GetDateTime("updated")
-            };
+            return obj == null ? null : new AnalyticsAccount(obj);
         }
 
         #endregion

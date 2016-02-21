@@ -145,7 +145,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// Initializes a new dimension from the specified <code>name</code>.
         /// </summary>
         /// <param name="name">The name of the dimension.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimension</code> representing the dimension.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimension"/> representing the dimension.</returns>
         public static implicit operator AnalyticsDimension(string name) {
             if (String.IsNullOrWhiteSpace(name)) throw new ArgumentNullException("name");
             return Register(name);
@@ -156,7 +156,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// </summary>
         /// <param name="left">The dimension to the left of the operator.</param>
         /// <param name="right">The dimension to the right of the operator.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimension"/>.</returns>
         public static AnalyticsDimensionCollection operator +(AnalyticsDimension left, AnalyticsDimension right) {
             return new AnalyticsDimensionCollection(left, right);
         }

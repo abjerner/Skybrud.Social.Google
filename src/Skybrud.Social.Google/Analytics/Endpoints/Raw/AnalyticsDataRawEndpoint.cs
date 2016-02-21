@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Social.Exceptions;
 using Skybrud.Social.Google.Analytics.Options.Data;
 using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;
@@ -33,9 +34,10 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// Gets historical data based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
-        public SocialHttpResponse GetData(AnalyticsDataOptions options) {
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the response.</returns>
+        public SocialHttpResponse GetData(AnalyticsGetDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.ProfileId)) throw new PropertyNotSetException("options.ProfileId");
             return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/data/ga", options);
         }
 
@@ -43,9 +45,10 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// Gets realtime data based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
-        public SocialHttpResponse GetRealtimeData(AnalyticsRealtimeDataOptions options) {
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the response.</returns>
+        public SocialHttpResponse GetRealtimeData(AnalyticsGetRealtimeDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.ProfileId)) throw new PropertyNotSetException("options.ProfileId");
             return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/data/realtime", options);
         }
         

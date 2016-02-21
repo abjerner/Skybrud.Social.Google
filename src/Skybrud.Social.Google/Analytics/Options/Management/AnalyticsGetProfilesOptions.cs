@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
     /// <summary>
     /// Class representing the options for getting profiles from the Analytics API.
     /// </summary>
-    public class AnalyticsProfilesOptions : IGetOptions {
+    public class AnalyticsGetProfilesOptions : IGetOptions {
 
         #region Properties
 
@@ -41,7 +41,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// <summary>
         /// Initializes a new instance with default options.
         /// </summary>
-        public AnalyticsProfilesOptions() {
+        public AnalyticsGetProfilesOptions() {
             AccountId = "~all";
             WebPropertyId = "~all";
         }
@@ -50,7 +50,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// Initializes a new instance based on the specified <code>maxResults</code>.
         /// </summary>
         /// <param name="maxResults">The maximum number of profiles to include in this response.</param>
-        public AnalyticsProfilesOptions(int maxResults) : this() {
+        public AnalyticsGetProfilesOptions(int maxResults) : this() {
             MaxResults = maxResults;
         }
 
@@ -59,7 +59,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// </summary>
         /// <param name="maxResults">The maximum number of profiles to include in this response.</param>
         /// <param name="startIndex">The index of the first profile to retrieve. The first profile holds the index <code>1</code>.</param>
-        public AnalyticsProfilesOptions(int maxResults, int startIndex) : this() {
+        public AnalyticsGetProfilesOptions(int maxResults, int startIndex) : this() {
             MaxResults = maxResults;
             StartIndex = startIndex;
         }
@@ -69,7 +69,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// </summary>
         /// <param name="accountId">The ID of the parent account.</param>
         /// <param name="webPropertyId">The ID of the parent web property.</param>
-        public AnalyticsProfilesOptions(string accountId, string webPropertyId) : this() {
+        public AnalyticsGetProfilesOptions(string accountId, string webPropertyId) : this() {
             if (String.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException("accountId");
             AccountId = accountId;
             WebPropertyId = webPropertyId;
@@ -81,7 +81,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// <param name="accountId">The ID of the parent account.</param>
         /// <param name="webPropertyId">The ID of the parent web property.</param>
         /// <param name="maxResults">The maximum number of profiles to include in this response.</param>
-        public AnalyticsProfilesOptions(string accountId, string webPropertyId, int maxResults) : this() {
+        public AnalyticsGetProfilesOptions(string accountId, string webPropertyId, int maxResults) : this() {
             if (String.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException("accountId");
             AccountId = accountId;
             WebPropertyId = webPropertyId;
@@ -95,7 +95,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// <param name="webPropertyId">The ID of the parent web property.</param>
         /// <param name="maxResults">The maximum number of profiles to include in this response.</param>
         /// <param name="startIndex">The index of the first profile to retrieve. The first profile holds the index <code>1</code>.</param>
-        public AnalyticsProfilesOptions(string accountId, string webPropertyId, int maxResults, int startIndex) : this() {
+        public AnalyticsGetProfilesOptions(string accountId, string webPropertyId, int maxResults, int startIndex) : this() {
             if (String.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException("accountId");
             AccountId = accountId;
             WebPropertyId = webPropertyId;

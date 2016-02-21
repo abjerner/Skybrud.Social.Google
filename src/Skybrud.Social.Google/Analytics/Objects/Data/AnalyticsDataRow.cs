@@ -1,12 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Analytics.Interfaces;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Objects.Data {
     
+    /// <summary>
+    /// Class representing a row of an Analytics data response.
+    /// </summary>
     public class AnalyticsDataRow {
 
         #region Private fields
@@ -31,9 +33,7 @@ namespace Skybrud.Social.Google.Analytics.Objects {
 
         #region Constructors
 
-        internal AnalyticsDataRow() {
-            // Hide default constructor
-        }
+        internal AnalyticsDataRow() { }
 
         #endregion
 

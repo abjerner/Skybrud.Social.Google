@@ -98,7 +98,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// Initializes a new collection from the specified <code>dimension</code>.
         /// </summary>
         /// <param name="dimension">The dimension to be added to the collection.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimensionCollection"/>.</returns>
         public static implicit operator AnalyticsDimensionCollection(AnalyticsDimension dimension) {
             return new AnalyticsDimensionCollection(dimension);
         }
@@ -107,7 +107,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// Initializes a new collection based on the specified array of <code>dimensions</code>.
         /// </summary>
         /// <param name="dimensions">The array of dimensions to be added to the collection.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimensionCollection"/>.</returns>
         public static implicit operator AnalyticsDimensionCollection(AnalyticsDimension[] dimensions) {
             return new AnalyticsDimensionCollection(dimensions);
         }
@@ -117,7 +117,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// </summary>
         /// <param name="collection">The collection to which the dimension should be added.</param>
         /// <param name="dimension">The dimension to be added to the collection.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimensionCollection"/>.</returns>
         public static AnalyticsDimensionCollection operator +(AnalyticsDimensionCollection collection, AnalyticsDimension dimension) {
             collection.Add(dimension);
             return collection;
@@ -127,7 +127,7 @@ namespace Skybrud.Social.Google.Analytics.Dimensions {
         /// Initializes a new collection based on the specified string array of <code>dimensions</code>.
         /// </summary>
         /// <param name="dimensions">A string array containing the names of the dimensions to be added.</param>
-        /// <returns>Returns an instance of <code>AnalyticsDimensionCollection</code>.</returns>
+        /// <returns>Returns an instance of <see cref="AnalyticsDimensionCollection"/>.</returns>
         public static implicit operator AnalyticsDimensionCollection(string[] dimensions) {
             return new AnalyticsDimensionCollection(from AnalyticsDimension dimension in dimensions select dimension);
         }

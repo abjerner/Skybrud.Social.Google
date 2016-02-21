@@ -6,7 +6,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
     /// <summary>
     /// Class representing the options for getting accounts from the Analytics API.
     /// </summary>
-    public class AnalyticsAccountsOptions : IGetOptions {
+    public class AnalyticsGetAccountsOptions : IGetOptions {
 
         #region Properties
 
@@ -28,13 +28,13 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// <summary>
         /// Initializes a new instance with default options.
         /// </summary>
-        public AnalyticsAccountsOptions() { }
+        public AnalyticsGetAccountsOptions() { }
 
         /// <summary>
         /// Initializes a new instance based on the specified <code>maxResults</code>.
         /// </summary>
         /// <param name="maxResults">The maximum number of accounts to include in this response.</param>
-        public AnalyticsAccountsOptions(int maxResults) {
+        public AnalyticsGetAccountsOptions(int maxResults) {
             MaxResults = maxResults;
         }
 
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
         /// </summary>
         /// <param name="maxResults">The maximum number of accounts to include in this response.</param>
         /// <param name="startIndex">The index of the first account to retrieve. The first account holds the index <code>1</code>.</param>
-        public AnalyticsAccountsOptions(int maxResults, int startIndex) {
+        public AnalyticsGetAccountsOptions(int maxResults, int startIndex) {
             MaxResults = maxResults;
             StartIndex = startIndex;
         }

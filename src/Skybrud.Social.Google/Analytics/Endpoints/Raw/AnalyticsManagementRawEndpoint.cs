@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Social.Exceptions;
 using Skybrud.Social.Google.Analytics.Options.Management;
 using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;
@@ -36,15 +37,15 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// </summary>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
         public SocialHttpResponse GetAccounts() {
-            return GetAccounts(new AnalyticsAccountsOptions());
+            return GetAccounts(new AnalyticsGetAccountsOptions());
         }
 
         /// <summary>
         /// Gets a list of Analytics accounts of the authenticated user.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
-        public SocialHttpResponse GetAccounts(AnalyticsAccountsOptions options) {
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the response.</returns>
+        public SocialHttpResponse GetAccounts(AnalyticsGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("https://www.googleapis.com/analytics/v3/management/accounts", options);
         }
@@ -53,12 +54,12 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// Gets a list of web properties based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
-        /// <returns></returns>
-        public SocialHttpResponse GetWebProperties(AnalyticsWebPropertiesOptions options) {
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the response.</returns>
+        public SocialHttpResponse GetWebProperties(AnalyticsGetWebPropertiesOptions options) {
             
             // Some input validation
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.AccountId)) throw new PropertyNotSetException("options.AccountId");
 
             // Construct the URL
             string url = String.Format(
@@ -75,11 +76,14 @@ namespace Skybrud.Social.Google.Analytics.Endpoints.Raw {
         /// Gets a list of profiles based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> representing the response.</returns>
-        public SocialHttpResponse GetProfiles(AnalyticsProfilesOptions options) {
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the response.</returns>
+        public SocialHttpResponse GetProfiles(AnalyticsGetProfilesOptions options) {
+
             
             // Some input validation
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.AccountId)) throw new PropertyNotSetException("options.AccountId");
+            if (String.IsNullOrWhiteSpace(options.WebPropertyId)) throw new PropertyNotSetException("options.WebPropertyId");
 
             // Construct the URL
             string url = String.Format(

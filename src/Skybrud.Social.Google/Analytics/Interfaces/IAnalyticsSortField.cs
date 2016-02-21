@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Analytics.Objects;
+using Skybrud.Social.Google.Analytics.Enums;
 
 namespace Skybrud.Social.Google.Analytics.Interfaces {
     
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Google.Analytics.Interfaces {
         /// <summary>
         /// Gets the order of the field.
         /// </summary>
-        AnalyticsSortOrder Order { get; }
+        AnalyticsDataSortOrder Order { get; }
 
         /// <summary>
         /// Gets the field.

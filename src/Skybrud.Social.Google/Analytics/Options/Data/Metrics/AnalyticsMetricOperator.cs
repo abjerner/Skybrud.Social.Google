@@ -1,7 +1,7 @@
 using System;
 using Skybrud.Social.Google.Analytics.Interfaces;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Options.Data.Metrics {
     
     public class AnalyticsMetricOperator : IAnalyticsFieldOperator {
 

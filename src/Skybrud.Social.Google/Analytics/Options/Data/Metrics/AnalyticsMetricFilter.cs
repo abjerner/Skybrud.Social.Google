@@ -2,7 +2,7 @@ using System;
 using Skybrud.Social.Google.Analytics.Interfaces;
 using Skybrud.Social.Google.Analytics.Metrics;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Options.Data.Metrics {
 
     public class AnalyticsMetricFilter : IAnalyticsFilter {
 

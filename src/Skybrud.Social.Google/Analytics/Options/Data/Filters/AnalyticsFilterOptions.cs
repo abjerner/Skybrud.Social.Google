@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using Skybrud.Social.Google.Analytics.Dimensions;
 using Skybrud.Social.Google.Analytics.Interfaces;
 using Skybrud.Social.Google.Analytics.Metrics;
+using Skybrud.Social.Google.Analytics.Options.Data.Dimensions;
+using Skybrud.Social.Google.Analytics.Options.Data.Metrics;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Options.Data.Filters {
     
     public class AnalyticsFilterOptions {
 

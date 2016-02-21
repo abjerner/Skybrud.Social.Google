@@ -41,7 +41,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>Returns an instance of <code>AnalyticsGetDataResponse</code> representing the response.</returns>
-        public AnalyticsGetDataResponse GetData(AnalyticsDataOptions options) {
+        public AnalyticsGetDataResponse GetData(AnalyticsGetDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return AnalyticsGetDataResponse.ParseResponse(Raw.GetData(options));
         }
@@ -52,7 +52,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// <param name="profileId">The ID of the Analytics profile.</param>
         /// <param name="options">The options specifying the query.</param>
         /// <returns>Returns an instance of <code>AnalyticsGetRealtimeDataResponse</code> representing the response.</returns>
-        public AnalyticsGetRealtimeDataResponse GetRealtimeData(string profileId, AnalyticsRealtimeDataOptions options) {
+        public AnalyticsGetRealtimeDataResponse GetRealtimeData(string profileId, AnalyticsGetRealtimeDataOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return AnalyticsGetRealtimeDataResponse.ParseResponse(Raw.GetRealtimeData(options));
         }

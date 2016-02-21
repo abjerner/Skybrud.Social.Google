@@ -2,8 +2,11 @@ using System;
 using System.Globalization;
 using Newtonsoft.Json;
 
-namespace Skybrud.Social.Google.Analytics.Objects {
+namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
+    /// <summary>
+    /// Class representing a cell of Analytics data row.
+    /// </summary>
     public class AnalyticsDataCell {
 
         #region Properties

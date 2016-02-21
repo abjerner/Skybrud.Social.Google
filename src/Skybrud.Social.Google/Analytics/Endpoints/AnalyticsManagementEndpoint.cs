@@ -46,7 +46,7 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// <summary>
         /// Gets a list of Analytics accounts of the authenticated user matching the specified <code>options</code>.
         /// </summary>
-        public AnalyticsGetAccountsResponse GetAccounts(AnalyticsAccountsOptions options) {
+        public AnalyticsGetAccountsResponse GetAccounts(AnalyticsGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return AnalyticsGetAccountsResponse.ParseResponse(Raw.GetAccounts(options));
         }
@@ -55,14 +55,14 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// Gets a list of web properties using default options.
         /// </summary>
         public AnalyticsGetWebPropertiesResponse GetWebProperties() {
-            return GetWebProperties(new AnalyticsWebPropertiesOptions());
+            return GetWebProperties(new AnalyticsGetWebPropertiesOptions());
         }
 
         /// <summary>
         /// Gets a list of web properties based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public AnalyticsGetWebPropertiesResponse GetWebProperties(AnalyticsWebPropertiesOptions options) {
+        public AnalyticsGetWebPropertiesResponse GetWebProperties(AnalyticsGetWebPropertiesOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return AnalyticsGetWebPropertiesResponse.ParseResponse(Raw.GetWebProperties(options));
         }
@@ -71,14 +71,14 @@ namespace Skybrud.Social.Google.Analytics.Endpoints {
         /// Gets a list of profiles using default options.
         /// </summary>
         public AnalyticsGetProfilesResponse GetProfiles() {
-            return GetProfiles(new AnalyticsProfilesOptions());
+            return GetProfiles(new AnalyticsGetProfilesOptions());
         }
 
         /// <summary>
         /// Gets a list of profiles based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public AnalyticsGetProfilesResponse GetProfiles(AnalyticsProfilesOptions options) {
+        public AnalyticsGetProfilesResponse GetProfiles(AnalyticsGetProfilesOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return AnalyticsGetProfilesResponse.ParseResponse(Raw.GetProfiles(options));
         }
