@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
     /// <summary>
     /// Class representing the response body of a request to get Analytics data.
     /// </summary>
-    public class AnalyticsDataResponseBody : GoogleApiResource {
+    public class AnalyticsGetDataResponseBody : GoogleApiResource {
 
         #region Properties
 
@@ -60,17 +60,17 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
         #region Constructors
 
-        private AnalyticsDataResponseBody(JObject obj) : base(obj) { }
+        private AnalyticsGetDataResponseBody(JObject obj) : base(obj) { }
 
         #endregion
         
         #region Static methods
         
         /// <summary>
-        /// Gets an instance of <code>AnalyticsDataResponseBody</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <code>AnalyticsGetDataResponseBody</code> from the specified <code>JObject</code>.
         /// </summary>
         /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
-        public static AnalyticsDataResponseBody Parse(JObject obj) {
+        public static AnalyticsGetDataResponseBody Parse(JObject obj) {
             
             // Check whether "obj" is NULL
             if (obj == null) return null;
@@ -79,7 +79,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
             AnalyticsDataColumnHeader[] columns = obj.GetArray("columnHeaders", AnalyticsDataColumnHeader.Parse);
 
             // Initialize and return the response body
-            return new AnalyticsDataResponseBody(obj) {
+            return new AnalyticsGetDataResponseBody(obj) {
                 Query = obj.GetObject("query", AnalyticsDataQuery.Parse),
                 ItemsPerPage = obj.GetInt32("itemsPerPage"),
                 TotalResults = obj.GetInt32("totalResults"),

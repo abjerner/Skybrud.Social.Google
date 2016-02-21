@@ -83,7 +83,7 @@
     <Compile Include="Analytics\Interfaces\IAnalyticsFilter.cs" />
     <Compile Include="Analytics\Interfaces\IAnalyticsFilterBlock.cs" />
     <Compile Include="Analytics\Interfaces\IAnalyticsSortField.cs" />
-    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsResponseBody.cs" />
+    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsCollection.cs" />
     <Compile Include="Analytics\Objects\Accounts\AnalyticsAccount.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataCell.cs" />
     <Compile Include="Analytics\Objects\AnalyticsDataColumnHeader.cs" />
@@ -105,10 +105,10 @@
     <Compile Include="Analytics\Objects\AnalyticsSortOrder.cs" />
     <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebProperty.cs" />
     <Compile Include="Analytics\Objects\Common\AnalyticsPermissions.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataResponseBody.cs" />
+    <Compile Include="Analytics\Objects\Data\AnalyticsGetDataResponseBody.cs" />
     <Compile Include="Analytics\Objects\Data\AnalyticsProfileInfo.cs" />
-    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfilesResponseBody.cs" />
-    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebPropertiesResponseBody.cs" />
+    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfilesCollection.cs" />
+    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebPropertiesCollection.cs" />
     <Compile Include="Analytics\Options\Data\AnalyticsDataOptions.cs" />
     <Compile Include="Analytics\Options\Data\AnalyticsRealtimeDataOptions.cs" />
     <Compile Include="Analytics\Options\Management\AnalyticsAccountsOptions.cs" />

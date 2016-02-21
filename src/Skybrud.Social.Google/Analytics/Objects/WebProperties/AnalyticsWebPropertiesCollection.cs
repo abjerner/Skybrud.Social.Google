@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.WebProperties {
     /// <summary>
     /// Class representing the response body of a request to get a list of web properties.
     /// </summary>
-    public class AnalyticsWebPropertiesResponseBody : GoogleApiObject {
+    public class AnalyticsWebPropertiesCollection : GoogleApiObject {
 
         #region Properties
 
@@ -55,19 +55,19 @@ namespace Skybrud.Social.Google.Analytics.Objects.WebProperties {
 
         #region Constructors
 
-        private AnalyticsWebPropertiesResponseBody(JObject obj) : base(obj) { }
+        private AnalyticsWebPropertiesCollection(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>AnalyticsWebPropertiesResponseBody</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <code>AnalyticsWebPropertiesCollection</code> from the specified <code>JObject</code>.
         /// </summary>
         /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
-        public static AnalyticsWebPropertiesResponseBody Parse(JObject obj) {
+        public static AnalyticsWebPropertiesCollection Parse(JObject obj) {
             if (obj == null) return null;
-            return new AnalyticsWebPropertiesResponseBody(obj) {
+            return new AnalyticsWebPropertiesCollection(obj) {
                 Kind = obj.GetString("kind"),
                 Username = obj.GetString("username"),
                 TotalResults = obj.GetInt32("totalResults"),

@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Profiles {
     /// <summary>
     /// Class representing the response body of a request to get a list of profiles.
     /// </summary>
-    public class AnalyticsProfilesResponseBody : GoogleApiObject {
+    public class AnalyticsProfilesCollection : GoogleApiObject {
 
         #region Properties
 
@@ -55,19 +55,19 @@ namespace Skybrud.Social.Google.Analytics.Objects.Profiles {
 
         #region Constructors
 
-        private AnalyticsProfilesResponseBody(JObject obj) : base(obj) { }
+        private AnalyticsProfilesCollection(JObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>AnalyticsProfilesResponseBody</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <code>AnalyticsProfilesCollection</code> from the specified <code>JObject</code>.
         /// </summary>
         /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
-        public static AnalyticsProfilesResponseBody Parse(JObject obj) {
+        public static AnalyticsProfilesCollection Parse(JObject obj) {
             if (obj == null) return null;
-            return new AnalyticsProfilesResponseBody(obj) {
+            return new AnalyticsProfilesCollection(obj) {
                 Kind = obj.GetString("kind"),
                 Username = obj.GetString("username"),
                 TotalResults = obj.GetInt32("totalResults"),

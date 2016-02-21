@@ -6,7 +6,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
     /// <summary>
     /// Class representing the response of a request to get a list of profiles.
     /// </summary>
-    public class AnalyticsGetProfilesResponse : AnalyticsResponse<AnalyticsProfilesResponseBody> {
+    public class AnalyticsGetProfilesResponse : AnalyticsResponse<AnalyticsProfilesCollection> {
         
         #region Constructors
 
@@ -16,7 +16,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
             ValidateResponse(response);
 
             // Parse the response body
-            Body = ParseJsonObject(response.Body, AnalyticsProfilesResponseBody.Parse);
+            Body = ParseJsonObject(response.Body, AnalyticsProfilesCollection.Parse);
 
         }
 

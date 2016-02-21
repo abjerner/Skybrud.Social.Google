@@ -6,7 +6,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
     /// <summary>
     /// Class representing the response of a request to get Analytics realtime data.
     /// </summary>
-    public class AnalyticsGetRealtimeDataResponse : AnalyticsResponse<AnalyticsDataResponseBody> {
+    public class AnalyticsGetRealtimeDataResponse : AnalyticsResponse<AnalyticsGetDataResponseBody> {
         
         #region Constructors
 
@@ -16,7 +16,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Data {
             ValidateResponse(response);
 
             // Parse the response body
-            Body = ParseJsonObject(response.Body, AnalyticsDataResponseBody.Parse);
+            Body = ParseJsonObject(response.Body, AnalyticsGetDataResponseBody.Parse);
 
         }
 

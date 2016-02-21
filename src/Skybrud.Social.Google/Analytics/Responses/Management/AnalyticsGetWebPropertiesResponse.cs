@@ -6,7 +6,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
     /// <summary>
     /// Class representing the response of a request to get a list of web properties.
     /// </summary>
-    public class AnalyticsGetWebPropertiesResponse : AnalyticsResponse<AnalyticsWebPropertiesResponseBody> {
+    public class AnalyticsGetWebPropertiesResponse : AnalyticsResponse<AnalyticsWebPropertiesCollection> {
         
         #region Constructors
 
@@ -16,7 +16,7 @@ namespace Skybrud.Social.Google.Analytics.Responses.Management {
             ValidateResponse(response);
 
             // Parse the response body
-            Body = ParseJsonObject(response.Body, AnalyticsWebPropertiesResponseBody.Parse);
+            Body = ParseJsonObject(response.Body, AnalyticsWebPropertiesCollection.Parse);
 
         }
 
