@@ -47,23 +47,41 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
         /// Gets the value of the cell. Since the value is stored as a string internally, no
         /// conversion is required.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the value as an instance of <see cref="System.String"/>.</returns>
         public string GetString() {
             return Value;
         }
 
         /// <summary>
-        /// Gets the value of the cell and convert it to an integer.
+        /// Gets the value of the cell as an integer.
         /// </summary>
+        /// <returns>Returns the value as an instance of <see cref="System.Int32"/>.</returns>
         public int GetInt32() {
             return GetValue<int>();
         }
 
         /// <summary>
-        /// Gets the value of the cell and convert it to a double.
+        /// Gets the value of the cell as a float.
         /// </summary>
+        /// <returns>Returns the value as an instance of <see cref="System.Single"/>.</returns>
+        public float GetFloat() {
+            return GetValue<float>();
+        }
+
+        /// <summary>
+        /// Gets the value of the cell as a double.
+        /// </summary>
+        /// <returns>Returns the value as an instance of <see cref="System.Double"/>.</returns>
         public double GetDouble() {
             return GetValue<double>();
+        }
+
+        /// <summary>
+        /// Gets the value of the cell as an instance of <see cref="System.TimeSpan"/>.
+        /// </summary>
+        /// <returns>Returns the value as an instance of <see cref="System.TimeSpan"/>.</returns>
+        public TimeSpan GetTime() {
+            return TimeSpan.FromSeconds(GetValue<double>());
         }
 
         public override string ToString() {

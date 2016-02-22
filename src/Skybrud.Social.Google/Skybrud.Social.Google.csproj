@@ -56,6 +56,8 @@
     </Compile>
     <Compile Include="Analytics\Endpoints\AnalyticsEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsRawEndpoint.cs" />
+    <Compile Include="Analytics\Enums\AnalyticsDataType.cs" />
+    <Compile Include="Analytics\Enums\AnalyticsColumnType.cs" />
     <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
@@ -11,19 +12,54 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
 
         #region Properties
         
+        /// <summary>
+        /// Gets the ID of the profile.
+        /// </summary>
         public string Ids { get; internal set; }
+
+        /// <summary>
+        /// Gets the start date of the query.
+        /// </summary>
         public string StartDate { get; internal set; }
+
+        /// <summary>
+        /// Gets the end date of the query.
+        /// </summary>
         public string EndDate { get; internal set; }
+
+        /// <summary>
+        /// Gets the start index of the current page of results.
+        /// </summary>
         public int StartIndex { get; internal set; }
+
+        /// <summary>
+        /// Gets the maximum results per page.
+        /// </summary>
         public int MaxResults { get; internal set; }
-        public string Dimensions { get; internal set; }
+
+        /// <summary>
+        /// Gets an array of the dimensions specified for the current query.
+        /// </summary>
+        public string[] Dimensions { get; internal set; }
+
+        /// <summary>
+        /// Gets an array of the metrics specified for the current query.
+        /// </summary>
         public string[] Metrics { get; internal set; }
 
         #endregion
         
         #region Constructors
 
-        private AnalyticsDataQuery(JObject obj) : base(obj) { }
+        private AnalyticsDataQuery(JObject obj) : base(obj) {
+            Ids = obj.GetString("ids");
+            StartDate = obj.GetString("start-date");
+            EndDate = obj.GetString("end-date");
+            StartIndex = obj.GetInt32("start-index");
+            MaxResults = obj.GetInt32("max-results");
+            Dimensions = (obj.GetString("dimensions") ?? "").Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+            Metrics = obj.GetStringArray("metrics");
+        }
 
         #endregion
 
@@ -35,16 +71,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="AnalyticsDataQuery"/>.</returns>
         public static AnalyticsDataQuery Parse(JObject obj) {
-            if (obj == null) return null;
-            return new AnalyticsDataQuery(obj) {
-                Ids = obj.GetString("ids"),
-                StartDate = obj.GetString("start-date"),
-                EndDate = obj.GetString("end-date"),
-                StartIndex = obj.GetInt32("start-index"),
-                MaxResults = obj.GetInt32("max-results"),
-                Dimensions = obj.GetString("dimensions"),
-                Metrics = obj.GetStringArray("metrics")
-            };
+            return obj == null ? null : new AnalyticsDataQuery(obj);
         }
 
         #endregion
