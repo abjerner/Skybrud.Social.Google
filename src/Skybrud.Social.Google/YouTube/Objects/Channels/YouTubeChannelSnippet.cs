@@ -5,6 +5,9 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
+    /// <summary>
+    /// Class representing the snippet object of a YouTube channel.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels#snippet</cref>
     /// </see>
@@ -12,12 +15,24 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Properties
 
+        /// <summary>
+        /// Gets the title of the channel.
+        /// </summary>
         public string Title { get; private set; }
 
+        /// <summary>
+        /// Gets the description of the channel.
+        /// </summary>
         public string Description { get; private set; }
 
+        /// <summary>
+        /// Gets the timestamp for when the channel was published.
+        /// </summary>
         public DateTime PublishedAt { get; private set; }
 
+        /// <summary>
+        /// Gets a collection of thumbnails of the channel.
+        /// </summary>
         public YouTubeChannelThumbnails Thumbnails { get; private set; }
 
         public YouTubeChannelLocalized Localized { get; private set; }
@@ -26,6 +41,10 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="YouTubeChannelSnippet"/> to be parsed.</param>
         protected YouTubeChannelSnippet(JObject obj) : base(obj) { }
 
         #endregion
@@ -33,9 +52,10 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeChannelSnippet</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <see cref="YouTubeChannelSnippet"/> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns the instance of <see cref="YouTubeChannelSnippet"/>.</returns>
         public static YouTubeChannelSnippet Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeChannelSnippet(obj) {

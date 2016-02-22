@@ -232,11 +232,11 @@
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoUploadStatus.cs" />
     <Compile Include="YouTube\Objects\YouTubePageInfo.cs" />
     <Compile Include="YouTube\Objects\YouTubePrivacyStatus.cs" />
-    <Compile Include="YouTube\Options\YouTubeChannelListOptions.cs" />
+    <Compile Include="YouTube\Options\Channels\YouTubeGetChannelListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubePlaylistItemListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubePlaylistListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubeVideoListOptions.cs" />
-    <Compile Include="YouTube\Responses\YouTubeChannelListResponse.cs" />
+    <Compile Include="YouTube\Responses\Channels\YouTubeGetChannelListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubePlaylistItemListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubePlaylistListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubeResponse.cs" />

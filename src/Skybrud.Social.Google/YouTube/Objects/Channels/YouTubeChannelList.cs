@@ -4,6 +4,9 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
+    /// <summary>
+    /// Class representing a list of <see cref="YouTubeChannel"/>.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels/list</cref>
     /// </see>
@@ -11,30 +14,40 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Properties
 
+        /// <summary>
+        /// Gets pagination information about the list.
+        /// </summary>
         public YouTubePageInfo PageInfo { get; private set; }
 
+        /// <summary>
+        /// Gets an array of the items in the list.
+        /// </summary>
         public YouTubeChannel[] Items { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        protected YouTubeChannelList(JObject obj) : base(obj) { }
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="YouTubeChannelList"/> to be parsed.</param>
+        protected YouTubeChannelList(JObject obj) : base(obj) {
+            PageInfo = obj.GetObject("pageInfo", YouTubePageInfo.Parse);
+            Items = obj.GetArray("items", YouTubeChannel.Parse);
+        }
 
         #endregion
         
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeChannelList</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <see cref="YouTubeChannelList"/> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns the instance of <see cref="YouTubeChannelList"/>.</returns>
         public static YouTubeChannelList Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeChannelList(obj) {
-                PageInfo = obj.GetObject("pageInfo", YouTubePageInfo.Parse),
-                Items = obj.GetArray("items", YouTubeChannel.Parse)
-            };
+            return obj == null ? null : new YouTubeChannelList(obj);
         }
 
         #endregion

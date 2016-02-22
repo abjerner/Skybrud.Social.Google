@@ -3,9 +3,12 @@ using Skybrud.Social.Google.YouTube.Objects.Channels;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
-namespace Skybrud.Social.Google.YouTube.Options {
+namespace Skybrud.Social.Google.YouTube.Options.Channels {
     
-    public class YouTubeChannelListOptions : IGetOptions {
+    /// <summary>
+    /// Clas representing the options for getting a list of channels from the YouTube API.
+    /// </summary>
+    public class YouTubeGetChannelListOptions : IGetOptions {
 
         #region Properties
 
@@ -43,7 +46,10 @@ namespace Skybrud.Social.Google.YouTube.Options {
 
         #region Constructors
 
-        public YouTubeChannelListOptions() {
+        /// <summary>
+        /// Initializes a new instance with default options.
+        /// </summary>
+        public YouTubeGetChannelListOptions() {
             Part = YouTubeChannelPart.Basic;
         }
 

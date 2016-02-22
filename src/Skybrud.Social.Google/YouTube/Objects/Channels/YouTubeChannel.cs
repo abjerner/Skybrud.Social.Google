@@ -3,7 +3,10 @@ using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
-
+    
+    /// <summary>
+    /// Class representing a YouTube channel.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels#resource</cref>
     /// </see>
@@ -11,33 +14,47 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Properties
 
+        /// <summary>
+        /// gets the ID of the channel.
+        /// </summary>
         public string Id { get; private set; }
 
+        /// <summary>
+        /// Gets a reference to the snippet object of the channel, which contains details such as the title,
+        /// description and thumbnail images of the channel.
+        /// </summary>
         public YouTubeChannelSnippet Snippet { get; private set; }
 
+        /// <summary>
+        /// Gets a reference to the statistics object of the channel. 
+        /// </summary>
         public YouTubeChannelStatistics Statistics { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        protected YouTubeChannel(JObject obj) : base(obj) { }
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="YouTubeChannel"/> to be parsed.</param>
+        protected YouTubeChannel(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Snippet = obj.GetObject("snippet", YouTubeChannelSnippet.Parse);
+            Statistics = obj.GetObject("statistics", YouTubeChannelStatistics.Parse);
+        }
 
         #endregion
         
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeChannel</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <see cref="YouTubeChannel"/> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns the instance of <see cref="YouTubeChannel"/>.</returns>
         public static YouTubeChannel Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeChannel(obj) {
-                Id = obj.GetString("id"),
-                Snippet = obj.GetObject("snippet", YouTubeChannelSnippet.Parse),
-                Statistics = obj.GetObject("statistics", YouTubeChannelStatistics.Parse)
-            };
+            return obj == null ? null : new YouTubeChannel(obj);
         }
 
         #endregion
