@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Google.YouTube.Objects.Channels {
+namespace Skybrud.Social.Google.YouTube.Options.Channels {
 
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels/list#part</cref>

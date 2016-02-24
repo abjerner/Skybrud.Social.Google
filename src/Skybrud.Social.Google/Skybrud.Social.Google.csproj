@@ -191,8 +191,9 @@
     <Compile Include="YouTube\Objects\Channels\YouTubeChannel.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelList.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelLocalized.cs" />
-    <Compile Include="YouTube\Objects\Channels\YouTubeChannelPart.cs" />
-    <Compile Include="YouTube\Objects\Channels\YouTubeChannelPartsCollection.cs" />
+    <Compile Include="YouTube\Options\Channels\YouTubeChannelParts.cs" />
+    <Compile Include="YouTube\Options\Channels\YouTubeChannelPart.cs" />
+    <Compile Include="YouTube\Options\Channels\YouTubeChannelPartsCollection.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelSnippet.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelStatistics.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelThumbnail.cs" />

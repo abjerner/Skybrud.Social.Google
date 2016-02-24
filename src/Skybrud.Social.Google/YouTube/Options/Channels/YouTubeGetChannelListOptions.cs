@@ -50,7 +50,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Channels {
         /// Initializes a new instance with default options.
         /// </summary>
         public YouTubeGetChannelListOptions() {
-            Part = YouTubeChannelPart.Basic;
+            Part = YouTubeChannelParts.Snippet;
         }
 
         #endregion

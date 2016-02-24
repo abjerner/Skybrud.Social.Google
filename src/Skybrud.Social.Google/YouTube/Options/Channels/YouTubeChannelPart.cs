@@ -1,7 +1,6 @@
 using System;
-using System.Linq;
 
-namespace Skybrud.Social.Google.YouTube.Objects.Channels {
+namespace Skybrud.Social.Google.YouTube.Options.Channels {
 
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels/list#part</cref>
@@ -9,33 +8,21 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
     public class YouTubeChannelPart {
 
         #region Properties
-
-        public static readonly YouTubeChannelPart Id = new YouTubeChannelPart("id");
-        public static readonly YouTubeChannelPart Snippet = new YouTubeChannelPart("snippet");
-        public static readonly YouTubeChannelPart ContentDetails = new YouTubeChannelPart("contentDetails");
-        public static readonly YouTubeChannelPart Statistics = new YouTubeChannelPart("statistics");
-        public static readonly YouTubeChannelPart Status = new YouTubeChannelPart("status");
-        public static readonly YouTubeChannelPart TopicDetails = new YouTubeChannelPart("topicDetails");
-
-        public static readonly YouTubeChannelPartsCollection Basic = new YouTubeChannelPartsCollection(
-            Id, Snippet, Statistics
-        );
-
-        public static readonly YouTubeChannelPartsCollection All = new YouTubeChannelPartsCollection(
-            Id, Snippet, ContentDetails, Statistics, Status, TopicDetails
-        );
-
-        public static YouTubeChannelPart[] Values {
-            get { return All.ToArray(); }
-        }
-
+        
+        /// <summary>
+        /// Gets the name of the part.
+        /// </summary>
         public string Name { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        private YouTubeChannelPart(string name) {
+        /// <summary>
+        /// Initializes a new part with the specified <code>name</code>.
+        /// </summary>
+        /// <param name="name">The name of the scope.</param>
+        public YouTubeChannelPart(string name) {
             Name = name;
         }
 
@@ -58,10 +45,19 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
         #region Operator overloading
 
+        /// <summary>
+        /// Initializes a new part with the specified <code>name</code>.
+        /// </summary>
+        /// <param name="name">The name of the scope.</param>
         public static implicit operator YouTubeChannelPart(string name) {
             return Parse(name);
         }
 
+        /// <summary>
+        /// Initializes a new collection based on <code>left</code> and <code>right</code>.
+        /// </summary>
+        /// <param name="left">The part to the left of the operator.</param>
+        /// <param name="right">The part to the right of the operator.</param>
         public static YouTubeChannelPartsCollection operator +(YouTubeChannelPart left, YouTubeChannelPart right) {
             return new YouTubeChannelPartsCollection(left, right);
         }
