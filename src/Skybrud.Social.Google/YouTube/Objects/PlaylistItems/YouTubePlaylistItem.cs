@@ -1,11 +1,13 @@
 using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Common.Objects;
-using Skybrud.Social.Json;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
+    /// <summary>
+    /// Class representing a YouTube playlist item.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/playlistItems#resource</cref>
     /// </see>
@@ -17,19 +19,19 @@ namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
         /// Gets or sets the ID of the playlist item.
         /// </summary>
         public string Id { get; private set; }
-        
+
         /// <summary>
-        /// Gets or sets the snippet object of the item.
+        /// Gets a reference to the <code>statistics</code> object of the playlist item. 
         /// </summary>
         public YouTubePlaylistItemSnippet Snippet { get; private set; }
 
         /// <summary>
-        /// Gets or sets the content details object of the item.
+        /// Gets a reference to the <code>contentDetails</code> object of the playlist item. 
         /// </summary>
         public YouTubePlaylistItemContentDetails ContentDetails { get; private set; }
 
         /// <summary>
-        /// Gets or sets the status object of the item.
+        /// Gets a reference to the <code>status</code> object of the playlist item. 
         /// </summary>
         public YouTubePlaylistItemStatus Status { get; private set; }
 
@@ -62,16 +64,22 @@ namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
         #region Constructors
 
-        private YouTubePlaylistItem(JObject obj) : base(obj) { }
+        private YouTubePlaylistItem(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Snippet = obj.GetObject("snippet", YouTubePlaylistItemSnippet.Parse);
+            ContentDetails = obj.GetObject("contentDetails", YouTubePlaylistItemContentDetails.Parse);
+            Status = obj.GetObject("status", YouTubePlaylistItemStatus.Parse);
+        }
 
         #endregion
 
         #region Static methods
-        
+
         /// <summary>
-        /// Gets an instance of <code>YouTubePlaylistItem</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <see cref="YouTubePlaylistItem"/> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns the instance of <see cref="YouTubePlaylistItem"/>.</returns>
         public static YouTubePlaylistItem Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubePlaylistItem(obj) {
