@@ -38,7 +38,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Channels {
         public static readonly YouTubeChannelPart TopicDetails = new YouTubeChannelPart("topicDetails");
 
         /// <summary>
-        /// Gets a collection all parts available for a YouTube channel.
+        /// Gets a collection of all parts available for a YouTube channel.
         /// </summary>
         public static readonly YouTubeChannelPartsCollection All = new YouTubeChannelPartsCollection(
             Id, Snippet, ContentDetails, Statistics, Status, TopicDetails

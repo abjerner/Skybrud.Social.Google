@@ -1,5 +1,4 @@
 ﻿using System;
-using Skybrud.Social.Google.YouTube.Objects.Channels;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
@@ -57,6 +56,10 @@ namespace Skybrud.Social.Google.YouTube.Options.Channels {
 
         #region Member methods
 
+        /// <summary>
+        /// Gets an instance of <see cref="SocialQueryString"/> representing the GET parameters.
+        /// </summary>
+        /// <returns>Returns an instance of <see cref="SocialQueryString"/>.</returns>
         public SocialQueryString GetQueryString() {
             SocialQueryString query = new SocialQueryString();
             if (Part != null) query.Add("part", Part.ToString());

@@ -6,7 +6,7 @@ using Skybrud.Social.Json.Extensions.JObject;
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
     /// <summary>
-    /// Class representing the snippet object of a YouTube channel.
+    /// Class representing the <code>snippet</code> object of a YouTube channel.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels#snippet</cref>
@@ -35,6 +35,10 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
         /// </summary>
         public YouTubeChannelThumbnails Thumbnails { get; private set; }
 
+        /// <summary>
+        /// Gets a reference to an object containing a localized title and description for the channel or the channel's
+        /// title and description in the default language.
+        /// </summary>
         public YouTubeChannelLocalized Localized { get; private set; }
 
         #endregion

@@ -3,17 +3,11 @@ using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints {
 
+    /// <summary>
+    /// Class representing the YouTube endpoint / API implementation.
+    /// </summary>
     public class YouTubeEndpoint {
-
-        #region Private fields
-
-        private YouTubeChannelsEndpoint _channels;
-        private YouTubePlaylistsEndpoint _playlists;
-        private YouTubePlaylistItemsEndpoint _playlistItems;
-        private YouTubeVideosEndpoint _videos;
-
-        #endregion
-
+        
         #region Properties
 
         /// <summary>
@@ -31,30 +25,22 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// <summary>
         /// Gets a reference to the channels endpoint.
         /// </summary>
-        public YouTubeChannelsEndpoint Channels {
-            get { return _channels ?? (_channels = new YouTubeChannelsEndpoint(this)); }
-        }
+        public YouTubeChannelsEndpoint Channels { get; private set; }
 
         /// <summary>
         /// Gets a reference to the playlists endpoint.
         /// </summary>
-        public YouTubePlaylistsEndpoint Playlists {
-            get { return _playlists ?? (_playlists = new YouTubePlaylistsEndpoint(this)); }
-        }
+        public YouTubePlaylistsEndpoint Playlists { get; private set; }
 
         /// <summary>
         /// Gets a reference to the playlists items endpoint.
         /// </summary>
-        public YouTubePlaylistItemsEndpoint PlaylistItems {
-            get { return _playlistItems ?? (_playlistItems = new YouTubePlaylistItemsEndpoint(this)); }
-        }
+        public YouTubePlaylistItemsEndpoint PlaylistItems { get; private set; }
 
         /// <summary>
         /// Gets a reference to the videos endpoint.
         /// </summary>
-        public YouTubeVideosEndpoint Videos {
-            get { return _videos ?? (_videos = new YouTubeVideosEndpoint(this)); }
-        }
+        public YouTubeVideosEndpoint Videos { get; private set; }
 
         #endregion
 
@@ -62,6 +48,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
 
         internal YouTubeEndpoint(GoogleService service) {
             Service = service;
+            Channels = new YouTubeChannelsEndpoint(this);
+            Playlists = new YouTubePlaylistsEndpoint(this);
+            PlaylistItems = new YouTubePlaylistItemsEndpoint(this);
+            Videos = new YouTubeVideosEndpoint(this);
         }
 
         #endregion

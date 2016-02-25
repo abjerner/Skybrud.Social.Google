@@ -5,7 +5,7 @@ using Skybrud.Social.Json.Extensions.JObject;
 namespace Skybrud.Social.Google.YouTube.Objects.Channels {
 
     /// <summary>
-    /// Class representing the statis object of a TouTube channel.
+    /// Class representing the <code>statistics</code> object of a TouTube channel.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels#statistics</cref>

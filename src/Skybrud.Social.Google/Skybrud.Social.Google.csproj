@@ -188,6 +188,7 @@
     <Compile Include="YouTube\Endpoints\YouTubePlaylistsEndpoint.cs" />
     <Compile Include="YouTube\Endpoints\YouTubeVideosEndpoint.cs" />
     <Compile Include="YouTube\Exceptions\YouTubeException.cs" />
+    <Compile Include="YouTube\Exceptions\YouTubeUnknownPartException.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannel.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelList.cs" />
     <Compile Include="YouTube\Objects\Channels\YouTubeChannelLocalized.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="YouTube\Objects\YouTubePageInfo.cs" />
     <Compile Include="YouTube\Objects\YouTubePrivacyStatus.cs" />
     <Compile Include="YouTube\Options\Channels\YouTubeGetChannelListOptions.cs" />
+    <Compile Include="YouTube\Options\Common\YouTubePart.cs" />
     <Compile Include="YouTube\Options\YouTubePlaylistItemListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubePlaylistListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubeVideoListOptions.cs" />

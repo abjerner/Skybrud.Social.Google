@@ -1,23 +1,27 @@
 ﻿using System;
 using Skybrud.Social.Google.Common.OAuth;
-using Skybrud.Social.Google.YouTube.Objects.Channels;
-using Skybrud.Social.Google.YouTube.Options;
 using Skybrud.Social.Google.YouTube.Options.Channels;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
 
+    /// <summary>
+    /// Class representing the raw channels endpoint.
+    /// </summary>
     public class YouTubeChannelsRawEndpoint {
 
         #region Properties
 
+        /// <summary>
+        /// Gets a reference to the OAuth client.
+        /// </summary>
         public GoogleOAuthClient Client { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        public YouTubeChannelsRawEndpoint(GoogleOAuthClient client) {
+        internal YouTubeChannelsRawEndpoint(GoogleOAuthClient client) {
             Client = client;
         }
 
@@ -28,9 +32,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <summary>
         /// Gets a list of channels for the authenticated user.
         /// </summary>
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels() {
             return GetChannels(new YouTubeGetChannelListOptions {
-                Part = YouTubeChannelPart.Basic,
+                Part = YouTubeChannelParts.Snippet,
                 Mine = true
             });
         }
@@ -39,9 +44,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// Gets a list of channels for the specified <code>username</code>.
         /// </summary>
         /// <param name="username">The username.</param>
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels(string username) {
             return GetChannels(new YouTubeGetChannelListOptions {
-                Part = YouTubeChannelPart.Basic,
+                Part = YouTubeChannelParts.Snippet,
                 Username = username
             });
         }
@@ -50,10 +56,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// Gets a list of channels based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels(YouTubeGetChannelListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/channels", options);
-
         }
 
         #endregion
