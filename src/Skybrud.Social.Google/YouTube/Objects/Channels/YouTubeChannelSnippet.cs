@@ -49,7 +49,13 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
         /// Initializes a new instance based on the specified <code>obj</code>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="YouTubeChannelSnippet"/> to be parsed.</param>
-        protected YouTubeChannelSnippet(JObject obj) : base(obj) { }
+        protected YouTubeChannelSnippet(JObject obj) : base(obj) {
+            Title = obj.GetString("title");
+            Description = obj.GetString("description");
+            PublishedAt = obj.GetDateTime("publishedAt");
+            Thumbnails = obj.GetObject("thumbnails", YouTubeChannelThumbnails.Parse);
+            Localized = obj.GetObject("localized", YouTubeChannelLocalized.Parse);
+        }
 
         #endregion
 
@@ -61,14 +67,7 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns the instance of <see cref="YouTubeChannelSnippet"/>.</returns>
         public static YouTubeChannelSnippet Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeChannelSnippet(obj) {
-                Title = obj.GetString("title"),
-                Description = obj.GetString("description"),
-                PublishedAt = obj.GetDateTime("publishedAt"),
-                Thumbnails = obj.GetObject("thumbnails", YouTubeChannelThumbnails.Parse),
-                Localized = obj.GetObject("localized", YouTubeChannelLocalized.Parse)
-            };
+            return obj == null ? null : new YouTubeChannelSnippet(obj);
         }
 
         #endregion

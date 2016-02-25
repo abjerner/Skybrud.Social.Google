@@ -3,7 +3,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Channels {
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/channels/list#part</cref>
     /// </see>
-    public class YouTubeChannelParts {
+    public static class YouTubeChannelParts {
 
         #region Properties
 
