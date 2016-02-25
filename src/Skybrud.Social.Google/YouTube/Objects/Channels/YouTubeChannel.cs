@@ -15,18 +15,18 @@ namespace Skybrud.Social.Google.YouTube.Objects.Channels {
         #region Properties
 
         /// <summary>
-        /// gets the ID of the channel.
+        /// Gets the ID of the channel.
         /// </summary>
         public string Id { get; private set; }
 
         /// <summary>
-        /// Gets a reference to the snippet object of the channel, which contains details such as the title,
-        /// description and thumbnail images of the channel.
+        /// Gets a reference to the <code>snippet</code> object of the channel, which contains details such as the
+        /// title, description and thumbnail images of the channel.
         /// </summary>
         public YouTubeChannelSnippet Snippet { get; private set; }
 
         /// <summary>
-        /// Gets a reference to the statistics object of the channel. 
+        /// Gets a reference to the <code>statistics</code> object of the channel. 
         /// </summary>
         public YouTubeChannelStatistics Statistics { get; private set; }
 

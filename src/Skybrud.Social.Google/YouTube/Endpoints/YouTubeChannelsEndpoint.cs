@@ -50,6 +50,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// <param name="username">The username.</param>
         /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels(string username) {
+            if (String.IsNullOrWhiteSpace(username)) throw new ArgumentNullException("username");
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels(username));
         }
 
