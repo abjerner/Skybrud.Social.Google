@@ -9,7 +9,6 @@ using Skybrud.Social.Google.Common.Scopes;
 using Skybrud.Social.Google.Drive.Endpoints.Raw;
 using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
 
 namespace Skybrud.Social.Google.Common.OAuth {
     
@@ -17,7 +16,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
     /// A client for handling the communication with the Google APIs using OAuth 2.0. The client is also responsible
     /// for the raw communication with the various Google APIs.
     /// </summary>
-    public class GoogleOAuthClient {
+    public class GoogleOAuthClient : SocialHttpClient {
 
         #region Properties
 
@@ -157,7 +156,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
 
             // Initialize the request
             SocialHttpRequest request = new SocialHttpRequest {
-                Method = "POST",
+                Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
                 PostData = postData
             };
@@ -186,7 +185,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
 
             // Initialize the request
             SocialHttpRequest request = new SocialHttpRequest {
-                Method = "POST",
+                Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
                 PostData = postData
             };
@@ -206,60 +205,15 @@ namespace Skybrud.Social.Google.Common.OAuth {
             return DoHttpGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
         }
 
-        /// <summary>
-        /// Makes an authenticated GET request to the specified URL. The access token is
-        /// automatically appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        public SocialHttpResponse DoHttpGetRequest(string url) {
-            return DoHttpGetRequest(url, default(NameValueCollection));
-        }
-
-        /// <summary>
-        /// Makes an authenticated GET request to the specified URL. The access token is
-        /// automatically appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="query">The query string for the call.</param>
-        public SocialHttpResponse DoHttpGetRequest(string url, NameValueCollection query) {
-
-            // Initialize a new NameValueCollection if NULL
-            if (query == null) query = new NameValueCollection();
+        protected override void PrepareHttpRequest(SocialHttpRequest request) {
 
             // Append the access token or server if specified
             if (!String.IsNullOrWhiteSpace(AccessToken)) {
                 // TODO: Specify access token in HTTP header instead
-                query.Set("access_token", AccessToken);
+                request.QueryString.Set("access_token", AccessToken);
             } else if (!String.IsNullOrWhiteSpace(ServerKey)) {
-                query.Set("key", ServerKey);
+                request.QueryString.Set("key", ServerKey);
             }
-
-            // Make a call to the API
-            return SocialUtils.DoHttpGetRequest(url, query);
-
-        }
-
-        /// <summary>
-        /// Makes an authenticated GET request to the specified URL. The access token is
-        /// automatically appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        public SocialHttpResponse DoHttpGetRequest(string url, IGetOptions options) {
-
-            // Generate a NameValueCollection for the query string
-            NameValueCollection query = options.GetQueryString().NameValueCollection;
-
-            // Append the access token or server if specified
-            if (!String.IsNullOrWhiteSpace(AccessToken)) {
-                // TODO: Specify access token in HTTP header instead
-                query.Set("access_token", AccessToken);
-            } else if (!String.IsNullOrWhiteSpace(ServerKey)) {
-                query.Set("key", ServerKey);
-            }
-
-            // Make a call to the API
-            return SocialUtils.DoHttpGetRequest(url, query);
 
         }
 
