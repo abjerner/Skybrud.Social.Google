@@ -12,7 +12,11 @@ namespace Skybrud.Social.Google.Analytics.Responses {
     public class AnalyticsResponse : SocialResponse {
 
         #region Constructors
-        
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected AnalyticsResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
@@ -23,7 +27,6 @@ namespace Skybrud.Social.Google.Analytics.Responses {
         /// Validates the specified <code>response</code>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
-        /// <param name="obj">The object representing the response object.</param>
         public static void ValidateResponse(SocialHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
@@ -62,6 +65,10 @@ namespace Skybrud.Social.Google.Analytics.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected AnalyticsResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion

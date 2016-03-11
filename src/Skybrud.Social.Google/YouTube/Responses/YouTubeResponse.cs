@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Analytics.Exceptions;
 using Skybrud.Social.Google.YouTube.Exceptions;
 using Skybrud.Social.Http;
 using Skybrud.Social.Json.Extensions.JObject;
@@ -14,6 +13,10 @@ namespace Skybrud.Social.Google.YouTube.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected YouTubeResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
@@ -56,6 +59,10 @@ namespace Skybrud.Social.Google.YouTube.Responses {
         /// </summary>
         public T Body { get; protected set; }
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected YouTubeResponse(SocialHttpResponse response) : base(response) { }
 
     }
