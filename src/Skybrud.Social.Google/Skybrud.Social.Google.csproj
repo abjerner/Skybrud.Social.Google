@@ -236,12 +236,12 @@
     <Compile Include="YouTube\Objects\YouTubePrivacyStatus.cs" />
     <Compile Include="YouTube\Options\Channels\YouTubeGetChannelListOptions.cs" />
     <Compile Include="YouTube\Options\Common\YouTubePart.cs" />
-    <Compile Include="YouTube\Options\YouTubePlaylistItemListOptions.cs" />
-    <Compile Include="YouTube\Options\YouTubePlaylistListOptions.cs" />
-    <Compile Include="YouTube\Options\YouTubeVideoListOptions.cs" />
+    <Compile Include="YouTube\Options\PlaylistItems\YouTubeGetPlaylistItemListOptions.cs" />
+    <Compile Include="YouTube\Options\Playlists\YouTubeGetPlaylistListOptions.cs" />
+    <Compile Include="YouTube\Options\Videos\YouTubeGetVideoListOptions.cs" />
     <Compile Include="YouTube\Responses\Channels\YouTubeGetChannelListResponse.cs" />
-    <Compile Include="YouTube\Responses\PlaylistItems\YouTubePlaylistItemListResponse.cs" />
-    <Compile Include="YouTube\Responses\Playlist\YouTubePlaylistListResponse.cs" />
+    <Compile Include="YouTube\Responses\PlaylistItems\YouTubeGetPlaylistItemListResponse.cs" />
+    <Compile Include="YouTube\Responses\Playlist\YouTubeGetPlaylistListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubeResponse.cs" />
     <Compile Include="YouTube\Responses\Videos\YouTubeGetVideoListResponse.cs" />
     <Compile Include="YouTube\Scopes\YouTubeScope.cs" />

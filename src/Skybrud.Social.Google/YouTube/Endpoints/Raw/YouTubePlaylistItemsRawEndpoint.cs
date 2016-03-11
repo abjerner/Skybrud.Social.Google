@@ -2,6 +2,7 @@
 using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Google.YouTube.Objects.PlaylistItems;
 using Skybrud.Social.Google.YouTube.Options;
+using Skybrud.Social.Google.YouTube.Options.PlaylistItems;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
@@ -37,7 +38,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPlaylistItems(string playlistId) {
             if (String.IsNullOrWhiteSpace(playlistId)) throw new ArgumentNullException("playlistId");
-            return GetPlaylistItems(new YouTubePlaylistItemListOptions {
+            return GetPlaylistItems(new YouTubeGetPlaylistItemListOptions {
                 Part = YouTubePlaylistItemPart.Basic,
                 PlaylistId = playlistId
             });
@@ -48,7 +49,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPlaylistItems(YouTubePlaylistItemListOptions options) {
+        public SocialHttpResponse GetPlaylistItems(YouTubeGetPlaylistItemListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/playlistItems", options);
         }

@@ -1,12 +1,11 @@
-﻿using System;
-using Skybrud.Social.Google.YouTube.Endpoints.Raw;
+﻿using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Google.YouTube.Options.Channels;
 using Skybrud.Social.Google.YouTube.Responses.Channels;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints {
 
     /// <summary>
-    /// Class representing the raw channels endpoint.
+    /// Class representing the channels endpoint.
     /// </summary>
     public class YouTubeChannelsEndpoint {
 
@@ -50,7 +49,6 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// <param name="username">The username.</param>
         /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels(string username) {
-            if (String.IsNullOrWhiteSpace(username)) throw new ArgumentNullException("username");
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels(username));
         }
 
@@ -60,7 +58,6 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels(YouTubeGetChannelListOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels(options));
         }
 
