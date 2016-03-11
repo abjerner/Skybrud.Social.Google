@@ -1,6 +1,7 @@
 ﻿using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Google.YouTube.Options;
 using Skybrud.Social.Google.YouTube.Responses;
+using Skybrud.Social.Google.YouTube.Responses.Videos;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints {
     
@@ -33,8 +34,8 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// Gets a list of videos based on the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public YouTubeVideoListResponse GetVideos(YouTubeVideoListOptions options) {
-            return YouTubeVideoListResponse.ParseResponse(Raw.GetVideos(options));
+        public YouTubeGetVideoListResponse GetVideos(YouTubeVideoListOptions options) {
+            return YouTubeGetVideoListResponse.ParseResponse(Raw.GetVideos(options));
         }
 
         #endregion

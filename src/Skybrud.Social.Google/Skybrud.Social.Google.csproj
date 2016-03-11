@@ -240,10 +240,10 @@
     <Compile Include="YouTube\Options\YouTubePlaylistListOptions.cs" />
     <Compile Include="YouTube\Options\YouTubeVideoListOptions.cs" />
     <Compile Include="YouTube\Responses\Channels\YouTubeGetChannelListResponse.cs" />
-    <Compile Include="YouTube\Responses\YouTubePlaylistItemListResponse.cs" />
-    <Compile Include="YouTube\Responses\YouTubePlaylistListResponse.cs" />
+    <Compile Include="YouTube\Responses\PlaylistItems\YouTubePlaylistItemListResponse.cs" />
+    <Compile Include="YouTube\Responses\Playlist\YouTubePlaylistListResponse.cs" />
     <Compile Include="YouTube\Responses\YouTubeResponse.cs" />
-    <Compile Include="YouTube\Responses\YouTubeVideoListResponse.cs" />
+    <Compile Include="YouTube\Responses\Videos\YouTubeGetVideoListResponse.cs" />
     <Compile Include="YouTube\Scopes\YouTubeScope.cs" />
     <Compile Include="YouTube\Scopes\YouTubeScopes.cs" />
   </ItemGroup>

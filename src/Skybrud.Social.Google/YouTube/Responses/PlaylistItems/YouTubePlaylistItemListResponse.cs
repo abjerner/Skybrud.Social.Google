@@ -1,7 +1,7 @@
 using Skybrud.Social.Google.YouTube.Objects.PlaylistItems;
 using Skybrud.Social.Http;
 
-namespace Skybrud.Social.Google.YouTube.Responses {
+namespace Skybrud.Social.Google.YouTube.Responses.PlaylistItems {
 
     public class YouTubePlaylistItemListResponse : YouTubeResponse<YouTubePlaylistItemList> {
 

@@ -2,6 +2,7 @@
 using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Google.YouTube.Options;
 using Skybrud.Social.Google.YouTube.Responses;
+using Skybrud.Social.Google.YouTube.Responses.PlaylistItems;
 
 namespace Skybrud.Social.Google.YouTube.Endpoints {
 
