@@ -39,7 +39,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         public SocialHttpResponse GetPlaylistItems(string playlistId) {
             if (String.IsNullOrWhiteSpace(playlistId)) throw new ArgumentNullException("playlistId");
             return GetPlaylistItems(new YouTubeGetPlaylistItemListOptions {
-                Part = YouTubePlaylistItemPart.Basic,
+                Part = YouTubePlaylistItemParts.Snippet,
                 PlaylistId = playlistId
             });
         }

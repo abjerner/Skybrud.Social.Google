@@ -202,8 +202,9 @@
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItem.cs" />
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemContentDetails.cs" />
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemList.cs" />
-    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemPart.cs" />
-    <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemPartsCollection.cs" />
+    <Compile Include="YouTube\Options\PlaylistItems\YouTubePlaylistItemParts.cs" />
+    <Compile Include="YouTube\Options\PlaylistItems\YouTubePlaylistItemPart.cs" />
+    <Compile Include="YouTube\Options\PlaylistItems\YouTubePlaylistItemPartsCollection.cs" />
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemResourceId.cs" />
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemSnippet.cs" />
     <Compile Include="YouTube\Objects\PlaylistItems\YouTubePlaylistItemStatus.cs" />

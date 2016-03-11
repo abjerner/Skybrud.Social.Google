@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
+namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
 
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/playlistItems/list#part</cref>
@@ -94,19 +94,40 @@ namespace Skybrud.Social.Google.YouTube.Objects.PlaylistItems {
 
         #region Operator overloading
 
+        /// <summary>
+        /// Initializes a new collection from the specified <code>part</code>.
+        /// </summary>
+        /// <param name="part">The instance of <see cref="YouTubePlaylistItemPart"/> representing the part.</param>
+        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPartsCollection(YouTubePlaylistItemPart part) {
             return new YouTubePlaylistItemPartsCollection(part);
         }
 
+        /// <summary>
+        /// Initializes a new collection from the specified <code>array</code> of <see cref="YouTubePlaylistItemPart"/>.
+        /// </summary>
+        /// <param name="parts">An array of <see cref="YouTubePlaylistItemPart"/> representing the parts.</param>
+        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPartsCollection(YouTubePlaylistItemPart[] parts) {
             return new YouTubePlaylistItemPartsCollection(parts);
         }
 
-        public static YouTubePlaylistItemPartsCollection operator +(YouTubePlaylistItemPartsCollection left, YouTubePlaylistItemPart right) {
-            left.Add(right);
-            return left;
+        /// <summary>
+        /// Adds the specified <code>part</code> to <code>collection</code>.
+        /// </summary>
+        /// <param name="collection">The collection to which the part should be added.</param>
+        /// <param name="part">The part to be added to the collection.</param>
+        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
+        public static YouTubePlaylistItemPartsCollection operator +(YouTubePlaylistItemPartsCollection collection, YouTubePlaylistItemPart part) {
+            collection.Add(part);
+            return collection;
         }
 
+        /// <summary>
+        /// Initializes a new collection from the specified string array of <code>parts</code>.
+        /// </summary>
+        /// <param name="parts">A string array of the parts that should make up the collection.</param>
+        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPartsCollection(string[] parts) {
             return new YouTubePlaylistItemPartsCollection(from YouTubePlaylistItemPart part in parts select part);
         }
