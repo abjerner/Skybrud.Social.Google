@@ -1,7 +1,5 @@
 ﻿using System;
 using Skybrud.Social.Google.Common.OAuth;
-using Skybrud.Social.Google.YouTube.Objects.Playlists;
-using Skybrud.Social.Google.YouTube.Options;
 using Skybrud.Social.Google.YouTube.Options.Playlists;
 using Skybrud.Social.Http;
 
@@ -37,7 +35,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPlaylists() {
             return GetPlaylists(new YouTubeGetPlaylistListOptions {
-                Part = YouTubePlaylistPart.Basic,
+                Part = YouTubePlaylistParts.Snippet,
                 Mine = true
             });
         }
@@ -50,7 +48,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         public SocialHttpResponse GetPlaylists(string channelId) {
             if (String.IsNullOrWhiteSpace(channelId)) throw new ArgumentNullException("channelId");
             return GetPlaylists(new YouTubeGetPlaylistListOptions {
-                Part = YouTubePlaylistPart.Basic,
+                Part = YouTubePlaylistParts.Snippet,
                 ChannelId = channelId
             });
         }

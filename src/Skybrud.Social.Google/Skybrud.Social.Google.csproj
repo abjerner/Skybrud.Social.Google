@@ -213,8 +213,9 @@
     <Compile Include="YouTube\Objects\Playlists\YouTubePlaylist.cs" />
     <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistContentDetails.cs" />
     <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistList.cs" />
-    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistPart.cs" />
-    <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistPartsCollection.cs" />
+    <Compile Include="YouTube\Options\Playlists\YouTubePlaylistParts.cs" />
+    <Compile Include="YouTube\Options\Playlists\YouTubePlaylistPart.cs" />
+    <Compile Include="YouTube\Options\Playlists\YouTubePlaylistPartsCollection.cs" />
     <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistSnippet.cs" />
     <Compile Include="YouTube\Objects\Playlists\YouTubePlaylistStatus.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideo.cs" />
@@ -224,8 +225,9 @@
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoLicense.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoList.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoLiveBroadcastContent.cs" />
-    <Compile Include="YouTube\Objects\Videos\YouTubeVideoPart.cs" />
-    <Compile Include="YouTube\Objects\Videos\YouTubeVideoPartsCollection.cs" />
+    <Compile Include="YouTube\Options\Videos\YouTubeVideoParts.cs" />
+    <Compile Include="YouTube\Options\Videos\YouTubeVideoPart.cs" />
+    <Compile Include="YouTube\Options\Videos\YouTubeVideoPartsCollection.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoRejectionReason.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoSnippet.cs" />
     <Compile Include="YouTube\Objects\Videos\YouTubeVideoStatistics.cs" />

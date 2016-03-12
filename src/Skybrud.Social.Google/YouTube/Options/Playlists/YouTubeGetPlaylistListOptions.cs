@@ -1,5 +1,4 @@
 ﻿using System;
-using Skybrud.Social.Google.YouTube.Objects.Playlists;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
@@ -50,7 +49,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Playlists {
         /// Initializes a new instance with default options.
         /// </summary>
         public YouTubeGetPlaylistListOptions() {
-            Part = YouTubePlaylistPart.Basic;
+            Part = YouTubePlaylistParts.Snippet;
         }
 
         #endregion

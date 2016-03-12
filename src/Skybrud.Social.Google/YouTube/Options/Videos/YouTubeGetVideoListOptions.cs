@@ -41,7 +41,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         /// Initializes a new instance with default options.
         /// </summary>
         public YouTubeGetVideoListOptions() {
-            Part = YouTubeVideoPart.Basic;
+            Part = YouTubeVideoParts.Snippet;
         }
 
         #endregion
