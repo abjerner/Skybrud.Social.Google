@@ -191,7 +191,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Data.Sorting {
         /// </summary>
         /// <param name="str">A string containing the sort options to convert.</param>
         /// <param name="options">The converted options if successful.</param>
-        /// <returns><var>true</var> if str was converted successfully; otherwise, <var>false</var>.</returns>
+        /// <returns>Returns <code>true</code> if <code>str</code> was converted successfully; otherwise, <code>false</code>.</returns>
         public static bool TryParse(string str, out AnalyticsDataSortOptions options) {
             try {
                 options = Parse(str);

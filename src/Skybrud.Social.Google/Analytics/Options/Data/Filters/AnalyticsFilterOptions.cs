@@ -213,7 +213,7 @@ namespace Skybrud.Social.Google.Analytics.Options.Data.Filters {
         /// </summary>
         /// <param name="str">A string containing the filter options to convert.</param>
         /// <param name="options">The converted options if successful.</param>
-        /// <returns><var>true</var> if str was converted successfully; otherwise, <var>false</var>.</returns>
+        /// <returns>Returns <code>true</code> if <code>str</code> was converted successfully; otherwise, <code>false</code>.</returns>
         public static bool TryParse(string str, out AnalyticsFilterOptions options)  {
             try {
                 options = Parse(str);

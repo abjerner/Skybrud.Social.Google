@@ -1,12 +1,11 @@
 using System;
-using Skybrud.Social.Google.YouTube.Objects.Videos;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
 namespace Skybrud.Social.Google.YouTube.Options.Videos {
 
     /// <summary>
-    /// Clas representing the options for getting a list of videos from the YouTube API.
+    /// Class representing the options for getting a list of videos from the YouTube API.
     /// </summary>
     public class YouTubeGetVideoListOptions : IGetOptions {
 
@@ -18,13 +17,12 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         public YouTubeVideoPartsCollection Part { get; set; }
 
         /// <summary>
-        /// Gets or sets a list of IDs for the playlist items to be returned.
+        /// Gets or sets a list of IDs for the videos to be returned.
         /// </summary>
         public string[] Ids { get; set; }
 
         /// <summary>
-        /// The <var>maxResults</var> parameter specifies the maximum number of items that should
-        /// be returned in the result set (integer, 0-50).
+        /// Gets or sets the maximum amount of videos to be returned on each page (maximum is <code>50</code>).
         /// </summary>
         public int MaxResults { get; set; }
 

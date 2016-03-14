@@ -40,7 +40,7 @@ namespace Skybrud.Social.Google.Analytics.Objects.Data {
         #region Member methods
         
         /// <summary>
-        /// Gets the value of the cell with the specified index and converts it to <var>T</var>.
+        /// Gets the value of the cell with the specified index and converts it to <code>T</code>.
         /// </summary>
         /// <typeparam name="T">The type to which the cell value should be converted.</typeparam>
         /// <param name="index">The index of the cell.</param>

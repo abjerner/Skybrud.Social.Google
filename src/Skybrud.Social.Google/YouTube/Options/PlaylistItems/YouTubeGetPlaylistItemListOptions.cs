@@ -22,8 +22,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         public string[] Ids { get; set; }
 
         /// <summary>
-        /// The <var>maxResults</var> parameter specifies the maximum number of items that should
-        /// be returned in the result set (integer, 0-50).
+        /// Gets or sets the maximum amount of playlist items to be returned on each page (maximum is <code>50</code>).
         /// </summary>
         public int MaxResults { get; set; }
 

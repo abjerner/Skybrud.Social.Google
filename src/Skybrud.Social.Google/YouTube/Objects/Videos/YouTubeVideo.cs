@@ -35,9 +35,9 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideo</code> from the specified <code>JObject</code>.
+        /// Gets an instance of <see cref="YouTubeVideo"/> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <var>JObject</var> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         public static YouTubeVideo Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubeVideo(obj) {
