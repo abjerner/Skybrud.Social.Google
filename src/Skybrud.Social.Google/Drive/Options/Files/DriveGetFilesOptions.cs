@@ -1,9 +1,9 @@
 ﻿using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Drive.Options.Files {
 
-    public class DriveGetFilesOptions : IGetOptions {
+    public class DriveGetFilesOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -15,12 +15,8 @@ namespace Skybrud.Social.Google.Drive.Options.Files {
 
         #endregion
 
-        public SocialQueryString GetQueryString() {
-
-            SocialQueryString query = new SocialQueryString();
-
-            return query;
-
+        public IHttpQueryString GetQueryString() {
+            return new SocialHttpQueryString();
         }
 
     }

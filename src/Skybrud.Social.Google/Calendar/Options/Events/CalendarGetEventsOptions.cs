@@ -1,11 +1,11 @@
 ﻿using System;
 using Skybrud.Social.Google.Calendar.Constants;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Calendar.Options.Events {
 
-    public class CalendarGetEventsOptions : IGetOptions {
+    public class CalendarGetEventsOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -27,9 +27,9 @@ namespace Skybrud.Social.Google.Calendar.Options.Events {
 
         #endregion
 
-        public SocialQueryString GetQueryString() {
+        public IHttpQueryString GetQueryString() {
 
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
 
             if (TimeMax != null) {
                 query.Add("timeMax", TimeMax.Value.ToUniversalTime().ToString(CalendarConstants.DateFormat));

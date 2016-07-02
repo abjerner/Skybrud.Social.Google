@@ -1,13 +1,13 @@
 ﻿using Skybrud.Social.Google.Calendar.Fields;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Calendar.Options.Calendars {
     
     /// <summary>
     /// Class representing the options of a call to get information about a single calendar.
     /// </summary>
-    public class CalendarGetCalendarOptions : IGetOptions {
+    public class CalendarGetCalendarOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -29,9 +29,9 @@ namespace Skybrud.Social.Google.Calendar.Options.Calendars {
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
+        public IHttpQueryString GetQueryString() {
 
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
 
             if (Fields != null && Fields.Length > 0) {
                 query.Add("fields", Fields);

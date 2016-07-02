@@ -30,7 +30,7 @@ namespace Skybrud.Social.Google.Places.Endpoints.Raw {
 
         public SocialHttpResponse GetDetails(string placeId) {
             if (String.IsNullOrWhiteSpace(placeId)) throw new ArgumentNullException("placeId");
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
             query.Add("placeid", placeId);
             return Client.DoHttpGetRequest("https://maps.googleapis.com/maps/api/place/details/json", query);
         }

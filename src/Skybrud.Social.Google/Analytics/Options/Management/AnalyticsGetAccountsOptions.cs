@@ -1,12 +1,12 @@
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Analytics.Options.Management {
 
     /// <summary>
     /// Class representing the options for getting accounts from the Analytics API.
     /// </summary>
-    public class AnalyticsGetAccountsOptions : IGetOptions {
+    public class AnalyticsGetAccountsOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -52,8 +52,8 @@ namespace Skybrud.Social.Google.Analytics.Options.Management {
 
         #region Methods
 
-        public SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        public IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (StartIndex > 0) query.Add("start-index", StartIndex);
             if (MaxResults > 0) query.Add("max-results", MaxResults);
             return query;

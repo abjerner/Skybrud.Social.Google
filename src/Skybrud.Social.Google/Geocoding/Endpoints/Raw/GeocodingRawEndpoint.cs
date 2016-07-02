@@ -31,7 +31,7 @@ namespace Skybrud.Social.Google.Geocoding.Endpoints.Raw {
         
         public SocialHttpResponse Geocode(string placeId) {
             if (String.IsNullOrWhiteSpace(placeId)) throw new ArgumentNullException("placeId");
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
             query.Add("place_id", placeId);
             return Client.DoHttpGetRequest("https://maps.googleapis.com/maps/api/geocode/json", query);
         }

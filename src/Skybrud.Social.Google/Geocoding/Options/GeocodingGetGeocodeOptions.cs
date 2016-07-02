@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Geocoding.Options {
     
-    public class GeocodingGetGeocodeOptions : IGetOptions {
+    public class GeocodingGetGeocodeOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -22,7 +22,7 @@ namespace Skybrud.Social.Google.Geocoding.Options {
         /// <summary>
         /// Gets or sets the location used for a reverse geocode lookup.
         /// </summary>
-        public Location Location { get; set; }
+        public SocialLocation Location { get; set; }
 
         #endregion
 
@@ -39,14 +39,14 @@ namespace Skybrud.Social.Google.Geocoding.Options {
         /// <param name="latitude">The latitude of the location.</param>
         /// <param name="longitude">The longitude of the location.</param>
         public GeocodingGetGeocodeOptions(double latitude, double longitude) {
-            Location = new Location(latitude, longitude);
+            Location = new SocialLocation(latitude, longitude);
         }
 
         /// <summary>
         /// Initializes a new instance for the specified <code>location</code>.
         /// </summary>
         /// <param name="location">The location.</param>
-        public GeocodingGetGeocodeOptions(Location location) {
+        public GeocodingGetGeocodeOptions(SocialLocation location) {
             if (location == null) throw new ArgumentNullException("location");
             Location = location;
         }
@@ -55,9 +55,9 @@ namespace Skybrud.Social.Google.Geocoding.Options {
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
+        public IHttpQueryString GetQueryString() {
 
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
 
             if (!String.IsNullOrWhiteSpace(PlaceId)) {
                 query.Add("place_id", PlaceId);
@@ -93,7 +93,7 @@ namespace Skybrud.Social.Google.Geocoding.Options {
             return new GeocodingGetGeocodeOptions(latitude, longitude);
         }
 
-        public static GeocodingGetGeocodeOptions GetFromLocation(Location location) {
+        public static GeocodingGetGeocodeOptions GetFromLocation(SocialLocation location) {
             if (location == null) throw new ArgumentNullException("location");
             return new GeocodingGetGeocodeOptions(location);
         }

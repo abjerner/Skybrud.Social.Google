@@ -1,13 +1,13 @@
 using System;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
 
     /// <summary>
     /// Clas representing the options for getting a list of playlist items from the YouTube API.
     /// </summary>
-    public class YouTubeGetPlaylistItemListOptions : IGetOptions {
+    public class YouTubeGetPlaylistItemListOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -56,8 +56,8 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        public IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (Part != null) query.Add("part", Part.ToString());
             if (Ids != null && Ids.Length > 0) query.Add("id", String.Join(",", Ids));
             if (MaxResults > 0) query.Add("maxResults", MaxResults);

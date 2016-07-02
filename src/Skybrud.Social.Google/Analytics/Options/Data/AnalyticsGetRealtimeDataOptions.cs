@@ -7,14 +7,14 @@ using Skybrud.Social.Google.Analytics.Options.Data.Filters;
 using Skybrud.Social.Google.Analytics.Options.Data.Metrics;
 using Skybrud.Social.Google.Analytics.Options.Data.Sorting;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Analytics.Options.Data {
 
     /// <summary>
     /// Class representing the options for getting realtime data from the Analytics API.
     /// </summary>
-    public class AnalyticsGetRealtimeDataOptions : IGetOptions {
+    public class AnalyticsGetRealtimeDataOptions : IHttpGetOptions {
 
         #region Private fields
 
@@ -93,8 +93,8 @@ namespace Skybrud.Social.Google.Analytics.Options.Data {
 
         #region Methods
 
-        public SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        public IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (!String.IsNullOrWhiteSpace(ProfileId)) query.Add("ids", (ProfileId.StartsWith("ga:") ? ProfileId : "ga:" + ProfileId));
             query.Add("metrics", Metrics == null ? "" : Metrics.ToString());
             if (Dimensions != null && Dimensions.Count > 0) query.Add("dimensions", Dimensions == null ? "" : Dimensions.ToString());

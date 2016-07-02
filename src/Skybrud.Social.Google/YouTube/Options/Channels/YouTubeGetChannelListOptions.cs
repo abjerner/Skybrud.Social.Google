@@ -1,13 +1,13 @@
 ﻿using System;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.YouTube.Options.Channels {
     
     /// <summary>
     /// Clas representing the options for getting a list of channels from the YouTube API.
     /// </summary>
-    public class YouTubeGetChannelListOptions : IGetOptions {
+    public class YouTubeGetChannelListOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -57,11 +57,11 @@ namespace Skybrud.Social.Google.YouTube.Options.Channels {
         #region Member methods
 
         /// <summary>
-        /// Gets an instance of <see cref="SocialQueryString"/> representing the GET parameters.
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
-        /// <returns>Returns an instance of <see cref="SocialQueryString"/>.</returns>
-        public SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        /// <returns>Returns an instance of <see cref="IHttpQueryString"/>.</returns>
+        public IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (Part != null) query.Add("part", Part.ToString());
             if (!String.IsNullOrWhiteSpace(Username)) query.Add("forUsername", Username);
             if (Ids != null && Ids.Length > 0) query.Add("id", String.Join(",", Ids));

@@ -172,7 +172,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
             SocialHttpRequest request = new SocialHttpRequest {
                 Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = postData
+                PostData = new SocialHttpPostData(postData)
             };
 
             // Make a call to the server
@@ -201,7 +201,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
             SocialHttpRequest request = new SocialHttpRequest {
                 Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = postData
+                PostData = new SocialHttpPostData(postData)
             };
 
             // Make a call to the server

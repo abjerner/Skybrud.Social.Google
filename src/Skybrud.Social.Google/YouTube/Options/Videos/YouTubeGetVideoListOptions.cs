@@ -1,13 +1,13 @@
 using System;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.YouTube.Options.Videos {
 
     /// <summary>
     /// Class representing the options for getting a list of videos from the YouTube API.
     /// </summary>
-    public class YouTubeGetVideoListOptions : IGetOptions {
+    public class YouTubeGetVideoListOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -46,8 +46,8 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        public IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (Part != null) query.Add("part", Part.ToString());
             if (Ids != null && Ids.Length > 0) query.Add("id", String.Join(",", Ids));
             if (MaxResults > 0) query.Add("maxResults", MaxResults);
