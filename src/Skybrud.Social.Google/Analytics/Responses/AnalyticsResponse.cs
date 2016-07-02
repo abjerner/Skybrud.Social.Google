@@ -2,7 +2,7 @@ using System.Net;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Analytics.Exceptions;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Google.Analytics.Responses {
     

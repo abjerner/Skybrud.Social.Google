@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Analytics.Enums;
 using Skybrud.Social.Google.Common.Objects;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Google.Analytics.Objects.Data {
 

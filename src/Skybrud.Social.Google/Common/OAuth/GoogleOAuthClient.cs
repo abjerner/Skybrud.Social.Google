@@ -144,7 +144,7 @@ namespace Skybrud.Social.Google.Common.OAuth {
         }
 
         public string GenerateUrl(string url, NameValueCollection query) {
-            return url + (query.Count == 0 ? "" : "?" + SocialUtils.NameValueCollectionToQueryString(query));
+            return url + (query.Count == 0 ? "" : "?" + SocialUtils.Misc.NameValueCollectionToQueryString(query));
         }
 
         public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
