@@ -7,10 +7,19 @@ namespace Skybrud.Social.Google.Common.Exceptions {
 
         #region Properties
 
+        /// <summary>
+        /// Gets a reference to the underlying <see cref="SocialHttpResponse"/>.
+        /// </summary>
         public SocialHttpResponse Response { get; private set; }
 
+        /// <summary>
+        /// Gets the error code.
+        /// </summary>
         public int Code { get; private set; }
 
+        /// <summary>
+        /// Gets the message of the exception.
+        /// </summary>
         public new string Message { get; private set; }
 
         #endregion
