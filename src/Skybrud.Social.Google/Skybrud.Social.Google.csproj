@@ -152,6 +152,15 @@
     <Compile Include="Drive\Scopes\DriveScope.cs" />
     <Compile Include="Common\Exceptions\GoogleApiException.cs" />
     <Compile Include="Common\Exceptions\GoogleOAuthException.cs" />
+    <Compile Include="Geocoding\Endpoints\GeocodingEndpoint.cs" />
+    <Compile Include="Geocoding\Endpoints\Raw\GeocodingRawEndpoint.cs" />
+    <Compile Include="Geocoding\Exceptions\GeocodingException.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingAddressComponent.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingResult.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingResultsCollection.cs" />
+    <Compile Include="Geocoding\Options\GeocodingGetGeocodeOptions.cs" />
+    <Compile Include="Geocoding\Responses\GeocodingGetGeocodeResponse.cs" />
+    <Compile Include="Geocoding\Responses\GeocodingResponse.cs" />
     <Compile Include="Gmail\Scopes\GmailScope.cs" />
     <Compile Include="Gmail\Scopes\GmailScopes.cs" />
     <Compile Include="Common\Objects\Authentication\GoogleToken.cs" />

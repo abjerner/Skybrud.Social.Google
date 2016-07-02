@@ -5,6 +5,7 @@ using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Google.Common.Responses;
 using Skybrud.Social.Google.Common.Responses.Authentication;
 using Skybrud.Social.Google.Drive.Endpoints;
+using Skybrud.Social.Google.Geocoding.Endpoints;
 using Skybrud.Social.Google.Places.Endpoints;
 using Skybrud.Social.Google.YouTube.Endpoints;
 
@@ -38,6 +39,11 @@ namespace Skybrud.Social.Google.Common {
         public DriveEndpoint Drive { get; private set; }
 
         /// <summary>
+        /// Gets the endpoint for the Geocoding API.
+        /// </summary>
+        public GeocodingEndpoint Geocoding { get; private set; }
+
+        /// <summary>
         /// Gets the endpoint for the Google Places API.
         /// </summary>
         public PlacesEndpoint Places { get; private set; }
@@ -56,6 +62,7 @@ namespace Skybrud.Social.Google.Common {
             Analytics = new AnalyticsEndpoint(this);
             Calendar = new CalendarEndpoint(this);
             Drive = new DriveEndpoint(this);
+            Geocoding = new GeocodingEndpoint(this);
             Places = new PlacesEndpoint(this);
             YouTube = new YouTubeEndpoint(this);
         }
