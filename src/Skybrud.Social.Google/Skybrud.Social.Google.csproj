@@ -154,8 +154,12 @@
     <Compile Include="Common\Exceptions\GoogleOAuthException.cs" />
     <Compile Include="Geocoding\Endpoints\GeocodingEndpoint.cs" />
     <Compile Include="Geocoding\Endpoints\Raw\GeocodingRawEndpoint.cs" />
+    <Compile Include="Geocoding\Enums\GeocodingLocationType.cs" />
     <Compile Include="Geocoding\Exceptions\GeocodingException.cs" />
     <Compile Include="Geocoding\Objects\GeocodingAddressComponent.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingBox.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingLocation.cs" />
+    <Compile Include="Geocoding\Objects\GeocodingGeometry.cs" />
     <Compile Include="Geocoding\Objects\GeocodingResult.cs" />
     <Compile Include="Geocoding\Objects\GeocodingResultsCollection.cs" />
     <Compile Include="Geocoding\Options\GeocodingGetGeocodeOptions.cs" />

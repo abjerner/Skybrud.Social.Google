@@ -68,7 +68,7 @@ namespace Skybrud.Social.Google.Geocoding.Options {
             }
 
             if (Location != null) {
-                query.Add("latLng", String.Format(CultureInfo.InvariantCulture, "{0},{1}", Location.Latitude, Location.Longitude));
+                query.Add("latlng", String.Format(CultureInfo.InvariantCulture, "{0},{1}", Location.Latitude, Location.Longitude));
             }
 
             return query;

@@ -21,7 +21,7 @@ namespace Skybrud.Social.Google.Geocoding.Objects {
         /// <summary>
         /// Gets geometric information about the place.
         /// </summary>
-        public object Geometry { get; private set; }
+        public GeocodingGeometry Geometry { get; private set; }
 
         /// <summary>
         /// Gets the ID of the place.
@@ -40,6 +40,7 @@ namespace Skybrud.Social.Google.Geocoding.Objects {
         protected GeocodingResult(JObject obj) : base(obj) {
             AddressComponents = obj.GetArrayItems("address_components", GeocodingAddressComponent.Parse);
             FormattedAddress = obj.GetString("formatted_address");
+            Geometry = obj.GetObject("geometry", GeocodingGeometry.Parse);
             PlaceId = obj.GetString("place_id");
             Types = obj.GetStringArray("types");
         }
