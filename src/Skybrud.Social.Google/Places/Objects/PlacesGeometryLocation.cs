@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Locations;
 using Skybrud.Social.Google.Common.Objects;
-using Skybrud.Social.Interfaces;
-using Skybrud.Social.Json.Extensions;
+using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.Places.Objects {
 
@@ -38,4 +38,5 @@ namespace Skybrud.Social.Google.Places.Objects {
         #endregion
 
     }
+
 }

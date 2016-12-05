@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Google.Calendar.Exceptions;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json.Extensions;
+using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.Calendar.Responses {
 

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Specialized;
-using Skybrud.Social.Exceptions;
+using Skybrud.Essentials.Common;
 using Skybrud.Social.Google.Analytics.Endpoints.Raw;
 using Skybrud.Social.Google.Calendar.Endpoints.Raw;
 using Skybrud.Social.Google.Common.Enums;

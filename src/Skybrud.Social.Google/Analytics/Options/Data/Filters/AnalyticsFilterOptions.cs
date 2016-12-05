@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Skybrud.Essentials.Strings;
 using Skybrud.Social.Google.Analytics.Dimensions;
 using Skybrud.Social.Google.Analytics.Interfaces;
 using Skybrud.Social.Google.Analytics.Metrics;
@@ -187,9 +188,9 @@ namespace Skybrud.Social.Google.Analytics.Options.Data.Filters {
                     AnalyticsDimensionOperator dimensionOperator;
 
                     if (AnalyticsMetric.TryGet(m.Groups[1].Value, out metric) && AnalyticsMetricOperator.TryParse(m.Groups[2].Value, out metricOperator)) {
-                        options._filters.Add(new AnalyticsMetricFilter(metric, metricOperator, SocialUtils.Strings.UrlDecode(m.Groups[3].Value)));
+                        options._filters.Add(new AnalyticsMetricFilter(metric, metricOperator, StringHelper.UrlDecode(m.Groups[3].Value)));
                     } else if (AnalyticsDimension.TryGet(m.Groups[1].Value, out dimension) && AnalyticsDimensionOperator.TryParse(m.Groups[2].Value, out dimensionOperator)) {
-                        options._filters.Add(new AnalyticsDimensionFilter(dimension, dimensionOperator, SocialUtils.Strings.UrlDecode(m.Groups[3].Value)));
+                        options._filters.Add(new AnalyticsDimensionFilter(dimension, dimensionOperator, StringHelper.UrlDecode(m.Groups[3].Value)));
                     } else {
                         // Currently the parsing will only work if the specified dimension or
                         // metric name matches a defined constant, so if Google adds a new

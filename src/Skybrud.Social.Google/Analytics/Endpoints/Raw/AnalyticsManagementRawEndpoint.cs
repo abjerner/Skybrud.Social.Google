@@ -1,5 +1,5 @@
 ﻿using System;
-using Skybrud.Social.Exceptions;
+using Skybrud.Essentials.Common;
 using Skybrud.Social.Google.Analytics.Options.Management;
 using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;

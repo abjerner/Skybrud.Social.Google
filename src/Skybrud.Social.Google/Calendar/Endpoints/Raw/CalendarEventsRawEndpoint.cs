@@ -1,5 +1,5 @@
 ﻿using System;
-using Skybrud.Social.Exceptions;
+using Skybrud.Essentials.Common;
 using Skybrud.Social.Google.Calendar.Options.Events;
 using Skybrud.Social.Google.Common.OAuth;
 using Skybrud.Social.Http;

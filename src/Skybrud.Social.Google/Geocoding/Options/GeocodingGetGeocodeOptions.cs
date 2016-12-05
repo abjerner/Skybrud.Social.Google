@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Skybrud.Essentials.Locations;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
@@ -22,7 +23,7 @@ namespace Skybrud.Social.Google.Geocoding.Options {
         /// <summary>
         /// Gets or sets the location used for a reverse geocode lookup.
         /// </summary>
-        public SocialLocation Location { get; set; }
+        public EssentialsLocation Location { get; set; }
 
         #endregion
 
@@ -39,14 +40,14 @@ namespace Skybrud.Social.Google.Geocoding.Options {
         /// <param name="latitude">The latitude of the location.</param>
         /// <param name="longitude">The longitude of the location.</param>
         public GeocodingGetGeocodeOptions(double latitude, double longitude) {
-            Location = new SocialLocation(latitude, longitude);
+            Location = new EssentialsLocation(latitude, longitude);
         }
 
         /// <summary>
         /// Initializes a new instance for the specified <code>location</code>.
         /// </summary>
         /// <param name="location">The location.</param>
-        public GeocodingGetGeocodeOptions(SocialLocation location) {
+        public GeocodingGetGeocodeOptions(EssentialsLocation location) {
             if (location == null) throw new ArgumentNullException("location");
             Location = location;
         }
@@ -93,7 +94,7 @@ namespace Skybrud.Social.Google.Geocoding.Options {
             return new GeocodingGetGeocodeOptions(latitude, longitude);
         }
 
-        public static GeocodingGetGeocodeOptions GetFromLocation(SocialLocation location) {
+        public static GeocodingGetGeocodeOptions GetFromLocation(EssentialsLocation location) {
             if (location == null) throw new ArgumentNullException("location");
             return new GeocodingGetGeocodeOptions(location);
         }
