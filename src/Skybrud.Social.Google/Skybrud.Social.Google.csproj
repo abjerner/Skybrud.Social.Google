@@ -148,8 +148,10 @@
     <Compile Include="Drive\Endpoints\Raw\DriveFilesRawEndpoint.cs" />
     <Compile Include="Drive\Endpoints\Raw\DriveRawEndpoint.cs" />
     <Compile Include="Drive\Exceptions\DriveException.cs" />
+    <Compile Include="Drive\Objects\DriveObject.cs" />
     <Compile Include="Drive\Objects\Files\DriveFile.cs" />
     <Compile Include="Drive\Objects\Files\DriveFileList.cs" />
+    <Compile Include="Drive\Objects\Users\DriveUser.cs" />
     <Compile Include="Drive\Options\Files\DriveGetFilesOptions.cs" />
     <Compile Include="Drive\Responses\DriveResponse.cs" />
     <Compile Include="Drive\Responses\Files\DriveGetFilesResponse.cs" />

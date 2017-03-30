@@ -36,6 +36,14 @@ namespace Skybrud.Social.Google.Drive.Endpoints {
             return DriveGetFilesResponse.ParseResponse(Raw.GetFiles());
         }
 
+        public DriveGetFilesResponse GetFiles(int pageSize) {
+            return DriveGetFilesResponse.ParseResponse(Raw.GetFiles(pageSize));
+        }
+
+        public DriveGetFilesResponse GetFiles(int pageSize, string pageToken) {
+            return DriveGetFilesResponse.ParseResponse(Raw.GetFiles(pageSize, pageToken));
+        }
+
         public DriveGetFilesResponse GetFiles(DriveGetFilesOptions options) {
             return DriveGetFilesResponse.ParseResponse(Raw.GetFiles(options));
         }

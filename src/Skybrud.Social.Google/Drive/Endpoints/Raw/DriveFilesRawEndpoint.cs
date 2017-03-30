@@ -30,14 +30,17 @@ namespace Skybrud.Social.Google.Drive.Endpoints.Raw {
             return GetFiles(new DriveGetFilesOptions());
         }
 
+        public SocialHttpResponse GetFiles(int pageSize) {
+            return GetFiles(new DriveGetFilesOptions(pageSize));
+        }
+
+        public SocialHttpResponse GetFiles(int pageSize, string pageToken) {
+            return GetFiles(new DriveGetFilesOptions(pageSize, pageToken));
+        }
+
         public SocialHttpResponse GetFiles(DriveGetFilesOptions options) {
-
-            // A bit of validation
             if (options == null) throw new ArgumentNullException("options");
-
-            // Make the call to the API
-            return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v2/files", options);
-        
+            return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v3/files", options);
         }
 
         #endregion
