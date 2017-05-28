@@ -24,9 +24,9 @@ namespace Skybrud.Social.Google.Places.Objects {
         #endregion
         
         #region Static methods
-        
+
         /// <summary>
-        /// Gets a user from the specified <code>obj</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="PlacesGeometry"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="PlacesGeometry"/>.</returns>
@@ -37,4 +37,5 @@ namespace Skybrud.Social.Google.Places.Objects {
         #endregion
 
     }
+
 }

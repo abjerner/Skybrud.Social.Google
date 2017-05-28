@@ -33,9 +33,9 @@ namespace Skybrud.Social.Google.Places.Objects {
         #endregion
         
         #region Static methods
-        
+
         /// <summary>
-        /// Gets a user from the specified <paramref name="obj"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="PlacesNearbySearchResponseBody"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>An instance of <see cref="PlacesNearbySearchResponseBody"/>.</returns>
