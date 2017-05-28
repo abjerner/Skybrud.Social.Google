@@ -187,6 +187,7 @@
     <Compile Include="Places\Objects\PlacesGeometryLocation.cs" />
     <Compile Include="Places\Objects\PlacesGeometryViewport.cs" />
     <Compile Include="Places\Objects\PlacesGeometry.cs" />
+    <Compile Include="Places\Objects\PlacesTextSearchResponseBody.cs" />
     <Compile Include="Places\Objects\PlacesNearbySearchResponseBody.cs" />
     <Compile Include="Places\Objects\PlacesGetDetailsResponseBody.cs" />
     <Compile Include="Places\Enums\PlacesResponseStatusCode.cs" />
@@ -194,7 +195,9 @@
     <Compile Include="Places\Objects\PlacesOpeningHoursPeriod.cs" />
     <Compile Include="Places\Objects\PlacesOpeningHoursPeriodItem.cs" />
     <Compile Include="Places\Options\PlacesGetDetailsOptions.cs" />
+    <Compile Include="Places\Options\PlacesTextSearchOptions.cs" />
     <Compile Include="Places\Options\PlacesNearbySearchOptions.cs" />
+    <Compile Include="Places\Responses\PlacesTextSearchResponse.cs" />
     <Compile Include="Places\Responses\PlacesNearbySearchResponse.cs" />
     <Compile Include="Places\Responses\PlacesResponse.cs" />
     <Compile Include="Places\Responses\PlacesGetDetailsResponse.cs" />

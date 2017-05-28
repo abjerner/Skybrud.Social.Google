@@ -113,6 +113,61 @@ namespace Skybrud.Social.Google.Places.Endpoints {
             return PlacesNearbySearchResponse.ParseResponse(Raw.NearbySearch(options));
         }
 
+        /// <summary>
+        /// Performs a text based search for places matching the specified <paramref name="query"/>.
+        /// </summary>
+        /// <param name="query">The text string to search for.</param>
+        /// <returns>An instance of <see cref="PlacesTextSearchResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/places/web-service/search#TextSearchRequests</cref>
+        /// </see>
+        public PlacesTextSearchResponse TextSearch(string query) {
+            return PlacesTextSearchResponse.ParseResponse(Raw.TextSearch(query));
+        }
+
+        /// <summary>
+        /// Performs a text based search for places matching the specified <paramref name="query"/>.
+        /// </summary>
+        /// <param name="query">The text string to search for.</param>
+        /// <param name="latitude">The latitude of the center location the search should be based on.</param>
+        /// <param name="longitude">The longitude of the center location the search should be based on.</param>
+        /// <param name="radius">The distance (in meters) within which to return place results. The maximum allowed
+        /// radius is <code>50000</code> meters.</param>
+        /// <returns>An instance of <see cref="PlacesTextSearchResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/places/web-service/search#TextSearchRequests</cref>
+        /// </see>
+        public PlacesTextSearchResponse TextSearch(string query, double latitude, double longitude, int radius) {
+            return PlacesTextSearchResponse.ParseResponse(Raw.TextSearch(query, latitude, longitude, radius));
+        }
+
+        /// <summary>
+        /// Performs a text based search for places matching the specified <paramref name="query"/>.
+        /// </summary>
+        /// <param name="query">The text string to search for.</param>
+        /// <param name="location">The center location the search should be based on.</param>
+        /// <param name="radius">The distance (in meters) within which to return place results. The maximum allowed
+        /// radius is <code>50000</code> meters.</param>
+        /// <returns>An instance of <see cref="PlacesTextSearchResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/places/web-service/search#TextSearchRequests</cref>
+        /// </see>
+        public PlacesTextSearchResponse TextSearch(string query, ILocation location, int radius) {
+            return PlacesTextSearchResponse.ParseResponse(Raw.TextSearch(query, location, radius));
+        }
+
+        /// <summary>
+        /// Performs a text based search for places matching the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="PlacesTextSearchResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/places/web-service/search#TextSearchRequests</cref>
+        /// </see>
+        public PlacesTextSearchResponse TextSearch(PlacesTextSearchOptions options) {
+            return PlacesTextSearchResponse.ParseResponse(Raw.TextSearch(options));
+        }
+
         #endregion
 
     }
