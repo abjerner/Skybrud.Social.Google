@@ -22,7 +22,7 @@ namespace Skybrud.Social.Google.Places.Objects {
 
         private PlacesGetDetailsResponseBody(JObject obj) : base(obj) {
             Result = obj.GetObject("result", PlacesDetailsResult.Parse);
-            //Status = obj.GetString("status", x => SocialUtils.ParseEnum<PlacesResponseStatusCode>(x.ToLower().Replace("_", "")));
+            Status = obj.GetEnum<PlacesResponseStatusCode>("status");
         }
 
         #endregion
