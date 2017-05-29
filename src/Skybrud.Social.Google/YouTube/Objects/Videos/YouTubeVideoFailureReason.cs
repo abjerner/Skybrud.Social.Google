@@ -6,7 +6,7 @@
     public enum YouTubeVideoFailureReason {
         Codec,
         Conversion,
-        EmptyFIle,
+        EmptyFile,
         InvalidFile,
         TooSmall,
         UploadAborted
