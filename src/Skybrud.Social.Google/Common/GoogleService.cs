@@ -74,7 +74,7 @@ namespace Skybrud.Social.Google.Common {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        /// <returns>Returns an instance of <code>GoogleGetUserInfoResponse</code> representing the response.</returns>
+        /// <returns>An instance of <see cref="GoogleGetUserInfoResponse"/> representing the response.</returns>
         public GoogleGetUserInfoResponse GetUserInfo() {
             return GoogleGetUserInfoResponse.ParseResponse(Client.GetUserInfo());
         }
@@ -84,20 +84,21 @@ namespace Skybrud.Social.Google.Common {
         #region Static methods
 
         /// <summary>
-        /// Initializes a new instance based on the specified OAuth client. The OAuth client must either have an access
-        /// token or a server key. Calling this method will not make any calls to the Google Accounts API.
+        /// Initializes a new instance based on the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
+        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromOAuthClient(GoogleOAuthClient client) {
             if (String.IsNullOrWhiteSpace(client.AccessToken)) throw new ArgumentException("An access token must be present in the OAuth Client");
             return new GoogleService(client);
         }
 
         /// <summary>
-        /// Initializes a new instance based on an access token. Calling this
-        /// method will not make any calls to the Google Accounts API.
+        /// Initializes a new instance based on an access token. Calling this method will not make any calls to the
+        /// Google Accounts API.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
+        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromAccessToken(string accessToken) {
 
             // Initialize a new OAuth client
@@ -111,11 +112,12 @@ namespace Skybrud.Social.Google.Common {
         }
 
         /// <summary>
-        /// Initializes a new instance based on the specified <code>serverKey</code>. The server key is tied to your
-        /// app, whereas an access token or refresh token is tied the a specific user of your app. Calling this method
-        /// will not make any calls to the Google Accounts API.
+        /// Initializes a new instance based on the specified <paramref name="serverKey"/>. The server key is tied to
+        /// your app, whereas an access token or refresh token is tied the a specific user of your app. Calling this
+        /// method will not make any calls to the Google Accounts API.
         /// </summary>
         /// <param name="serverKey">The server key of your app.</param>
+        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromServerKey(string serverKey) {
 
             // Initialize a new OAuth client

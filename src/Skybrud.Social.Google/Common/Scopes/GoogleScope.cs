@@ -27,7 +27,7 @@ namespace Skybrud.Social.Google.Common.Scopes {
         #region Constructor
 
         /// <summary>
-        /// Initializes a new scope with the specified <code>name</code>.
+        /// Initializes a new scope with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         internal GoogleScope(string name) {
@@ -35,7 +35,8 @@ namespace Skybrud.Social.Google.Common.Scopes {
         }
         
         /// <summary>
-        /// Initializes a new scope with the specified <code>name</code>, <code>title</code> and <code>description</code>.
+        /// Initializes a new scope with the specified <paramref name="name"/>, <paramref name="title"/> and
+        /// <paramref name="description"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         /// <param name="title">The title of the scope.</param>
@@ -59,11 +60,12 @@ namespace Skybrud.Social.Google.Common.Scopes {
         #region Operators
 
         /// <summary>
-        /// Adding two instance of <code>GoogleScope</code> will result in a <code>GoogleScopeCollection</code>
-        /// containing both scopes.
+        /// Adds two instances of <see cref="GoogleScope"/>, resulting in an instance
+        /// <see cref="GoogleScopeCollection"/> containing both scopes.
         /// </summary>
         /// <param name="left">The left scope.</param>
         /// <param name="right">The right scope.</param>
+        /// <returns>An instance of <see cref="GoogleScopeCollection"/> containing both scopes.</returns>
         public static GoogleScopeCollection operator +(GoogleScope left, GoogleScope right) {
             return new GoogleScopeCollection(left, right);
         }

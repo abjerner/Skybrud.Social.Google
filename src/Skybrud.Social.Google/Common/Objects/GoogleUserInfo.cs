@@ -117,10 +117,10 @@ namespace Skybrud.Social.Google.Common.Objects {
         #region Static methods
         
         /// <summary>
-        /// Gets a user from the specified <code>obj</code>.
+        /// Gets a user from the specified <paramref name="obj"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
-        /// <returns>Returns an instance of <code>GoogleUserInfo</code> representing the user.</returns>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="GoogleUserInfo"/> representing the user.</returns>
         public static GoogleUserInfo Parse(JObject obj) {
             return obj == null ? null : new GoogleUserInfo(obj);
         }
