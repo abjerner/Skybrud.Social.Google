@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Common.Scopes {
+ï»¿namespace Skybrud.Social.Google.Common.Scopes {
     
     /// <summary>
     /// Static class containing references to global scopes of the Google APIs.
@@ -12,7 +12,7 @@ namespace Skybrud.Social.Google.Common.Scopes {
 
         /// <summary>
         /// This scope informs the authorization server that the client is making an OpenID Connect request, and
-        /// requests access to the authenticated user’s ID. You must include this scope with the other OpenID Connect
+        /// requests access to the authenticated user's ID. You must include this scope with the other OpenID Connect
         /// scopes.
         /// </summary>
         /// <see>
@@ -21,7 +21,7 @@ namespace Skybrud.Social.Google.Common.Scopes {
         public static readonly GoogleScope OpenId = new GoogleScope(
             "openid",
             "OpenII",
-            "This scope informs the authorization server that the client is making an OpenID Connect request, and requests access to the authenticated user’s ID."
+            "This scope informs the authorization server that the client is making an OpenID Connect request, and requests access to the authenticated user's ID."
         );
 
         /// <summary>
