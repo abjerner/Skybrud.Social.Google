@@ -82,7 +82,8 @@ namespace Skybrud.Social.Google.Common.Scopes {
         }
 
         /// <summary>
-        /// Gets a string representation of the entire collection. The scopes are separated by spaces as according to the Google authentication flow.
+        /// Gets a string representation of the entire collection. The scopes are separated by spaces as according to
+        /// the Google authentication flow.
         /// </summary>
         /// <returns>A string representation of the collection.</returns>
         public override string ToString() {
