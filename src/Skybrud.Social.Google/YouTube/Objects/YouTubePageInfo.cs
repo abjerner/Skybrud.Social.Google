@@ -16,22 +16,22 @@ namespace Skybrud.Social.Google.YouTube.Objects {
 
         #region Constructors
 
-        protected YouTubePageInfo(JObject obj) : base(obj) { }
+        protected YouTubePageInfo(JObject obj) : base(obj) {
+            TotalResults = obj.GetInt32("totalResults");
+            ResultsPerPage = obj.GetInt32("resultsPerPage");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubePageInfo</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubePageInfo"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns an instance of <see cref="YouTubePageInfo"/>.</returns>
         public static YouTubePageInfo Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubePageInfo(obj) {
-                TotalResults = obj.GetInt32("totalResults"),
-                ResultsPerPage = obj.GetInt32("resultsPerPage")
-            };
+            return obj == null ? null : new YouTubePageInfo(obj);
         }
 
         #endregion

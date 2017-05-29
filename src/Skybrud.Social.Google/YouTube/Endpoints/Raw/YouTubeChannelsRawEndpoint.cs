@@ -32,7 +32,7 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <summary>
         /// Gets a list of channels for the authenticated user.
         /// </summary>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels() {
             return GetChannels(new YouTubeGetChannelListOptions {
                 Part = YouTubeChannelParts.Snippet,
@@ -41,10 +41,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of channels for the specified <code>username</code>.
+        /// Gets a list of channels for the specified <paramref name="username"/>.
         /// </summary>
         /// <param name="username">The username.</param>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels(string username) {
             return GetChannels(new YouTubeGetChannelListOptions {
                 Part = YouTubeChannelParts.Snippet,
@@ -53,10 +53,10 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of channels based on the specified <code>options</code>.
+        /// Gets a list of channels based on the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetChannels(YouTubeGetChannelListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/channels", options);

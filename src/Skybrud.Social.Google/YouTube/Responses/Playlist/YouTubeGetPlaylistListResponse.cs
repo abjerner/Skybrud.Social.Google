@@ -25,7 +25,7 @@ namespace Skybrud.Social.Google.YouTube.Responses.Playlist {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="YouTubeGetPlaylistListResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="YouTubeGetPlaylistListResponse"/>.
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
         public static YouTubeGetPlaylistListResponse ParseResponse(SocialHttpResponse response) {

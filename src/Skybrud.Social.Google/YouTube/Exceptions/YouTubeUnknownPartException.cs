@@ -20,13 +20,13 @@ namespace Skybrud.Social.Google.YouTube.Exceptions {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new exception for the part with the specified <code>partName</code>.
+        /// Initializes a new exception for the part with the specified <paramref name="partName"/>.
         /// </summary>
         /// <param name="partName">The name of the part.</param>
         public YouTubeUnknownPartException(string partName) : this(partName, "Property cannot be empty.") { }
 
         /// <summary>
-        /// Initializes a new exception for the part with the specified <code>partName</code>.
+        /// Initializes a new exception for the part with the specified <paramref name="partName"/>.
         /// </summary>
         /// <param name="partName">The name of the part.</param>
         /// <param name="message">The message of the exception.</param>

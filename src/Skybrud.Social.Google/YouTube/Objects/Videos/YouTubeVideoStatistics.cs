@@ -4,6 +4,9 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
+    /// <summary>
+    /// Class representing the <code>statistics</code> part of a YouTube video.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/videos#statistics</cref>
     /// </see>
@@ -25,25 +28,25 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
         #region Constructors
 
-        protected YouTubeVideoStatistics(JObject obj) : base(obj) { }
+        protected YouTubeVideoStatistics(JObject obj) : base(obj) {
+            ViewCount = obj.GetInt64("viewCount");
+            LikeCount = obj.GetInt64("likeCount");
+            DislikeCount = obj.GetInt64("dislikeCount");
+            FavoriteCount = obj.GetInt64("favoriteCount");
+            CommentCount = obj.GetInt64("commentCount");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideoStatistics</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubeVideoStatistics"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="YouTubeVideoStatistics"/>.</returns>
         public static YouTubeVideoStatistics Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeVideoStatistics(obj) {
-                ViewCount = obj.GetInt64("viewCount"),
-                LikeCount = obj.GetInt64("likeCount"),
-                DislikeCount = obj.GetInt64("dislikeCount"),
-                FavoriteCount = obj.GetInt64("favoriteCount"),
-                CommentCount = obj.GetInt64("commentCount")
-            };
+            return obj == null ? null : new YouTubeVideoStatistics(obj);
         }
 
         #endregion

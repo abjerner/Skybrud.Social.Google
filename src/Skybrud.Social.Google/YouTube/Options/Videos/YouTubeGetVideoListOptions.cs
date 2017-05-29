@@ -42,6 +42,24 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
             Part = YouTubeVideoParts.Snippet;
         }
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="videoId"/>.
+        /// </summary>
+        public YouTubeGetVideoListOptions(string videoId) {
+            if (String.IsNullOrWhiteSpace(videoId)) throw new ArgumentNullException("videoId");
+            Part = YouTubeVideoParts.Snippet;
+            Ids = new[] { videoId };
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="videoIds"/>.
+        /// </summary>
+        public YouTubeGetVideoListOptions(params string[] videoIds) {
+            if (videoIds == null) throw new ArgumentNullException("videoIds");
+            Part = YouTubeVideoParts.Snippet;
+            Ids = videoIds;
+        }
+
         #endregion
 
         #region Member methods

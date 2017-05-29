@@ -13,7 +13,8 @@ namespace Skybrud.Social.Google.YouTube.Scopes {
         #region Constructor
         
         /// <summary>
-        /// Initializes a new scope with the specified <code>name</code>, <code>title</code> and <code>description</code>.
+        /// Initializes a new scope with the specified <paramref name="name"/>, <paramref name="title"/> and
+        /// <paramref name="description"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         /// <param name="title">The title of the scope.</param>

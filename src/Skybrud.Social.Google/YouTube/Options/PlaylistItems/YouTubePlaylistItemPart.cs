@@ -12,7 +12,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new part with the specified <code>name</code>.
+        /// Initializes a new part with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         public YouTubePlaylistItemPart(string name) : base(name) { }
@@ -22,10 +22,10 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>str</code> into an instance of <see cref="YouTubePlaylistItemPart"/>.
+        /// Parses the specified <paramref name="str"/> into an instance of <see cref="YouTubePlaylistItemPart"/>.
         /// </summary>
         /// <param name="str">The string with the name of the part.</param>
-        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPart"/> representing the part.</returns>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPart"/> representing the part.</returns>
         public static YouTubePlaylistItemPart Parse(string str) {
             YouTubePlaylistItemPart part;
             if (TryParse(str, out part)) return part;
@@ -33,11 +33,11 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         }
 
         /// <summary>
-        /// Attempts to parse the specified <code>str</code> into an instance of <see cref="YouTubePlaylistItemPart"/>.
+        /// Attempts to parse the specified <paramref name="str"/> into an instance of <see cref="YouTubePlaylistItemPart"/>.
         /// </summary>
         /// <param name="str">The string with the name of the part.</param>
         /// <param name="part">The parsed part.</param>
-        /// <returns>Returns <code>true</code> if <code>str</code> matches a known part, otherwise <code>false</code>.</returns>
+        /// <returns><code>true</code> if <paramref name="str"/> matches a known part, otherwise <code>false</code>.</returns>
         public static bool TryParse(string str, out YouTubePlaylistItemPart part) {
             part = YouTubePlaylistItemParts.Values.FirstOrDefault(temp => temp.Name == str);
             return part != null;
@@ -48,18 +48,20 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         #region Operator overloading
 
         /// <summary>
-        /// Initializes a new part with the specified <code>name</code>.
+        /// Initializes a new part with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPart(string name) {
             return Parse(name);
         }
 
         /// <summary>
-        /// Initializes a new collection based on <code>left</code> and <code>right</code>.
+        /// Initializes a new collection based on <paramref name="left"/> and <paramref name="right"/>.
         /// </summary>
         /// <param name="left">The part to the left of the operator.</param>
         /// <param name="right">The part to the right of the operator.</param>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static YouTubePlaylistItemPartsCollection operator +(YouTubePlaylistItemPart left, YouTubePlaylistItemPart right) {
             return new YouTubePlaylistItemPartsCollection(left, right);
         }

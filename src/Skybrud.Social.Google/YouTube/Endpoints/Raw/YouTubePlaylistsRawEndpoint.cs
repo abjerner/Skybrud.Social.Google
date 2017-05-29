@@ -32,32 +32,26 @@ namespace Skybrud.Social.Google.YouTube.Endpoints.Raw {
         /// <summary>
         /// Gets a list of playlists for the authenticated user.
         /// </summary>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPlaylists() {
-            return GetPlaylists(new YouTubeGetPlaylistListOptions {
-                Part = YouTubePlaylistParts.Snippet,
-                Mine = true
-            });
+            return GetPlaylists(new YouTubeGetPlaylistListOptions(true));
         }
 
         /// <summary>
-        /// Gets a list of playlists for the specified <code>channelId</code>.
+        /// Gets a list of playlists for the specified <paramref name="channelId"/>.
         /// </summary>
         /// <param name="channelId">The ID of the channel.</param>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPlaylists(string channelId) {
             if (String.IsNullOrWhiteSpace(channelId)) throw new ArgumentNullException("channelId");
-            return GetPlaylists(new YouTubeGetPlaylistListOptions {
-                Part = YouTubePlaylistParts.Snippet,
-                ChannelId = channelId
-            });
+            return GetPlaylists(new YouTubeGetPlaylistListOptions(channelId));
         }
 
         /// <summary>
-        /// Gets a list of playlists based on the specified <code>options</code>.
+        /// Gets a list of playlists based on the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPlaylists(YouTubeGetPlaylistListOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("https://www.googleapis.com/youtube/v3/playlists", options);

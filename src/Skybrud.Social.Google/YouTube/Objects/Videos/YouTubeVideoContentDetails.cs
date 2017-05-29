@@ -4,6 +4,9 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
+    /// <summary>
+    /// Class representing the <code>contentDetails</code> part of a YouTube video.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/videos#contentDetails</cref>
     /// </see>
@@ -42,25 +45,25 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
         
         #region Constructors
 
-        private YouTubeVideoContentDetails(JObject obj) : base(obj) { }
+        private YouTubeVideoContentDetails(JObject obj) : base(obj) {
+            Duration = obj.GetString("duration", YouTubeVideoDuration.Parse);
+            Dimension = obj.GetString("dimension");
+            Definition = obj.GetString("definition");
+            Caption = obj.GetString("caption");
+            IsLicensedContent = obj.GetBoolean("licensedContent");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideoContentDetails</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubeVideoContentDetails"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="YouTubeVideoContentDetails"/>.</returns>
         public static YouTubeVideoContentDetails Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeVideoContentDetails(obj) {
-                Duration = YouTubeVideoDuration.Parse(obj.GetString("duration")),
-                Dimension = obj.GetString("dimension"),
-                Definition = obj.GetString("definition"),
-                Caption = obj.GetString("caption"),
-                IsLicensedContent = obj.GetBoolean("licensedContent")
-            };
+            return obj == null ? null : new YouTubeVideoContentDetails(obj);
         }
 
         #endregion

@@ -12,7 +12,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new part with the specified <code>name</code>.
+        /// Initializes a new part with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         public YouTubeVideoPart(string name) : base(name) { }
@@ -22,10 +22,10 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>str</code> into an instance of <see cref="YouTubeVideoPart"/>.
+        /// Parses the specified <paramref name="str"/> into an instance of <see cref="YouTubeVideoPart"/>.
         /// </summary>
         /// <param name="str">The string with the name of the part.</param>
-        /// <returns>Returns an instance of <see cref="YouTubeVideoPart"/> representing the part.</returns>
+        /// <returns>An instance of <see cref="YouTubeVideoPart"/> representing the part.</returns>
         public static YouTubeVideoPart Parse(string str) {
             YouTubeVideoPart part;
             if (TryParse(str, out part)) return part;
@@ -33,11 +33,11 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         }
 
         /// <summary>
-        /// Attempts to parse the specified <code>str</code> into an instance of <see cref="YouTubeVideoPart"/>.
+        /// Attempts to parse the specified <paramref name="str"/> into an instance of <see cref="YouTubeVideoPart"/>.
         /// </summary>
         /// <param name="str">The string with the name of the part.</param>
         /// <param name="part">The parsed part.</param>
-        /// <returns>Returns <code>true</code> if <code>str</code> matches a known part, otherwise <code>false</code>.</returns>
+        /// <returns><code>true</code> if <paramref name="str"/> matches a known part, otherwise <code>false</code>.</returns>
         public static bool TryParse(string str, out YouTubeVideoPart part) {
             part = YouTubeVideoParts.Values.FirstOrDefault(temp => temp.Name == str);
             return part != null;
@@ -48,7 +48,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         #region Operator overloading
 
         /// <summary>
-        /// Initializes a new part with the specified <code>name</code>.
+        /// Initializes a new part with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         public static implicit operator YouTubeVideoPart(string name) {
@@ -56,7 +56,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Videos {
         }
 
         /// <summary>
-        /// Initializes a new collection based on <code>left</code> and <code>right</code>.
+        /// Initializes a new collection based on <paramref name="left"/> and <paramref name="right"/>.
         /// </summary>
         /// <param name="left">The part to the left of the operator.</param>
         /// <param name="right">The part to the right of the operator.</param>

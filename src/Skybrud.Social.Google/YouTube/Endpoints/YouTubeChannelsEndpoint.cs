@@ -38,25 +38,25 @@ namespace Skybrud.Social.Google.YouTube.Endpoints {
         /// <summary>
         /// Gets a list of channels for the authenticated user.
         /// </summary>
-        /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels() {
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels());
         }
 
         /// <summary>
-        /// Gets a list of channels for the specified <code>username</code>.
+        /// Gets a list of channels for the specified <paramref name="username"/>.
         /// </summary>
         /// <param name="username">The username.</param>
-        /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels(string username) {
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels(username));
         }
 
         /// <summary>
-        /// Gets a list of channels based on the specified <code>options</code>.
+        /// Gets a list of channels based on the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns an instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="YouTubeGetChannelListResponse"/> representing the response.</returns>
         public YouTubeGetChannelListResponse GetChannels(YouTubeGetChannelListOptions options) {
             return YouTubeGetChannelListResponse.ParseResponse(Raw.GetChannels(options));
         }

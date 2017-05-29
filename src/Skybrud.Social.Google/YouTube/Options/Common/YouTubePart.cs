@@ -17,7 +17,7 @@ namespace Skybrud.Social.Google.YouTube.Options.Common {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new part with the specified <code>name</code>.
+        /// Initializes a new part with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the scope.</param>
         protected YouTubePart(string name) {

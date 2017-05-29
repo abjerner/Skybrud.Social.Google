@@ -34,7 +34,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         public YouTubePlaylistItemPartsCollection() { }
 
         /// <summary>
-        /// Initializes a collection containing the specified parts.
+        /// Initializes a collection containing the specified <paramref name="parts"/>.
         /// </summary>
         /// <param name="parts">The parts to add.</param>
         public YouTubePlaylistItemPartsCollection(params YouTubePlaylistItemPart[] parts) {
@@ -42,7 +42,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         }
 
         /// <summary>
-        /// Initializes a collection containing the specified parts.
+        /// Initializes a collection containing the specified <paramref name="parts"/>.
         /// </summary>
         /// <param name="parts">The parts to add.</param>
         public YouTubePlaylistItemPartsCollection(IEnumerable<YouTubePlaylistItemPart> parts) {
@@ -54,7 +54,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         #region Methods
 
         /// <summary>
-        /// Adds the specified part to the collection.
+        /// Adds the specified <paramref name="part"/> to the collection.
         /// </summary>
         /// <param name="part">The part to add.</param>
         public void Add(YouTubePlaylistItemPart part) {
@@ -62,9 +62,9 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         }
 
         /// <summary>
-        /// Adds the specified range of parts to the collection.
+        /// Adds the specified range of <paramref name="parts"/> to the collection.
         /// </summary>
-        /// <param name="parts">The dimensions to add.</param>
+        /// <param name="parts">The parts to add.</param>
         public void AddRange(IEnumerable<YouTubePlaylistItemPart> parts) {
             _list.AddRange(parts);
         }
@@ -72,6 +72,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         /// <summary>
         /// Gets an array of the parts currently in the collection.
         /// </summary>
+        /// <returns>An array of <see cref="YouTubePlaylistItemPart"/> representing the parts of the collection.</returns>
         public YouTubePlaylistItemPart[] ToArray() {
             return _list.ToArray();
         }
@@ -79,6 +80,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         /// <summary>
         /// Gets a string array of the parts currently in the collection.
         /// </summary>
+        /// <returns>An array of <see cref="String"/> representing the parts of the collection.</returns>
         public string[] ToStringArray() {
             return (from part in _list select part.Name).ToArray();
         }
@@ -86,6 +88,7 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         /// <summary>
         /// Gets a string representation if the parts currently in the collection.
         /// </summary>
+        /// <returns>An array of <see cref="String"/> representing the parts of the collection.</returns>
         public override string ToString() {
             return String.Join(",", from part in _list select part.Name);
         }
@@ -95,36 +98,36 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
         #region Operator overloading
 
         /// <summary>
-        /// Initializes a new collection from the specified <code>part</code>.
+        /// Initializes a new collection from the specified <paramref name="part"/>.
         /// </summary>
         /// <param name="part">The instance of <see cref="YouTubePlaylistItemPart"/> representing the part.</param>
-        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPartsCollection(YouTubePlaylistItemPart part) {
             return new YouTubePlaylistItemPartsCollection(part);
         }
 
         /// <summary>
-        /// Initializes a new collection from the specified <code>array</code> of <see cref="YouTubePlaylistItemPart"/>.
+        /// Initializes a new collection from the specified <paramref name="parts"/>.
         /// </summary>
         /// <param name="parts">An array of <see cref="YouTubePlaylistItemPart"/> representing the parts.</param>
-        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static implicit operator YouTubePlaylistItemPartsCollection(YouTubePlaylistItemPart[] parts) {
             return new YouTubePlaylistItemPartsCollection(parts);
         }
 
         /// <summary>
-        /// Adds the specified <code>part</code> to <code>collection</code>.
+        /// Adds the specified <paramref name="part"/> to <paramref name="collection"/>.
         /// </summary>
-        /// <param name="collection">The collection to which the part should be added.</param>
-        /// <param name="part">The part to be added to the collection.</param>
-        /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
+        /// <param name="collection">The collection to which <paramref name="part"/> should be added.</param>
+        /// <param name="part">The part to be added to <paramref name="collection"/>.</param>
+        /// <returns>An instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>
         public static YouTubePlaylistItemPartsCollection operator +(YouTubePlaylistItemPartsCollection collection, YouTubePlaylistItemPart part) {
             collection.Add(part);
             return collection;
         }
 
         /// <summary>
-        /// Initializes a new collection from the specified string array of <code>parts</code>.
+        /// Initializes a new collection from the specified string array of <paramref name="parts"/>.
         /// </summary>
         /// <param name="parts">A string array of the parts that should make up the collection.</param>
         /// <returns>Returns an instance of <see cref="YouTubePlaylistItemPartsCollection"/>.</returns>

@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
+    /// <summary>
+    /// Class representing the duration of a YouTube video.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration</cref>
     /// </see>

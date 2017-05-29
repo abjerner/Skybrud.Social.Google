@@ -5,6 +5,9 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
+    /// <summary>
+    /// Class representing the <code>snippet</code> part of a YouTube video.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/videos#snippet</cref>
     /// </see>
@@ -58,43 +61,39 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
         
         #region Constructors
 
-        private YouTubeVideoSnippet(JObject obj) : base(obj) { }
+        private YouTubeVideoSnippet(JObject obj) : base(obj) {
+
+            // Parse the "liveBroadcastContent" property
+            YouTubeVideoLiveBroadcastContent broadcast;
+            string strBroadcast = obj.GetString("liveBroadcastContent");
+            if (!Enum.TryParse(strBroadcast, true, out broadcast)) {
+                throw new Exception("Unknown value for liveBroadcastContent \"" + strBroadcast + "\" - please create an issue so it can be fixed https://github.com/abjerner/Skybrud.Social.Google/issues/new");
+            }
+
+            // Initialize the snippet object
+            PublishedAt = obj.GetDateTime("publishedAt");
+            ChannelId = obj.GetString("channelId");
+            Title = obj.GetString("title");
+            Description = obj.GetString("description");
+            Thumbnails = obj.GetObject("thumbnails", YouTubeVideoThumbnails.Parse);
+            ChannelTitle = obj.GetString("channelTitle");
+            Tags = obj.GetStringArray("tags");
+            CategoryId = obj.GetString("categoryId");
+            LiveBroadcastContent = broadcast;
+
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubeVideoSnippet</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubeVideoSnippet"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="YouTubeVideoSnippet"/>.</returns>
         public static YouTubeVideoSnippet Parse(JObject obj) {
-            
-            // Check whether "obj" is NULL
-            if (obj == null) return null;
-
-            // Parse the "liveBroadcastContent" property
-            YouTubeVideoLiveBroadcastContent broadcast;
-            string strBroadcast = obj.GetString("liveBroadcastContent");
-            if (!Enum.TryParse(strBroadcast, true, out broadcast)) {
-                throw new Exception("Unknown value for liveBroadcastContent \"" + strBroadcast + "\" - please create an issue so it can be fixed https://github.com/abjerner/Skybrud.Social/issues/new");
-            }
-            
-            // Initialize the snippet object
-            YouTubeVideoSnippet snippet = new YouTubeVideoSnippet(obj) {
-                PublishedAt = obj.GetDateTime("publishedAt"),
-                ChannelId = obj.GetString("channelId"),
-                Title = obj.GetString("title"),
-                Description = obj.GetString("description"),
-                Thumbnails = obj.GetObject("thumbnails", YouTubeVideoThumbnails.Parse),
-                ChannelTitle = obj.GetString("channelTitle"),
-                Tags = obj.GetStringArray("tags"),
-                CategoryId = obj.GetString("categoryId"),
-                LiveBroadcastContent = broadcast
-            };
-
-            return snippet;
-
+            return obj == null ? null : new YouTubeVideoSnippet(obj);
         }
 
         #endregion

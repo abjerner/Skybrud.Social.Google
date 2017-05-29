@@ -4,6 +4,9 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
+    /// <summary>
+    /// Class representing a list of <see cref="YouTubeVideo"/> items.
+    /// </summary>
     /// <see>
     ///     <cref>https://developers.google.com/youtube/v3/docs/videos/list</cref>
     /// </see>
@@ -23,24 +26,24 @@ namespace Skybrud.Social.Google.YouTube.Objects.Videos {
 
         #region Constructors
 
-        protected YouTubeVideoList(JObject obj) : base(obj) { }
+        protected YouTubeVideoList(JObject obj) : base(obj) {
+            NextPageToken = obj.GetString("nextPageToken");
+            PrevPageToken = obj.GetString("prevPageToken");
+            PageInfo = obj.GetObject("pageInfo", YouTubePageInfo.Parse);
+            Items = obj.GetArray("items", YouTubeVideo.Parse);
+        }
 
         #endregion
         
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubePlaylistItemList</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubeVideoList"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="YouTubeVideoList"/>.</returns>
         public static YouTubeVideoList Parse(JObject obj) {
-            if (obj == null) return null;
-            return new YouTubeVideoList(obj) {
-                NextPageToken = obj.GetString("nextPageToken"),
-                PrevPageToken = obj.GetString("prevPageToken"),
-                PageInfo = obj.GetObject("pageInfo", YouTubePageInfo.Parse),
-                Items = obj.GetArray("items", YouTubeVideo.Parse)
-            };
+            return obj == null ? null : new YouTubeVideoList(obj);
         }
 
         #endregion

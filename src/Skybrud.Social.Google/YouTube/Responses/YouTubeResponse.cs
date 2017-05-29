@@ -14,7 +14,7 @@ namespace Skybrud.Social.Google.YouTube.Responses {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance based on the specified <code>response</code>.
+        /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected YouTubeResponse(SocialHttpResponse response) : base(response) { }
@@ -24,7 +24,7 @@ namespace Skybrud.Social.Google.YouTube.Responses {
         #region Static methodssponse = response;
 
         /// <summary>
-        /// Validates the specified <code>response</code>.
+        /// Validates the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
         public static void ValidateResponse(SocialHttpResponse response) {
@@ -60,7 +60,7 @@ namespace Skybrud.Social.Google.YouTube.Responses {
         public T Body { get; protected set; }
 
         /// <summary>
-        /// Initializes a new instance based on the specified <code>response</code>.
+        /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected YouTubeResponse(SocialHttpResponse response) : base(response) { }

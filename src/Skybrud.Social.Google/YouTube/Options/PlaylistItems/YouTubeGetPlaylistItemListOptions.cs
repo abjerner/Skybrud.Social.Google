@@ -52,6 +52,15 @@ namespace Skybrud.Social.Google.YouTube.Options.PlaylistItems {
             Part = YouTubePlaylistItemParts.Snippet;
         }
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="playlistId"/>.
+        /// </summary>
+        /// <param name="playlistId">The ID of the parent playlist.</param>
+        public YouTubeGetPlaylistItemListOptions(string playlistId) {
+            Part = YouTubePlaylistItemParts.Snippet;
+            PlaylistId = playlistId;
+        }
+
         #endregion
 
         #region Member methods
