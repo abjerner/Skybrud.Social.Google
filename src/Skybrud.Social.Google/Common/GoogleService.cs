@@ -89,8 +89,13 @@ namespace Skybrud.Social.Google.Common {
         /// <param name="client">The OAuth client.</param>
         /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromOAuthClient(GoogleOAuthClient client) {
-            if (String.IsNullOrWhiteSpace(client.AccessToken)) throw new ArgumentException("An access token must be present in the OAuth Client");
+
+            // Validate the OAuth client
+            if (client == null) throw new ArgumentNullException("client");
+
+            // Initialize a new service
             return new GoogleService(client);
+        
         }
 
         /// <summary>
@@ -100,6 +105,9 @@ namespace Skybrud.Social.Google.Common {
         /// <param name="accessToken">The access token.</param>
         /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromAccessToken(string accessToken) {
+
+            // Validate the server key
+            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException("accessToken");
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -119,6 +127,9 @@ namespace Skybrud.Social.Google.Common {
         /// <param name="serverKey">The server key of your app.</param>
         /// <returns>An instance of <see cref="GoogleService"/>.</returns>
         public static GoogleService CreateFromServerKey(string serverKey) {
+
+            // Validate the server key
+            if (String.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException("serverKey");
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -141,9 +152,9 @@ namespace Skybrud.Social.Google.Common {
         public static GoogleService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
             
             // Validation
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentException("Parameter \"clientId\" cannot be NULL or empty", "clientId");
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentException("Parameter \"clientSecret\" cannot be NULL or empty", "clientSecret");
-            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentException("Parameter \"refreshToken\" cannot be NULL or empty", "refreshToken");
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
+            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException("refreshToken");
 
             // Initialize a new OAuth client with the specified client id and client secret
             GoogleOAuthClient client = new GoogleOAuthClient {

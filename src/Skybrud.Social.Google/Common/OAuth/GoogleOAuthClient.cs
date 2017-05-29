@@ -156,8 +156,11 @@ namespace Skybrud.Social.Google.Common.OAuth {
 
         public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
 
-            // Validate the required properties
+            // Validate the required parameters and properties
+            if (String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException("code");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
 
             // Declare the POST data
             NameValueCollection postData = new NameValueCollection {
@@ -185,7 +188,8 @@ namespace Skybrud.Social.Google.Common.OAuth {
 
         public GoogleTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
 
-            // Validate the required properties
+            // Validate the required parameters and properties
+            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException("refreshToken");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
 
