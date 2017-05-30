@@ -30,9 +30,10 @@ namespace Skybrud.Social.Google.YouTube.Objects.Playlists {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>YouTubePlaylist</code> from the specified <code>JObject</code>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubePlaylist"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>An instance of <see cref="YouTubePlaylist"/>.</returns>
         public static YouTubePlaylist Parse(JObject obj) {
             if (obj == null) return null;
             return new YouTubePlaylist(obj) {

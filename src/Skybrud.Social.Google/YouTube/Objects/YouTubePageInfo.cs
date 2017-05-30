@@ -29,7 +29,7 @@ namespace Skybrud.Social.Google.YouTube.Objects {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="YouTubePageInfo"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
-        /// <returns>Returns an instance of <see cref="YouTubePageInfo"/>.</returns>
+        /// <returns>An instance of <see cref="YouTubePageInfo"/>.</returns>
         public static YouTubePageInfo Parse(JObject obj) {
             return obj == null ? null : new YouTubePageInfo(obj);
         }
