@@ -53,26 +53,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analytics\Dimensions\AnalyticsDimensions.cs">
+    <Compile Include="Analytics\Fields\Dimensions\AnalyticsDimensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Dimensions\AnalyticsRealtimeDimensions.cs">
+    <Compile Include="Analytics\Fields\Dimensions\AnalyticsRealtimeDimensions.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Analytics\Endpoints\AnalyticsEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsRawEndpoint.cs" />
-    <Compile Include="Analytics\Enums\AnalyticsDataType.cs" />
-    <Compile Include="Analytics\Enums\AnalyticsColumnType.cs" />
-    <Compile Include="Analytics\Metrics\AnalyticsMetrics.cs">
+    <Compile Include="Analytics\Models\Data\AnalyticsDataType.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsColumnType.cs" />
+    <Compile Include="Analytics\Fields\Metrics\AnalyticsMetrics.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Metrics\AnalyticsRealtimeMetrics.cs">
+    <Compile Include="Analytics\Fields\Metrics\AnalyticsRealtimeMetrics.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Dimensions\AnalyticsDimension.cs">
+    <Compile Include="Analytics\Fields\Dimensions\AnalyticsDimension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Analytics\Metrics\AnalyticsMetric.cs">
+    <Compile Include="Analytics\Fields\Metrics\AnalyticsMetric.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Analytics\Scopes\AnalyticsScope.cs" />
@@ -82,37 +82,37 @@
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsDataRawEndpoint.cs" />
     <Compile Include="Analytics\Endpoints\Raw\AnalyticsManagementRawEndpoint.cs" />
     <Compile Include="Analytics\Exceptions\AnalyticsException.cs" />
-    <Compile Include="Analytics\Interfaces\IAnalyticsField.cs" />
-    <Compile Include="Analytics\Interfaces\IAnalyticsFieldOperator.cs" />
-    <Compile Include="Analytics\Interfaces\IAnalyticsFilter.cs" />
-    <Compile Include="Analytics\Interfaces\IAnalyticsFilterBlock.cs" />
-    <Compile Include="Analytics\Interfaces\IAnalyticsSortField.cs" />
-    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccountsCollection.cs" />
-    <Compile Include="Analytics\Objects\Accounts\AnalyticsAccount.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataCell.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataColumnHeader.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataQuery.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataRow.cs" />
-    <Compile Include="Analytics\Dimensions\AnalyticsDimensionCollection.cs" />
+    <Compile Include="Analytics\Fields\IAnalyticsField.cs" />
+    <Compile Include="Analytics\Fields\IAnalyticsFieldOperator.cs" />
+    <Compile Include="Analytics\Fields\IAnalyticsFilter.cs" />
+    <Compile Include="Analytics\Fields\IAnalyticsFilterBlock.cs" />
+    <Compile Include="Analytics\Fields\IAnalyticsSortField.cs" />
+    <Compile Include="Analytics\Models\Accounts\AnalyticsAccountsCollection.cs" />
+    <Compile Include="Analytics\Models\Accounts\AnalyticsAccount.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataCell.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataColumnHeader.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataQuery.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataRow.cs" />
+    <Compile Include="Analytics\Fields\Dimensions\AnalyticsDimensionCollection.cs" />
     <Compile Include="Analytics\Options\Data\Dimensions\AnalyticsDimensionFilter.cs" />
     <Compile Include="Analytics\Options\Data\Dimensions\AnalyticsDimensionOperator.cs" />
     <Compile Include="Analytics\Options\Data\Dimensions\AnalyticsDimensionSortField.cs" />
     <Compile Include="Analytics\Options\Data\Filters\AnalyticsFilterOperator.cs" />
     <Compile Include="Analytics\Options\Data\Filters\AnalyticsFilterOptions.cs" />
-    <Compile Include="Analytics\Metrics\AnalyticsMetricCollection.cs" />
+    <Compile Include="Analytics\Fields\Metrics\AnalyticsMetricCollection.cs" />
     <Compile Include="Analytics\Options\Data\Metrics\AnalyticsMetricFilter.cs" />
     <Compile Include="Analytics\Options\Data\Metrics\AnalyticsMetricOperator.cs" />
     <Compile Include="Analytics\Options\Data\Metrics\AnalyticsMetricSortField.cs" />
-    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfile.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsRealtimeDataQuery.cs" />
+    <Compile Include="Analytics\Models\Profiles\AnalyticsProfile.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsRealtimeDataQuery.cs" />
     <Compile Include="Analytics\Options\Data\Sorting\AnalyticsDataSortOptions.cs" />
-    <Compile Include="Analytics\Enums\AnalyticsDataSortOrder.cs" />
-    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebProperty.cs" />
-    <Compile Include="Analytics\Objects\Common\AnalyticsPermissions.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsDataCollection.cs" />
-    <Compile Include="Analytics\Objects\Data\AnalyticsProfileInfo.cs" />
-    <Compile Include="Analytics\Objects\Profiles\AnalyticsProfilesCollection.cs" />
-    <Compile Include="Analytics\Objects\WebProperties\AnalyticsWebPropertiesCollection.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataSortOrder.cs" />
+    <Compile Include="Analytics\Models\WebProperties\AnalyticsWebProperty.cs" />
+    <Compile Include="Analytics\Models\Common\AnalyticsPermissions.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsDataCollection.cs" />
+    <Compile Include="Analytics\Models\Data\AnalyticsProfileInfo.cs" />
+    <Compile Include="Analytics\Models\Profiles\AnalyticsProfilesCollection.cs" />
+    <Compile Include="Analytics\Models\WebProperties\AnalyticsWebPropertiesCollection.cs" />
     <Compile Include="Analytics\Options\Data\AnalyticsGetDataOptions.cs" />
     <Compile Include="Analytics\Options\Data\AnalyticsGetRealtimeDataOptions.cs" />
     <Compile Include="Analytics\Options\Management\AnalyticsGetAccountsOptions.cs" />
@@ -302,6 +302,7 @@
   <ItemGroup>
     <None Include="LICENSE.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)build/Skybrud.Social.PreBuildTool.exe" 2013-09-22 "$(ProjectPath)"</PreBuildEvent>

@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Analytics.Interfaces {
+namespace Skybrud.Social.Google.Analytics.Models.Common {
     
     /// <summary>
     /// Interface representing a field (dimension or metric) in the Analytics API.

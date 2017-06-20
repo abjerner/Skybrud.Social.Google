@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Analytics.Enums {
+namespace Skybrud.Social.Google.Analytics.Models.Data {
     
     /// <summary>
     /// Class representing a sort order of a set of Analytics data rows.

@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Google.Analytics.Enums {
+﻿namespace Skybrud.Social.Google.Analytics.Models.Data {
     
     /// <summary>
     /// Enum class representing the type of a column retrieved through the Data endpoint.
