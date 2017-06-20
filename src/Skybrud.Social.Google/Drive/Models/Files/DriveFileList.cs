@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Drive.Objects.Files {
+namespace Skybrud.Social.Google.Drive.Models.Files {
 
     public class DriveFileList : DriveObject {
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using Skybrud.Social.Google.Drive.Objects.Files;
+using Skybrud.Social.Google.Drive.Models.Files;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 

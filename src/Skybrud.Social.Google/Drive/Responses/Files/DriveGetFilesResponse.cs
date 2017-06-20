@@ -1,4 +1,4 @@
-﻿using Skybrud.Social.Google.Drive.Objects.Files;
+﻿using Skybrud.Social.Google.Drive.Models.Files;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Drive.Responses.Files {

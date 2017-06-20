@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 
-namespace Skybrud.Social.Google.Drive.Objects {
+namespace Skybrud.Social.Google.Drive.Models {
     
     /// <summary>
     /// Class representing a basic object from the Google Drive API derived from an instance of <see cref="JObject"/>.

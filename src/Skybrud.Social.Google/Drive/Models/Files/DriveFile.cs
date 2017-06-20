@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Time;
 using Skybrud.Essentials.Json.Extensions;
-using Skybrud.Social.Google.Drive.Objects.Users;
+using Skybrud.Essentials.Time;
+using Skybrud.Social.Google.Drive.Models.Users;
 
-namespace Skybrud.Social.Google.Drive.Objects.Files {
+namespace Skybrud.Social.Google.Drive.Models.Files {
     
     /// <summary>
     /// Class representing a file as returned by the Google Drive API.

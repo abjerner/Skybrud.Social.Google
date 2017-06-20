@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Drive.Objects.Users {
+namespace Skybrud.Social.Google.Drive.Models.Users {
 
     /// <summary>
     /// Class representing a user as returned by the Google Drive API.
