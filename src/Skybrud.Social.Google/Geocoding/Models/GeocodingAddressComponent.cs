@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 
-namespace Skybrud.Social.Google.Geocoding.Objects {
+namespace Skybrud.Social.Google.Geocoding.Models {
     
     public class GeocodingAddressComponent : GoogleApiObject {
 

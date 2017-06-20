@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Locations;
 using Skybrud.Social.Google.Common.Models;
 
-namespace Skybrud.Social.Google.Geocoding.Objects {
+namespace Skybrud.Social.Google.Geocoding.Models {
     
     public class GeocodingLocation : GoogleApiObject, ILocation {
 

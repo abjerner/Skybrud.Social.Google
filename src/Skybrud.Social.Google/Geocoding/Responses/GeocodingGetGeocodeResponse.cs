@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Geocoding.Objects;
+using Skybrud.Social.Google.Geocoding.Models;
 using Skybrud.Social.Google.Places.Responses;
 using Skybrud.Social.Http;
 
