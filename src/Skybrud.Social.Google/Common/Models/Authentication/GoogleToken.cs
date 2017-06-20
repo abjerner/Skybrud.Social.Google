@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Common.Objects.Authentication {
+namespace Skybrud.Social.Google.Common.Models.Authentication {
     
     /// <summary>
     /// Class representing information about an access token.

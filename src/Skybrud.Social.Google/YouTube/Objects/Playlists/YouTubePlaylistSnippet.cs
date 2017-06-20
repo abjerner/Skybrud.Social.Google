@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Google.Common.Models;
 
 namespace Skybrud.Social.Google.YouTube.Objects.Playlists {
 

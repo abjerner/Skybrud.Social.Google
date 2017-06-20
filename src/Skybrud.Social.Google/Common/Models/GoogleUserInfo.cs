@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Common.Objects {
+namespace Skybrud.Social.Google.Common.Models {
     
     /// <summary>
     /// Class representing a Google account/user. Not all properties may be present since it both

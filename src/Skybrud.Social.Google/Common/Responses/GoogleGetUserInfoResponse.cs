@@ -1,4 +1,4 @@
-﻿using Skybrud.Social.Google.Common.Objects;
+﻿using Skybrud.Social.Google.Common.Models;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Common.Responses {

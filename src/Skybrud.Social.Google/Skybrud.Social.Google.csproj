@@ -174,9 +174,9 @@
     <Compile Include="Geocoding\Responses\GeocodingResponse.cs" />
     <Compile Include="Gmail\Scopes\GmailScope.cs" />
     <Compile Include="Gmail\Scopes\GmailScopes.cs" />
-    <Compile Include="Common\Objects\Authentication\GoogleToken.cs" />
-    <Compile Include="Common\Objects\GoogleApiObject.cs" />
-    <Compile Include="Common\Objects\GoogleApiResource.cs" />
+    <Compile Include="Common\Models\Authentication\GoogleToken.cs" />
+    <Compile Include="Common\Models\GoogleApiObject.cs" />
+    <Compile Include="Common\Models\GoogleApiResource.cs" />
     <Compile Include="Places\Endpoints\Raw\PlacesRawEndpoint.cs" />
     <Compile Include="Places\Endpoints\PlacesEndpoint.cs" />
     <Compile Include="Places\Enums\PlacesRankBy.cs" />
@@ -210,7 +210,7 @@
     <Compile Include="Plus\Scopes\PlusScopes.cs" />
     <Compile Include="Common\Responses\GoogleApiResponse.cs" />
     <Compile Include="Common\GoogleService.cs" />
-    <Compile Include="Common\Objects\GoogleUserInfo.cs" />
+    <Compile Include="Common\Models\GoogleUserInfo.cs" />
     <Compile Include="Common\Responses\Authentication\GoogleTokenResponse.cs" />
     <Compile Include="Common\Enums\GoogleAccessType.cs" />
     <Compile Include="Common\Enums\GoogleApprovalPrompt.cs" />

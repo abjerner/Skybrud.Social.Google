@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Common.Objects.Authentication;
+using Skybrud.Social.Google.Common.Models.Authentication;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Common.Responses.Authentication {

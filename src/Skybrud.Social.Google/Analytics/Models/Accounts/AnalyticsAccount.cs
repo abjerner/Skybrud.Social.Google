@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Analytics.Models.Common;
-using Skybrud.Social.Google.Common.Objects;
+using Skybrud.Social.Google.Common.Models;
 
 namespace Skybrud.Social.Google.Analytics.Models.Accounts {
     

@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Common.Objects;
+using Skybrud.Social.Google.Common.Models;
 using Skybrud.Social.Google.Geocoding.Enums;
 using Skybrud.Essentials.Json.Extensions;
 

@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json;
 
-namespace Skybrud.Social.Google.Common.Objects {
+namespace Skybrud.Social.Google.Common.Models {
     
     /// <summary>
     /// Class representing an object in the Google ecosystem.

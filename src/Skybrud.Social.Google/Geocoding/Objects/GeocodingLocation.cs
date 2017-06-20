@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Locations;
-using Skybrud.Social.Google.Common.Objects;
+using Skybrud.Social.Google.Common.Models;
 
 namespace Skybrud.Social.Google.Geocoding.Objects {
     
