@@ -1,4 +1,4 @@
-﻿using Skybrud.Social.Google.Calendar.Objects.Events;
+﻿using Skybrud.Social.Google.Calendar.Models.Events;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Calendar.Responses.Events {

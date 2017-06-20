@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Google.Common.Objects;
 
-namespace Skybrud.Social.Google.Calendar.Objects.Common {
+namespace Skybrud.Social.Google.Calendar.Models.Common {
     
     /// <summary>
     /// Class representing a date returned by the Google Calendae API.

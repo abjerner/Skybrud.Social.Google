@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Common.Objects;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Google.Common.Objects;
 
-namespace Skybrud.Social.Google.Calendar.Objects.Events {
+namespace Skybrud.Social.Google.Calendar.Models.Events {
     
     /// <summary>
     /// Class representing a collection of events.

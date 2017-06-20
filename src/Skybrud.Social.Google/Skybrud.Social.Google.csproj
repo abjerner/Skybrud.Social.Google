@@ -134,9 +134,9 @@
     <Compile Include="Calendar\Exceptions\CalendarException.cs" />
     <Compile Include="Calendar\Fields\CalendarField.cs" />
     <Compile Include="Calendar\Fields\CalendarFieldsCollection.cs" />
-    <Compile Include="Calendar\Objects\Events\CalendarEvent.cs" />
-    <Compile Include="Calendar\Objects\Events\CalendarEventsCollection.cs" />
-    <Compile Include="Calendar\Objects\Common\CalendarDate.cs" />
+    <Compile Include="Calendar\Models\Events\CalendarEvent.cs" />
+    <Compile Include="Calendar\Models\Events\CalendarEventsCollection.cs" />
+    <Compile Include="Calendar\Models\Common\CalendarDate.cs" />
     <Compile Include="Calendar\Options\Calendars\CalendarGetCalendarOptions.cs" />
     <Compile Include="Calendar\Options\Events\CalendarGetEventsOptions.cs" />
     <Compile Include="Calendar\Responses\CalendarResponse.cs" />
