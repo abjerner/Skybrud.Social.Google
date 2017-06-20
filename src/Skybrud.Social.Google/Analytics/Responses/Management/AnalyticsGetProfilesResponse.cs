@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Analytics.Objects.Profiles;
+using Skybrud.Social.Google.Analytics.Models.Profiles;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Analytics.Responses.Management {

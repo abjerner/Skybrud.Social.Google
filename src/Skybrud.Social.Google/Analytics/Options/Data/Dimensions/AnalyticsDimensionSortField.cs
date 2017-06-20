@@ -1,7 +1,7 @@
 using System;
-using Skybrud.Social.Google.Analytics.Dimensions;
-using Skybrud.Social.Google.Analytics.Enums;
-using Skybrud.Social.Google.Analytics.Interfaces;
+using Skybrud.Social.Google.Analytics.Models.Common;
+using Skybrud.Social.Google.Analytics.Models.Data;
+using Skybrud.Social.Google.Analytics.Models.Dimensions;
 
 namespace Skybrud.Social.Google.Analytics.Options.Data.Dimensions {
     

@@ -4,9 +4,9 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Skybrud.Essentials.Strings;
-using Skybrud.Social.Google.Analytics.Dimensions;
-using Skybrud.Social.Google.Analytics.Interfaces;
-using Skybrud.Social.Google.Analytics.Metrics;
+using Skybrud.Social.Google.Analytics.Models.Common;
+using Skybrud.Social.Google.Analytics.Models.Dimensions;
+using Skybrud.Social.Google.Analytics.Models.Metrics;
 using Skybrud.Social.Google.Analytics.Options.Data.Dimensions;
 using Skybrud.Social.Google.Analytics.Options.Data.Metrics;
 

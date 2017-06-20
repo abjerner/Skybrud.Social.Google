@@ -1,7 +1,7 @@
 using System;
-using Skybrud.Social.Google.Analytics.Dimensions;
-using Skybrud.Social.Google.Analytics.Metrics;
-using Skybrud.Social.Google.Analytics.Objects.Profiles;
+using Skybrud.Social.Google.Analytics.Models.Dimensions;
+using Skybrud.Social.Google.Analytics.Models.Metrics;
+using Skybrud.Social.Google.Analytics.Models.Profiles;
 using Skybrud.Social.Google.Analytics.Options.Data.Dimensions;
 using Skybrud.Social.Google.Analytics.Options.Data.Filters;
 using Skybrud.Social.Google.Analytics.Options.Data.Metrics;

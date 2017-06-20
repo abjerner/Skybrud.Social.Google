@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Analytics.Interfaces;
+using Skybrud.Social.Google.Analytics.Models.Common;
 
 namespace Skybrud.Social.Google.Analytics.Options.Data.Filters {
     
