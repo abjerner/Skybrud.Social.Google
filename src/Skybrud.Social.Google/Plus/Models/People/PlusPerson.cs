@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 
-namespace Skybrud.Social.Google.Plus.Objects.People {
+namespace Skybrud.Social.Google.Plus.Models.People {
     
     /// <summary>
     /// Class representing a person in the Google+ API.
