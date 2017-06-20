@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.YouTube.Objects.Playlists;
+using Skybrud.Social.Google.YouTube.Models.Playlists;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.YouTube.Responses.Playlist {

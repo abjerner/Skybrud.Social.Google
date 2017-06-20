@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.YouTube.Objects.Channels;
+using Skybrud.Social.Google.YouTube.Models.Channels;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.YouTube.Responses.Channels {

@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.YouTube.Objects.Videos;
+using Skybrud.Social.Google.YouTube.Models.Videos;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.YouTube.Responses.Videos {
