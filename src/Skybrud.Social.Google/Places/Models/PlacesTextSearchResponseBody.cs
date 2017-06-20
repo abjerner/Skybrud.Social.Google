@@ -1,12 +1,12 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 using Skybrud.Social.Google.Places.Enums;
-using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Places.Objects {
+namespace Skybrud.Social.Google.Places.Models {
 
-    public class PlacesNearbySearchResponseBody : GoogleApiObject {
+    public class PlacesTextSearchResponseBody : GoogleApiObject {
         
         #region Properties
 
@@ -24,7 +24,7 @@ namespace Skybrud.Social.Google.Places.Objects {
 
         #region Constructors
 
-        private PlacesNearbySearchResponseBody(JObject obj) : base(obj) {
+        private PlacesTextSearchResponseBody(JObject obj) : base(obj) {
             NextPageToken = obj.GetString("next_page_token");    
             Results = obj.GetArrayItems("results", PlacesDetailsResult.Parse);
             Status = obj.GetEnum<PlacesResponseStatusCode>("status");
@@ -33,14 +33,14 @@ namespace Skybrud.Social.Google.Places.Objects {
         #endregion
         
         #region Static methods
-
+        
         /// <summary>
-        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="PlacesNearbySearchResponseBody"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="PlacesTextSearchResponseBody"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
-        /// <returns>An instance of <see cref="PlacesNearbySearchResponseBody"/>.</returns>
-        public static PlacesNearbySearchResponseBody Parse(JObject obj) {
-            return obj == null ? null : new PlacesNearbySearchResponseBody(obj);
+        /// <returns>An instance of <see cref="PlacesTextSearchResponseBody"/>.</returns>
+        public static PlacesTextSearchResponseBody Parse(JObject obj) {
+            return obj == null ? null : new PlacesTextSearchResponseBody(obj);
         }
 
         #endregion

@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 
-namespace Skybrud.Social.Google.Places.Objects {
+namespace Skybrud.Social.Google.Places.Models {
     
     /// <summary>
     /// Class partially describing the opening hours of a Google place.

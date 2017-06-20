@@ -1,4 +1,4 @@
-using Skybrud.Social.Google.Places.Objects;
+using Skybrud.Social.Google.Places.Models;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Places.Responses {

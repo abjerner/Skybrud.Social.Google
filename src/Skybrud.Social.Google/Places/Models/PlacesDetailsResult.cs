@@ -4,7 +4,7 @@ using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 using Skybrud.Social.Google.Places.Enums;
 
-namespace Skybrud.Social.Google.Places.Objects {
+namespace Skybrud.Social.Google.Places.Models {
     
     public class PlacesDetailsResult : GoogleApiObject {
 

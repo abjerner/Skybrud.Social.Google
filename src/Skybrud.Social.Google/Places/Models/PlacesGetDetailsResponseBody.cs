@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Common.Models;
 using Skybrud.Social.Google.Places.Enums;
-using Skybrud.Essentials.Json.Extensions;
 
-namespace Skybrud.Social.Google.Places.Objects {
+namespace Skybrud.Social.Google.Places.Models {
     
     /// <summary>
     /// Class representing the response body of a call to get the details about a place in the Google Places API.
