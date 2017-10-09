@@ -1,4 +1,5 @@
-﻿using Skybrud.Social.Google.Drive.Endpoints.Raw;
+﻿using System;
+using Skybrud.Social.Google.Drive.Endpoints.Raw;
 using Skybrud.Social.Google.Drive.Options.Files;
 using Skybrud.Social.Google.Drive.Responses.Files;
 
@@ -31,6 +32,10 @@ namespace Skybrud.Social.Google.Drive.Endpoints {
         #endregion
 
         #region Member methods
+
+        public DriveDownloadFileResponse DownloadFile(string fileId) {
+            return DriveDownloadFileResponse.ParseResponse(Raw.DownloadFile(fileId));
+        }
 
         public DriveGetFilesResponse GetFiles() {
             return DriveGetFilesResponse.ParseResponse(Raw.GetFiles());

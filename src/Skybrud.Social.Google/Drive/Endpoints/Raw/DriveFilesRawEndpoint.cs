@@ -26,6 +26,17 @@ namespace Skybrud.Social.Google.Drive.Endpoints.Raw {
 
         #region Member methods
 
+
+        /// <summary>
+        /// Gets the contents of the file with the specified <paramref name="fileId"/>.
+        /// </summary>
+        /// <param name="fileId">The ID of the file.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse DownloadFile(string fileId) {
+            if (String.IsNullOrWhiteSpace(fileId)) throw new ArgumentNullException("fileId");
+            return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v3/files/" + fileId + "?alt=media");
+        }
+
         public SocialHttpResponse GetFiles() {
             return GetFiles(new DriveGetFilesOptions());
         }

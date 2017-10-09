@@ -154,6 +154,7 @@
     <Compile Include="Drive\Models\Users\DriveUser.cs" />
     <Compile Include="Drive\Options\Files\DriveGetFilesOptions.cs" />
     <Compile Include="Drive\Responses\DriveResponse.cs" />
+    <Compile Include="Drive\Responses\Files\DriveDownloadFileResponse.cs" />
     <Compile Include="Drive\Responses\Files\DriveGetFilesResponse.cs" />
     <Compile Include="Drive\Scopes\DriveScopes.cs" />
     <Compile Include="Drive\Scopes\DriveScope.cs" />
