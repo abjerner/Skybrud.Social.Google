@@ -121,7 +121,7 @@ namespace Skybrud.Social.Google.Places.Endpoints.Raw {
         /// </see>
         public SocialHttpResponse TextSearch(string query) {
             if (String.IsNullOrWhiteSpace(query)) throw new ArgumentNullException("query");
-            return NearbySearch(new PlacesNearbySearchOptions(query));
+            return TextSearch(new PlacesTextSearchOptions(query));
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace Skybrud.Social.Google.Places.Endpoints.Raw {
         ///     <cref>https://developers.google.com/places/web-service/search#TextSearchRequests</cref>
         /// </see>
         public SocialHttpResponse TextSearch(string query, double latitude, double longitude, int radius) {
-            return NearbySearch(new PlacesNearbySearchOptions(latitude, longitude, radius));
+            return TextSearch(new PlacesTextSearchOptions(query, latitude, longitude, radius));
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Skybrud.Social.Google.Places.Endpoints.Raw {
         /// </see>
         public SocialHttpResponse TextSearch(string query, ILocation location, int radius) {
             if (location == null) throw new ArgumentNullException("location");
-            return NearbySearch(new PlacesNearbySearchOptions(location, radius));
+            return TextSearch(new PlacesTextSearchOptions(query, location, radius));
         }
 
         /// <summary>
