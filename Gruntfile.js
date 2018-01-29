@@ -1,49 +1,41 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-	var path = require('path');
+    var path = require('path');
 
 	// Load the package JSON file
 	var pkg = grunt.file.readJSON('package.json');
 
-	// get the root path of the project
-	var projectRoot = 'src/' + pkg.name + '/';
-
 	// Load information about the assembly
-	var assembly = grunt.file.readJSON(projectRoot + 'Properties/AssemblyInfo.json');
+	var assembly = grunt.file.readJSON('src/' + pkg.name + '/Properties/AssemblyInfo.json');
 
 	// Get the version of the package
-	var version = assembly.informationalVersion ? assembly.informationalVersion : assembly.version;
+    var version = assembly.informationalVersion ? assembly.informationalVersion : assembly.version;
 
 	grunt.initConfig({
-		pkg: pkg,
+	    pkg: pkg,
 		zip: {
-			release: {
-				router: function (filepath) {
-					return path.basename(filepath);
-				},
-				src: [
-					'src/' + pkg.name + '/bin/Release/Skybrud.Social.Core.dll',
-					'src/' + pkg.name + '/bin/Release/Skybrud.Social.Core.xml',
-					'src/' + pkg.name + '/bin/Release/' + pkg.name + '.dll',
-					'src/' + pkg.name + '/bin/Release/' + pkg.name + '.xml',
-					'src/' + pkg.name + '/LICENSE.txt'
+		    release: {
+		        router: function (filepath) {
+					if (filepath.indexOf('/bin/Release/') >= 0) {
+						return filepath.split('/bin/Release/')[1];
+					} else {
+						return path.basename(filepath);
+					}
+		        },
+			    src: [
+					'src/' + pkg.name + '/bin/Release/*/*.dll',
+					'src/' + pkg.name + '/bin/Release/*/*.xml',
+					'src/LICENSE.html'
 				],
-				dest: 'releases/github/' + pkg.name + '.v' + version + '.zip'
-			}
-		},
-		nugetpack: {
-			release: {
-				src: 'src/' + pkg.name + '/' + pkg.name + '.csproj',
-				dest: 'releases/nuget/'
+		        dest: 'releases/github/' + pkg.name + '.v' + version + '.zip'
 			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-nuget');
 	grunt.loadNpmTasks('grunt-zip');
 
-	grunt.registerTask('dev', ['zip', 'nugetpack']);
+	grunt.registerTask('release', ['zip']);
 
-	grunt.registerTask('default', ['dev']);
+	grunt.registerTask('default', ['release']);
 
 };
