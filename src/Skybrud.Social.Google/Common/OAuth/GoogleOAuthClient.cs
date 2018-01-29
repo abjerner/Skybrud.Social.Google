@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Specialized;
 using Skybrud.Essentials.Common;
 using Skybrud.Social.Google.Analytics.Endpoints.Raw;
 using Skybrud.Social.Google.Calendar.Endpoints.Raw;
@@ -11,6 +10,7 @@ using Skybrud.Social.Google.Geocoding.Endpoints.Raw;
 using Skybrud.Social.Google.Places.Endpoints.Raw;
 using Skybrud.Social.Google.YouTube.Endpoints.Raw;
 using Skybrud.Social.Http;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.Common.OAuth {
     
@@ -137,21 +137,20 @@ namespace Skybrud.Social.Google.Common.OAuth {
             // Validate the required properties
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
 
-            // Construct the authorization URL
-            return GenerateUrl("https://accounts.google.com/o/oauth2/auth", new NameValueCollection {
-                {"response_type", "code"},
-                {"client_id", ClientId},
-                {"access_type", accessType.ToString().ToLower()},
-                {"approval_prompt", approvalPrompt.ToString().ToLower()},
-                {"scope", scope + ""},
-                {"redirect_uri", RedirectUri},
-                {"state", state}
-            });
-        
-        }
+            // Generate the query string
+            IHttpQueryString query = new SocialHttpQueryString();
 
-        public string GenerateUrl(string url, NameValueCollection query) {
-            return url + (query.Count == 0 ? "" : "?" + SocialUtils.Misc.NameValueCollectionToQueryString(query));
+            query.Add("response_type", "code");
+            query.Add("client_id", ClientId);
+            query.Add("access_type", accessType.ToString().ToLower());
+            query.Add("approval_prompt", approvalPrompt.ToString().ToLower());
+            query.Add("scope", scope + "");
+            query.Add("redirect_uri", RedirectUri);
+            query.Add("state", state);
+
+            // Construct the authorization URL
+            return "https://accounts.google.com/o/oauth2/auth?" + query;
+        
         }
 
         public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
@@ -163,19 +162,18 @@ namespace Skybrud.Social.Google.Common.OAuth {
             if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
 
             // Declare the POST data
-            NameValueCollection postData = new NameValueCollection {
-                {"code", code},
-                {"client_id", ClientId},
-                {"client_secret", ClientSecret},
-                {"redirect_uri", RedirectUri},
-                {"grant_type", "authorization_code"}
-            };
+            IHttpPostData postData = new SocialHttpPostData();
+            postData.Add("code", code);
+            postData.Add("client_id", ClientId);
+            postData.Add("client_secret", ClientSecret);
+            postData.Add("redirect_uri", RedirectUri);
+            postData.Add("grant_type", "authorization_code");
 
             // Initialize the request
             SocialHttpRequest request = new SocialHttpRequest {
                 Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = new SocialHttpPostData(postData)
+                PostData = postData
             };
 
             // Make a call to the server
@@ -194,18 +192,17 @@ namespace Skybrud.Social.Google.Common.OAuth {
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
 
             // Declare the POST data
-            NameValueCollection postData = new NameValueCollection {
-                {"client_id", ClientId},
-                {"client_secret", ClientSecret},
-                {"refresh_token", refreshToken},
-                {"grant_type", "refresh_token"}
-            };
+            IHttpPostData postData = new SocialHttpPostData();
+            postData.Add("client_id", ClientId);
+            postData.Add("client_secret", ClientSecret);
+            postData.Add("refresh_token", refreshToken);
+            postData.Add("grant_type", "refresh_token");
 
             // Initialize the request
             SocialHttpRequest request = new SocialHttpRequest {
                 Method = SocialHttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = new SocialHttpPostData(postData)
+                PostData = postData
             };
 
             // Make a call to the server
