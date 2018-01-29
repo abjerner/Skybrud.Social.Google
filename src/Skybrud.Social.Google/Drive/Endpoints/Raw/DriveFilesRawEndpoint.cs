@@ -26,12 +26,27 @@ namespace Skybrud.Social.Google.Drive.Endpoints.Raw {
 
         #region Member methods
 
+        /// <summary>
+        /// Gets the metadata of the file with the specified <paramref name="fileId"/>.
+        /// </summary>
+        /// <param name="fileId">The ID of the file.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/drive/v3/reference/files/get</cref>
+        /// </see>
+        public SocialHttpResponse GetFile(string fileId) {
+            if (String.IsNullOrWhiteSpace(fileId)) throw new ArgumentNullException("fileId");
+            return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v3/files/" + fileId);
+        }
 
         /// <summary>
         /// Gets the contents of the file with the specified <paramref name="fileId"/>.
         /// </summary>
         /// <param name="fileId">The ID of the file.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        /// <see>
+        ///     <cref>https://developers.google.com/drive/v3/reference/files/get</cref>
+        /// </see>
         public SocialHttpResponse DownloadFile(string fileId) {
             if (String.IsNullOrWhiteSpace(fileId)) throw new ArgumentNullException("fileId");
             return Client.DoHttpGetRequest("https://www.googleapis.com/drive/v3/files/" + fileId + "?alt=media");
