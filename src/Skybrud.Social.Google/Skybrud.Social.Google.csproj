@@ -10,12 +10,12 @@
 
   <PropertyGroup>
     <RootNamespace>Skybrud.Social.Google</RootNamespace>
-    <Version>1.0.0-beta003</Version>
+    <Version>1.0.0-beta004</Version>
     <Company>Skybrud.dk a/s</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
-    <Copyright>Copyright © 2017</Copyright>
-    <Description>Authentication and service implementation for the Google Graph API.</Description>
+    <Copyright>Copyright © 2018</Copyright>
+    <Description>Authentication and service implementation for the Google API.</Description>
     <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Google</RepositoryUrl>
   </PropertyGroup>
   
