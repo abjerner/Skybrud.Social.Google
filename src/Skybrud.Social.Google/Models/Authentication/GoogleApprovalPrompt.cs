@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Common.Enums {
+namespace Skybrud.Social.Google.Models.Authentication {
 
     /// <summary>
     /// Indicates whether the user should be re-prompted for consent. The default is <see cref="Auto"/>, so a given

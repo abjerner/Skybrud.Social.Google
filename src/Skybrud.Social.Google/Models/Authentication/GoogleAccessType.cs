@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Common.Enums {
+namespace Skybrud.Social.Google.Models.Authentication {
 
     /// <summary>
     /// Indicates whether your application needs to access a Google API when the user is not present at the browser.

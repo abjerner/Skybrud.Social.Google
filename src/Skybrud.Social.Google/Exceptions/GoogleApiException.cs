@@ -1,7 +1,7 @@
 using System;
 using Skybrud.Social.Http;
 
-namespace Skybrud.Social.Google.Common.Exceptions {
+namespace Skybrud.Social.Google.Exceptions {
     
     public class GoogleApiException : Exception {
 

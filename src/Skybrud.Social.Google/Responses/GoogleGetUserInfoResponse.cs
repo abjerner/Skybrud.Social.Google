@@ -1,7 +1,7 @@
-﻿using Skybrud.Social.Google.Common.Models;
+﻿using Skybrud.Social.Google.Models;
 using Skybrud.Social.Http;
 
-namespace Skybrud.Social.Google.Common.Responses {
+namespace Skybrud.Social.Google.Responses {
 
     /// <summary>
     /// Class representing the response for getting information about the authenticated user.

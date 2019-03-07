@@ -1,25 +1,19 @@
 using System;
 using Skybrud.Essentials.Common;
-using Skybrud.Social.Google.Analytics.Endpoints.Raw;
-using Skybrud.Social.Google.Calendar.Endpoints.Raw;
-using Skybrud.Social.Google.Common.Enums;
-using Skybrud.Social.Google.Common.Responses.Authentication;
-using Skybrud.Social.Google.Common.Scopes;
-using Skybrud.Social.Google.Drive.Endpoints.Raw;
-using Skybrud.Social.Google.Geocoding.Endpoints.Raw;
-using Skybrud.Social.Google.Places.Endpoints.Raw;
-using Skybrud.Social.Google.YouTube.Endpoints.Raw;
+using Skybrud.Social.Google.Models.Authentication;
+using Skybrud.Social.Google.Responses.Authentication;
+using Skybrud.Social.Google.Scopes;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
-namespace Skybrud.Social.Google.Common.OAuth {
+namespace Skybrud.Social.Google.OAuth {
     
     /// <summary>
     /// A client for handling the communication with the Google APIs using OAuth 2.0. The client is also responsible
     /// for the raw communication with the various Google APIs.
     /// </summary>
     public class GoogleOAuthClient : SocialHttpClient {
-
+        
         #region Properties
 
         /// <summary>
@@ -47,47 +41,33 @@ namespace Skybrud.Social.Google.Common.OAuth {
         /// </summary>
         public string ServerKey { get; set; }
 
-        /// <summary>
-        /// Gets a reference to the raw Analytics endpoint.
-        /// </summary>
-        public AnalyticsRawEndpoint Analytics { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the raw Google Calendar endpoint.
-        /// </summary>
-        public CalendarRawEndpoint Calendar { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the raw Google Drive endpoint.
-        /// </summary>
-        public DriveRawEndpoint Drive { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the raw Geocoding endpoint.
-        /// </summary>
-        public GeocodingRawEndpoint Geocoding { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the raw Google Places endpoint.
-        /// </summary>
-        public PlacesRawEndpoint Places { get; private set; }
-
-        /// <summary>
-        /// Gets a reference to the raw YouTube endpoint.
-        /// </summary>
-        public YouTubeRawEndpoint YouTube { get; private set; }
-
         #endregion
 
         #region Constructors
 
-        public GoogleOAuthClient() {
-            Analytics = new AnalyticsRawEndpoint(this);
-            Calendar = new CalendarRawEndpoint(this);
-            Drive = new DriveRawEndpoint(this);
-            Geocoding = new GeocodingRawEndpoint(this);
-            Places = new PlacesRawEndpoint(this);
-            YouTube = new YouTubeRawEndpoint(this);
+        /// <summary>
+        /// Initializes a new instance with default options.
+        /// </summary>
+        public GoogleOAuthClient() { }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="accessToken"/>.
+        /// </summary>
+        /// <param name="accessToken">The access token of the user.</param>
+        public GoogleOAuthClient(string accessToken) {
+            AccessToken = accessToken;
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="clientId"/>, <paramref name="clientSecret"/> and <paramref name="redirectUri"/>.
+        /// </summary>
+        /// <param name="clientId">The ID of the client/application.</param>
+        /// <param name="clientSecret">The secret of the client/application.</param>
+        /// <param name="redirectUri">The redirect URI of the client/application.</param>
+        public GoogleOAuthClient(string clientId, string clientSecret, string redirectUri) {
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            RedirectUri = redirectUri;
         }
 
         #endregion
@@ -135,7 +115,8 @@ namespace Skybrud.Social.Google.Common.OAuth {
         public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, GoogleAccessType accessType = GoogleAccessType.Online, GoogleApprovalPrompt approvalPrompt = GoogleApprovalPrompt.Auto) {
 
             // Validate the required properties
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(state)) throw new ArgumentNullException(nameof(state));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
 
             // Generate the query string
             IHttpQueryString query = new SocialHttpQueryString();
@@ -156,10 +137,10 @@ namespace Skybrud.Social.Google.Common.OAuth {
         public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
 
             // Validate the required parameters and properties
-            if (String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException("code");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
+            if (String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException(nameof(code));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
 
             // Declare the POST data
             IHttpPostData postData = new SocialHttpPostData();
@@ -187,9 +168,9 @@ namespace Skybrud.Social.Google.Common.OAuth {
         public GoogleTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
 
             // Validate the required parameters and properties
-            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException("refreshToken");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
+            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Declare the POST data
             IHttpPostData postData = new SocialHttpPostData();

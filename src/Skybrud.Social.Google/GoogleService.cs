@@ -1,15 +1,9 @@
 using System;
-using Skybrud.Social.Google.Analytics.Endpoints;
-using Skybrud.Social.Google.Calendar.Endpoints;
-using Skybrud.Social.Google.Common.OAuth;
-using Skybrud.Social.Google.Common.Responses;
-using Skybrud.Social.Google.Common.Responses.Authentication;
-using Skybrud.Social.Google.Drive.Endpoints;
-using Skybrud.Social.Google.Geocoding.Endpoints;
-using Skybrud.Social.Google.Places.Endpoints;
-using Skybrud.Social.Google.YouTube.Endpoints;
+using Skybrud.Social.Google.OAuth;
+using Skybrud.Social.Google.Responses;
+using Skybrud.Social.Google.Responses.Authentication;
 
-namespace Skybrud.Social.Google.Common {
+namespace Skybrud.Social.Google {
 
     /// <summary>
     /// Class working as an entry point to the Google APIs supported by Skybrud.Social.
@@ -21,37 +15,7 @@ namespace Skybrud.Social.Google.Common {
         /// <summary>
         /// Gets a reference to the internal OAuth client.
         /// </summary>
-        public GoogleOAuthClient Client { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the Analytics API.
-        /// </summary>
-        public AnalyticsEndpoint Analytics { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the Calendar API.
-        /// </summary>
-        public CalendarEndpoint Calendar { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the Drive API.
-        /// </summary>
-        public DriveEndpoint Drive { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the Geocoding API.
-        /// </summary>
-        public GeocodingEndpoint Geocoding { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the Google Places API.
-        /// </summary>
-        public PlacesEndpoint Places { get; private set; }
-
-        /// <summary>
-        /// Gets the endpoint for the YouTube API.
-        /// </summary>
-        public YouTubeEndpoint YouTube { get; private set; }
+        public GoogleOAuthClient Client { get; }
 
         #endregion
 
@@ -59,12 +23,6 @@ namespace Skybrud.Social.Google.Common {
 
         private GoogleService(GoogleOAuthClient client) {
             Client = client;
-            Analytics = new AnalyticsEndpoint(this);
-            Calendar = new CalendarEndpoint(this);
-            Drive = new DriveEndpoint(this);
-            Geocoding = new GeocodingEndpoint(this);
-            Places = new PlacesEndpoint(this);
-            YouTube = new YouTubeEndpoint(this);
         }
 
         #endregion
@@ -91,7 +49,7 @@ namespace Skybrud.Social.Google.Common {
         public static GoogleService CreateFromOAuthClient(GoogleOAuthClient client) {
 
             // Validate the OAuth client
-            if (client == null) throw new ArgumentNullException("client");
+            if (client == null) throw new ArgumentNullException(nameof(client));
 
             // Initialize a new service
             return new GoogleService(client);
@@ -107,7 +65,7 @@ namespace Skybrud.Social.Google.Common {
         public static GoogleService CreateFromAccessToken(string accessToken) {
 
             // Validate the server key
-            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException("accessToken");
+            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -129,7 +87,7 @@ namespace Skybrud.Social.Google.Common {
         public static GoogleService CreateFromServerKey(string serverKey) {
 
             // Validate the server key
-            if (String.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException("serverKey");
+            if (String.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException(nameof(serverKey));
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -152,9 +110,9 @@ namespace Skybrud.Social.Google.Common {
         public static GoogleService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
             
             // Validation
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
-            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException("refreshToken");
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
 
             // Initialize a new OAuth client with the specified client id and client secret
             GoogleOAuthClient client = new GoogleOAuthClient {

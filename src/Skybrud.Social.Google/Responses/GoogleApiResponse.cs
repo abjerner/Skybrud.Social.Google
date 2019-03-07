@@ -1,10 +1,10 @@
 using System.Net;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Google.Common.Exceptions;
-using Skybrud.Social.Http;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Google.Exceptions;
+using Skybrud.Social.Http;
 
-namespace Skybrud.Social.Google.Common.Responses {
+namespace Skybrud.Social.Google.Responses {
 
     /// <summary>
     /// Class representing a response from the one of the Google APIs.
