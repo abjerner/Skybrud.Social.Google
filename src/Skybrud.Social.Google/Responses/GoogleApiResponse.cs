@@ -1,19 +1,19 @@
 using System.Net;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Exceptions;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Responses {
 
     /// <summary>
     /// Class representing a response from the one of the Google APIs.
     /// </summary>
-    public class GoogleApiResponse : SocialResponse {
+    public class GoogleApiResponse : HttpResponseBase {
 
         #region Constructors
 
-        protected GoogleApiResponse(SocialHttpResponse response) : base(response) { }
+        protected GoogleApiResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace Skybrud.Social.Google.Responses {
         /// Validates the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
-        public static void ValidateResponse(SocialHttpResponse response) {
+        public static void ValidateResponse(IHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
@@ -54,7 +54,7 @@ namespace Skybrud.Social.Google.Responses {
 
         #region Constructors
 
-        protected GoogleApiResponse(SocialHttpResponse response) : base(response) { }
+        protected GoogleApiResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 

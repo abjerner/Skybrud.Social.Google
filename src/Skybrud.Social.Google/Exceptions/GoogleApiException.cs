@@ -1,5 +1,5 @@
 using System;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Google.Exceptions {
     
@@ -8,9 +8,9 @@ namespace Skybrud.Social.Google.Exceptions {
         #region Properties
 
         /// <summary>
-        /// Gets a reference to the underlying <see cref="SocialHttpResponse"/>.
+        /// Gets a reference to the underlying <see cref="IHttpResponse"/>.
         /// </summary>
-        public SocialHttpResponse Response { get; private set; }
+        public IHttpResponse Response { get; private set; }
 
         /// <summary>
         /// Gets the error code.
@@ -26,7 +26,7 @@ namespace Skybrud.Social.Google.Exceptions {
 
         #region Constructors
 
-        public GoogleApiException(SocialHttpResponse response, int code, string message) : base(code + ": " + message) {
+        public GoogleApiException(IHttpResponse response, int code, string message) : base(code + ": " + message) {
             Response = response;
             Code = code;
             Message = message;

@@ -1,5 +1,5 @@
-﻿using Skybrud.Social.Google.Models;
-using Skybrud.Social.Http;
+﻿using Skybrud.Essentials.Http;
+using Skybrud.Social.Google.Models;
 
 namespace Skybrud.Social.Google.Responses {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Google.Responses {
 
         #region Constructors
 
-        private GoogleGetUserInfoResponse(SocialHttpResponse response) : base(response) {
+        private GoogleGetUserInfoResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -29,7 +29,7 @@ namespace Skybrud.Social.Google.Responses {
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
         /// <returns>An instance of <see cref="GoogleGetUserInfoResponse"/> representing the response.</returns>
-        public static GoogleGetUserInfoResponse ParseResponse(SocialHttpResponse response) {
+        public static GoogleGetUserInfoResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new GoogleGetUserInfoResponse(response);
         }
 

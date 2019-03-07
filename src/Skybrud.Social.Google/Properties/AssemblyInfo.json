@@ -1,10 +1,10 @@
 {
   "title": "Skybrud.Social.Google",
-  "description": "Authentication and service implementation for the Google Graph API.",
+  "description": "Authentication and service implementation for the Google API.",
   "company": "Skybrud.dk a/s",
   "product": "Skybrud.Social",
   "copyright": "Copyright © 2018",
   "version": "1.0.0.0",
   "informationalVersion": "1.0.0-beta004",
-  "fileVersion": "0.0.1590.1"
+  "fileVersion": "0.0.1992.4"
 }

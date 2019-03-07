@@ -1,10 +1,11 @@
 using System;
 using Skybrud.Essentials.Common;
+using Skybrud.Essentials.Http;
+using Skybrud.Essentials.Http.Client;
+using Skybrud.Essentials.Http.Collections;
 using Skybrud.Social.Google.Models.Authentication;
 using Skybrud.Social.Google.Responses.Authentication;
 using Skybrud.Social.Google.Scopes;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Google.OAuth {
     
@@ -12,7 +13,7 @@ namespace Skybrud.Social.Google.OAuth {
     /// A client for handling the communication with the Google APIs using OAuth 2.0. The client is also responsible
     /// for the raw communication with the various Google APIs.
     /// </summary>
-    public class GoogleOAuthClient : SocialHttpClient {
+    public class GoogleOAuthClient : HttpClient {
         
         #region Properties
 
@@ -119,7 +120,7 @@ namespace Skybrud.Social.Google.OAuth {
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
 
             // Generate the query string
-            IHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new HttpQueryString();
 
             query.Add("response_type", "code");
             query.Add("client_id", ClientId);
@@ -143,7 +144,7 @@ namespace Skybrud.Social.Google.OAuth {
             if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
 
             // Declare the POST data
-            IHttpPostData postData = new SocialHttpPostData();
+            IHttpPostData postData = new HttpPostData();
             postData.Add("code", code);
             postData.Add("client_id", ClientId);
             postData.Add("client_secret", ClientSecret);
@@ -151,14 +152,14 @@ namespace Skybrud.Social.Google.OAuth {
             postData.Add("grant_type", "authorization_code");
 
             // Initialize the request
-            SocialHttpRequest request = new SocialHttpRequest {
-                Method = SocialHttpMethod.Post,
+            HttpRequest request = new HttpRequest {
+                Method = HttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
                 PostData = postData
             };
 
             // Make a call to the server
-            SocialHttpResponse response = request.GetResponse();
+            IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
             return GoogleTokenResponse.ParseResponse(response);
@@ -173,21 +174,21 @@ namespace Skybrud.Social.Google.OAuth {
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Declare the POST data
-            IHttpPostData postData = new SocialHttpPostData();
+            IHttpPostData postData = new HttpPostData();
             postData.Add("client_id", ClientId);
             postData.Add("client_secret", ClientSecret);
             postData.Add("refresh_token", refreshToken);
             postData.Add("grant_type", "refresh_token");
 
             // Initialize the request
-            SocialHttpRequest request = new SocialHttpRequest {
-                Method = SocialHttpMethod.Post,
+            HttpRequest request = new HttpRequest {
+                Method = HttpMethod.Post,
                 Url = "https://accounts.google.com/o/oauth2/token",
                 PostData = postData
             };
 
             // Make a call to the server
-            SocialHttpResponse response = request.GetResponse();
+            IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
             return GoogleTokenResponse.ParseResponse(response);
@@ -197,11 +198,11 @@ namespace Skybrud.Social.Google.OAuth {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        public SocialHttpResponse GetUserInfo() {
+        public IHttpResponse GetUserInfo() {
             return DoHttpGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
         }
 
-        protected override void PrepareHttpRequest(SocialHttpRequest request) {
+        protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Append the access token or server if specified
             if (!String.IsNullOrWhiteSpace(AccessToken)) {

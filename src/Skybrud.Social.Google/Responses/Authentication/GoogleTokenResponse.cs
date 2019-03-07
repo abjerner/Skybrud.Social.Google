@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Google.Models.Authentication;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Google.Responses.Authentication {
     
@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Responses.Authentication {
 
         #region Constructors
 
-        private GoogleTokenResponse(SocialHttpResponse response) : base(response) {
+        private GoogleTokenResponse(IHttpResponse response) : base(response) {
 
             // Parse the response body
             Body = ParseJsonObject(response.Body, GoogleToken.Parse);
@@ -16,7 +16,7 @@ namespace Skybrud.Social.Google.Responses.Authentication {
 
         #endregion
 
-        public static GoogleTokenResponse ParseResponse(SocialHttpResponse response) {
+        public static GoogleTokenResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new GoogleTokenResponse(response);
         }
 
