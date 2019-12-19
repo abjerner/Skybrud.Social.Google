@@ -11,11 +11,11 @@
 
   <PropertyGroup>
     <RootNamespace>Skybrud.Social.Google</RootNamespace>
-    <Version>1.0.0-beta004</Version>
+    <Version>1.0.0-beta005</Version>
     <Company>Skybrud.dk a/s</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
-    <Copyright>Copyright © 2018</Copyright>
+    <Copyright>Copyright © 2019</Copyright>
     <Description>Authentication and service implementation for the Google API.</Description>
   </PropertyGroup>
 
