@@ -1,4 +1,4 @@
-namespace Skybrud.Social.Google.Models.Authentication {
+namespace Skybrud.Social.Google.Options.Authentication {
 
     /// <summary>
     /// Indicates whether your application needs to access a Google API when the user is not present at the browser.

@@ -78,7 +78,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// Gets string array of the scopes in the collection.
         /// </summary>
         public string[] ToStringArray() {
-            return (from scope in _list select scope.Name).ToArray();
+            return (from scope in _list select scope.Alias).ToArray();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// </summary>
         /// <returns>A string representation of the collection.</returns>
         public override string ToString() {
-            return String.Join(" ", from scope in _list select scope.Name);
+            return String.Join(" ", from scope in _list select scope.Alias);
         }
 
         #endregion

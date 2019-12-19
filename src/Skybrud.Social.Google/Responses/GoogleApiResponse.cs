@@ -13,6 +13,10 @@ namespace Skybrud.Social.Google.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="response"/>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected GoogleApiResponse(IHttpResponse response) : base(response) { }
 
         #endregion
@@ -30,7 +34,7 @@ namespace Skybrud.Social.Google.Responses {
 
             JObject body = JObject.Parse(response.Body);
             JObject error = body.GetObject("error");
-            throw new GoogleApiException(response, error.GetInt32("code"), error.GetString("message"));
+            throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message"));
 
         }
 
@@ -54,6 +58,10 @@ namespace Skybrud.Social.Google.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="response"/>.
+        /// </summary>
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
         protected GoogleApiResponse(IHttpResponse response) : base(response) { }
 
         #endregion

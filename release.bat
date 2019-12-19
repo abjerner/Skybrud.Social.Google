@@ -1,5 +1,2 @@
 @echo off
-cd src/Skybrud.Social.Google
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\msbuild.exe" /t:pack /p:Configuration=Release /p:PackageOutputPath=../../releases/nuget /p:RunBuildTargets=false
-cd ../../
-grunt
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\msbuild.exe" "src/Skybrud.Social.Google" /t:rebuild /t:pack /p:BuildTools=1 /p:Configuration=Release /p:PackageOutputPath=../../releases/nuget

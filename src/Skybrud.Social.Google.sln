@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skybrud.Social.Google", "Skybrud.Social.Google\Skybrud.Social.Google.csproj", "{9A62C276-4BFC-4885-93DC-8067A2FB362D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skybrud.Social.Google", "Skybrud.Social.Google\Skybrud.Social.Google.csproj", "{9A62C276-4BFC-4885-93DC-8067A2FB362D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FAAA40A-E9B5-4C2F-8C79-69BAC717C6FF}
 	EndGlobalSection
 EndGlobal

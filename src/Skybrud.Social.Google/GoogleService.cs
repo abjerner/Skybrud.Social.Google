@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.Responses;
 using Skybrud.Social.Google.Responses.Authentication;
@@ -6,9 +7,11 @@ using Skybrud.Social.Google.Responses.Authentication;
 namespace Skybrud.Social.Google {
 
     /// <summary>
-    /// Class working as an entry point to the Google APIs supported by Skybrud.Social.
+    /// Class working as an entry point to the Google APIs.
     /// </summary>
     public class GoogleService {
+
+        private readonly Dictionary<Type, GoogleApiServiceBase> _services = new Dictionary<Type, GoogleApiServiceBase>();
 
         #region Properties
 
@@ -65,7 +68,7 @@ namespace Skybrud.Social.Google {
         public static GoogleService CreateFromAccessToken(string accessToken) {
 
             // Validate the server key
-            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
+            if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -87,7 +90,7 @@ namespace Skybrud.Social.Google {
         public static GoogleService CreateFromServerKey(string serverKey) {
 
             // Validate the server key
-            if (String.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException(nameof(serverKey));
+            if (string.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException(nameof(serverKey));
 
             // Initialize a new OAuth client
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -110,9 +113,9 @@ namespace Skybrud.Social.Google {
         public static GoogleService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
             
             // Validation
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
-            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
+            if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (string.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (string.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
 
             // Initialize a new OAuth client with the specified client id and client secret
             GoogleOAuthClient client = new GoogleOAuthClient {
@@ -126,6 +129,23 @@ namespace Skybrud.Social.Google {
             // Initialize a new GoogleService instance based on the received access token
             return CreateFromAccessToken(response.Body.AccessToken);
 
+        }
+
+        /// <summary>
+        /// Returns the API implementation of type <typeparamref name="T"/>.
+        ///
+        /// If an implementation of type <typeparamref name="T"/> hasn't yet been registered,
+        /// <paramref name="callback"/> will be used to initialize and register an implementation.
+        /// </summary>
+        /// <typeparam name="T">The type of the API implementation.</typeparam>
+        /// <param name="callback"></param>
+        /// <returns>An instance of <typeparamref name="T"/>.</returns>
+        public T GetApiService<T>(Func<T> callback) where T : GoogleApiServiceBase {
+            Type type = typeof(T);
+            if (_services.TryGetValue(type, out GoogleApiServiceBase endpoint)) return (T) endpoint;
+            T e = callback();
+            _services.Add(type, e);
+            return e;
         }
 
         #endregion

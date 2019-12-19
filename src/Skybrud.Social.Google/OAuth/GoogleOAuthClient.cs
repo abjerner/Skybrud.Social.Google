@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Client;
 using Skybrud.Essentials.Http.Collections;
-using Skybrud.Social.Google.Models.Authentication;
+using Skybrud.Social.Google.Http;
+using Skybrud.Social.Google.Options.Authentication;
 using Skybrud.Social.Google.Responses.Authentication;
 using Skybrud.Social.Google.Scopes;
 
@@ -15,6 +17,8 @@ namespace Skybrud.Social.Google.OAuth {
     /// </summary>
     public class GoogleOAuthClient : HttpClient {
         
+        private readonly Dictionary<Type, GoogleApiHttpClientBase> _apis = new Dictionary<Type, GoogleApiHttpClientBase>();
+
         #region Properties
 
         /// <summary>
@@ -80,9 +84,19 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
-        /// <param name="offline">Whether the application should be enabled for offline access. Default is false.</param>
-        public string GetAuthorizationUrl(string state, string scope, bool offline = false) {
-            return GetAuthorizationUrl(state, new GoogleScope(scope), offline ? GoogleAccessType.Offline : GoogleAccessType.Online);
+        public string GetAuthorizationUrl(string state, string scope) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope));
+        }
+
+        
+        /// <summary>
+        /// Gets the authorization URL at accounts.google.com for your application.
+        /// </summary>
+        /// <param name="state">The state of the application.</param>
+        /// <param name="scope">The scope of the application.</param>
+        /// <param name="offline">Whether the application should be enabled for offline access.</param>
+        public string GetAuthorizationUrl(string state, string scope, bool offline) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, offline ? GoogleAccessType.Offline : GoogleAccessType.Online));
         }
         
         /// <summary>
@@ -90,58 +104,64 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
-        /// <param name="offline">Whether the application should be enabled for offline access. Default is false.</param>
-        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, bool offline = false) {
-            return GetAuthorizationUrl(state, scope, offline ? GoogleAccessType.Offline : GoogleAccessType.Online);
+        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope));
         }
-
-        /// <summary>
-        /// Gets the authorization URL at accounts.google.com for your application.
-        /// </summary>
-        /// <param name="state">The state of the application.</param>
-        /// <param name="scope">The scope of the application.</param>
-        /// <param name="accessType">Whether the application should be enabled for offline access. Default is online.</param>
-        /// <param name="approvalPrompt">Whether the user should be re-prompted for scopes that he/she already has approved.</param>
-        public string GetAuthorizationUrl(string state, string scope, GoogleAccessType accessType = GoogleAccessType.Online, GoogleApprovalPrompt approvalPrompt = GoogleApprovalPrompt.Auto) {
-            return GetAuthorizationUrl(state, new GoogleScope(scope), accessType, approvalPrompt);
-        }
-
-        /// <summary>
-        /// Gets the authorization URL at accounts.google.com for your application.
-        /// </summary>
-        /// <param name="state">The state of the application.</param>
-        /// <param name="scope">The scope of the application.</param>
-        /// <param name="accessType">Whether the application should be enabled for offline access. Default is online.</param>
-        /// <param name="approvalPrompt">Whether the user should be re-prompted for scopes that he/she already has approved.</param>
-        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, GoogleAccessType accessType = GoogleAccessType.Online, GoogleApprovalPrompt approvalPrompt = GoogleApprovalPrompt.Auto) {
-
-            // Validate the required properties
-            if (String.IsNullOrWhiteSpace(state)) throw new ArgumentNullException(nameof(state));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-
-            // Generate the query string
-            IHttpQueryString query = new HttpQueryString();
-
-            query.Add("response_type", "code");
-            query.Add("client_id", ClientId);
-            query.Add("access_type", accessType.ToString().ToLower());
-            query.Add("approval_prompt", approvalPrompt.ToString().ToLower());
-            query.Add("scope", scope + "");
-            query.Add("redirect_uri", RedirectUri);
-            query.Add("state", state);
-
-            // Construct the authorization URL
-            return "https://accounts.google.com/o/oauth2/auth?" + query;
         
+        /// <summary>
+        /// Gets the authorization URL at accounts.google.com for your application.
+        /// </summary>
+        /// <param name="state">The state of the application.</param>
+        /// <param name="scope">The scope of the application.</param>
+        /// <param name="offline">Whether the application should be enabled for offline access.</param>
+        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, bool offline) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, offline ? GoogleAccessType.Offline : GoogleAccessType.Online));
         }
 
+        /// <summary>
+        /// Gets the authorization URL at accounts.google.com for your application.
+        /// </summary>
+        /// <param name="state">The state of the application.</param>
+        /// <param name="scope">The scope of the application.</param>
+        /// <param name="accessType">Whether the application should be enabled for offline access.</param>
+        /// <param name="prompt">A list of prompts to present the user. If <see cref="GooglePromptOption.None"/>, the user will be prompted only the first time your app requests access.</param>
+        public string GetAuthorizationUrl(string state, string scope, GoogleAccessType accessType, GooglePromptOption prompt) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, accessType, prompt));
+        }
+
+        /// <summary>
+        /// Gets the authorization URL at accounts.google.com for your application.
+        /// </summary>
+        /// <param name="state">The state of the application.</param>
+        /// <param name="scope">The scope of the application.</param>
+        /// <param name="accessType">Whether the application should be enabled for offline access.</param>
+        /// <param name="prompt">A list of prompts to present the user. If <see cref="GooglePromptOption.None"/>, the user will be prompted only the first time your app requests access.</param>
+        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, GoogleAccessType accessType, GooglePromptOption prompt) {
+            return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, accessType, prompt));
+        }
+
+        /// <summary>
+        /// Gets the authorization URL at accounts.google.com for your application.
+        /// </summary>
+        /// <param name="options">The options for generating an authorization URL.</param>
+        public string GetAuthorizationUrl(GoogleAuthorizeOptions options) {
+            if (options == null) throw new ArgumentNullException(nameof(options));
+            return "https://accounts.google.com/o/oauth2/auth?" + options.GetQueryString(this);
+        }
+
+        /// <summary>
+        /// Returns an instance of <see cref="GoogleTokenResponse"/> with information about an access token exchanged
+        /// from the specified authorization <paramref name="code"/>.
+        /// </summary>
+        /// <param name="code">The authorization code.</param>
+        /// <returns>An instance of  <see cref="GoogleTokenResponse"/>.</returns>
         public GoogleTokenResponse GetAccessTokenFromAuthorizationCode(string code) {
 
             // Validate the required parameters and properties
-            if (String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException(nameof(code));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
+            if (string.IsNullOrWhiteSpace(code)) throw new ArgumentNullException(nameof(code));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (string.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
 
             // Declare the POST data
             IHttpPostData postData = new HttpPostData();
@@ -152,13 +172,9 @@ namespace Skybrud.Social.Google.OAuth {
             postData.Add("grant_type", "authorization_code");
 
             // Initialize the request
-            HttpRequest request = new HttpRequest {
-                Method = HttpMethod.Post,
-                Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = postData
-            };
+            HttpRequest request = HttpRequest.Post("https://accounts.google.com/o/oauth2/token", postData);
 
-            // Make a call to the server
+            // Make the request to the server
             IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
@@ -166,12 +182,18 @@ namespace Skybrud.Social.Google.OAuth {
 
         }
 
+        /// <summary>
+        /// Returns an instance of <see cref="GoogleTokenResponse"/> with information about an access token exchanged
+        /// from the specified <paramref name="refreshToken"/>.
+        /// </summary>
+        /// <param name="refreshToken">The refresh token to exchange for a new access token.</param>
+        /// <returns>An instance of  <see cref="GoogleTokenResponse"/>.</returns>
         public GoogleTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
 
             // Validate the required parameters and properties
-            if (String.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (string.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Declare the POST data
             IHttpPostData postData = new HttpPostData();
@@ -181,13 +203,9 @@ namespace Skybrud.Social.Google.OAuth {
             postData.Add("grant_type", "refresh_token");
 
             // Initialize the request
-            HttpRequest request = new HttpRequest {
-                Method = HttpMethod.Post,
-                Url = "https://accounts.google.com/o/oauth2/token",
-                PostData = postData
-            };
+            HttpRequest request = HttpRequest.Post("https://accounts.google.com/o/oauth2/token", postData);
 
-            // Make a call to the server
+            // Make the request to the server
             IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
@@ -199,18 +217,42 @@ namespace Skybrud.Social.Google.OAuth {
         /// Gets information about the authenticated user.
         /// </summary>
         public IHttpResponse GetUserInfo() {
-            return DoHttpGetRequest("https://www.googleapis.com/oauth2/v2/userinfo");
+            return Get("https://www.googleapis.com/oauth2/v2/userinfo");
         }
 
+        /// <summary>
+        /// Returns the raw API implementation of type <typeparamref name="T"/>.
+        ///
+        /// If an implementation of type <typeparamref name="T"/> hasn't yet been registered,
+        /// <paramref name="callback"/> will be used to initialize and register an implementation.
+        /// </summary>
+        /// <typeparam name="T">The type of the raw API implementation.</typeparam>
+        /// <param name="callback"></param>
+        /// <returns>An instance of <typeparamref name="T"/>.</returns>
+        public T GetApiClient<T>(Func<T> callback) where T : GoogleApiHttpClientBase {
+            Type type = typeof(T);
+            if (_apis.TryGetValue(type, out GoogleApiHttpClientBase api)) return (T) api;
+            T e = callback();
+            _apis.Add(type, e);
+            return e;
+        }
+
+        /// <summary>
+        /// Virtual method that can be used for configuring a request.
+        /// </summary>
+        /// <param name="request">The instance of <see cref="IHttpRequest"/> representing the request.</param>
         protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Append the access token or server if specified
-            if (!String.IsNullOrWhiteSpace(AccessToken)) {
+            if (!string.IsNullOrWhiteSpace(AccessToken)) {
                 // TODO: Specify access token in HTTP header instead
                 request.QueryString.Set("access_token", AccessToken);
-            } else if (!String.IsNullOrWhiteSpace(ServerKey)) {
+            } else if (!string.IsNullOrWhiteSpace(ServerKey)) {
                 request.QueryString.Set("key", ServerKey);
             }
+
+            // Prepend scheme and host name if not already specified
+            if (request.Url.StartsWith("/")) request.Url = "https://www.googleapis.com" + request.Url;
 
         }
 

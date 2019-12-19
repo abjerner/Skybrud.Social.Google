@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Skybrud.Social.Google.Scopes {
     
     /// <summary>
@@ -8,42 +10,45 @@ namespace Skybrud.Social.Google.Scopes {
         #region Properties
 
         /// <summary>
-        /// Gets the name of the scope.
+        /// Gets the alias of the scope.
         /// </summary>
-        public string Name { get; private set; }
+        [JsonProperty("alias")]
+        public string Alias { get; }
 
         /// <summary>
-        /// Gets the title of the scope.
+        /// Gets the name of the scope.
         /// </summary>
-        public string Title { get; private set; }
+        [JsonProperty("name")]
+        public string Name { get; }
 
         /// <summary>
         /// Gets the description of the scope.
         /// </summary>
-        public string Description { get; private set; }
+        [JsonProperty("description")]
+        public string Description { get; }
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Initializes a new scope with the specified <paramref name="name"/>.
+        /// Initializes a new scope with the specified <paramref name="alias"/>.
         /// </summary>
-        /// <param name="name">The name of the scope.</param>
-        internal GoogleScope(string name) {
-            Name = name;
+        /// <param name="alias">The name of the scope.</param>
+        internal GoogleScope(string alias) {
+            Alias = alias;
         }
         
         /// <summary>
-        /// Initializes a new scope with the specified <paramref name="name"/>, <paramref name="title"/> and
+        /// Initializes a new scope with the specified <paramref name="alias"/>, <paramref name="title"/> and
         /// <paramref name="description"/>.
         /// </summary>
-        /// <param name="name">The name of the scope.</param>
+        /// <param name="alias">The name of the scope.</param>
         /// <param name="title">The title of the scope.</param>
         /// <param name="description">The description of the scope.</param>
-        public GoogleScope(string name, string title, string description) {
-            Name = name;
-            Title = title ?? name;
+        public GoogleScope(string alias, string title, string description) {
+            Alias = alias;
+            Name = title ?? alias;
             Description = description;
         }
 
@@ -51,8 +56,9 @@ namespace Skybrud.Social.Google.Scopes {
         
         #region Member methods
 
+        /// <inheritdoc />
         public override string ToString() {
-            return Name;
+            return Alias;
         }
 
         #endregion

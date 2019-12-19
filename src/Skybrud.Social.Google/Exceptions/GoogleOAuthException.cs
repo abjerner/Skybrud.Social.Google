@@ -1,5 +1,7 @@
 using System;
 
+#pragma warning disable 1591
+
 namespace Skybrud.Social.Google.Exceptions {
     
     public class GoogleOAuthException : Exception {
