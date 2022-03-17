@@ -1,13 +1,6 @@
-Skybrud.Social.Google
-========================
+# Skybrud.Social.Google [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md) [![NuGet](https://img.shields.io/nuget/v/Skybrud.Social.Google.svg)](https://www.nuget.org/packages/Skybrud.Social.Google) [![NuGet](https://img.shields.io/nuget/dt/Skybrud.Social.Google.svg)](https://www.nuget.org/packages/SSkybrud.Social.Google)
 
-As an add-on for [Skybrud.Social](https://github.com/abjerner/Skybrud.Social), **Skybrud.Social.Google** helps you with both authentication as well as raw and object-oriented communication with the Google API.
-
-### Beta
-
-This package is currently in beta, which primarily means that it is still under development. This may lead to breaking changes between each beta release.
-
-If you're looking for a stable release, you can use the older [Skybrud.Social)[https://www.nuget.org/packages/Skybrud.Social/] instead, which includes support for the Twitter API.
+*Skybrud.Social.Google* is an authentication and service implementation for the Google API - targeting both .NET Framework and .NET Standard.
 
 ### Installation
 
@@ -19,13 +12,16 @@ Install this NuGet package in your Visual Studio project. Makes updating easy.
 2. [**ZIP file**][GitHubRelease]  
 Grab a ZIP file of the latest release; unzip and move the files to the bin directory of your project.
 
-### Dependencies
+### Google APIs
 
-- [**Skybrud.Social.Core**](https://github.com/abjerner/Skybrud.Social)<br />A package with common logic used throughout the Skybrud.Social packages.
+*Skybrud.Social.Google* primarily handles authentication with the Google API, and also serves as a base implementation for the the long list of underlying APIs.
 
-  - [**Json.NET**](https://github.com/jamesnk/newtonsoft.json)<br />Used for searializing/deserializing JSON.
+Through individual packages (building on top of *Skybrud.Social.Google*), I've also implemented packages for the following APIs:
 
-  - [**Skybrud.Essentials**](https://github.com/skybrud/Skybrud.Essentials)<br />A package with logic for handling various common tasks in .NET.
+- [**Analytics**](https://github.com/abjerner/Skybrud.Social.Google.Analytics)
+- [**Geocoding**](https://github.com/abjerner/Skybrud.Social.Google.Geocoding)
+- [**Places**](https://github.com/abjerner/Skybrud.Social.Google.Places)
+- [**YouTube**](https://github.com/abjerner/Skybrud.Social.Google.YouTube)
 
 ### Found a bug? Have a question?
 
