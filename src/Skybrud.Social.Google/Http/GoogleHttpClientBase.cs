@@ -1,6 +1,5 @@
 ﻿using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Client;
-using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Google.OAuth;
 
 namespace Skybrud.Social.Google.Http {
@@ -22,14 +21,13 @@ namespace Skybrud.Social.Google.Http {
         protected GoogleHttpClientBase(GoogleOAuthClient client) {
             Client = client;
         }
-
+        
         /// <summary>
-        /// Returns the response of the request identified by the specified <paramref name="options"/>.
+        /// Virtual method that can be used for configuring a request.
         /// </summary>
-        /// <param name="options">The options for the request to the API.</param>
-        /// <returns>An instanceo of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public override IHttpResponse GetResponse(IHttpRequestOptions options) {
-            return Client.GetResponse(options);
+        /// <param name="request">The instance of <see cref="IHttpRequest"/> representing the request.</param>
+        protected override void PrepareHttpRequest(IHttpRequest request) {
+            Client.PrepareHttpRequestInternal(request);
         }
 
     }

@@ -256,6 +256,15 @@ namespace Skybrud.Social.Google.OAuth {
 
         }
 
+        internal void PrepareHttpRequestInternal(IHttpRequest request) {
+
+            // As the "PrepareHttpRequest" method is protected, we need an internal "shortcut" method in order to call
+            // it from the "GoogleHttpClientBase" class
+            
+            PrepareHttpRequest(request);
+
+        }
+        
         #endregion
 
     }
