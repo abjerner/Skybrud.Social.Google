@@ -140,7 +140,7 @@ namespace Skybrud.Social.Google {
         /// <typeparam name="T">The type of the API implementation.</typeparam>
         /// <param name="callback"></param>
         /// <returns>An instance of <typeparamref name="T"/>.</returns>
-        public T GetApiService<T>(Func<T> callback) where T : GoogleHttpServiceBase {
+        public T GetHttpService<T>(Func<T> callback) where T : GoogleHttpServiceBase {
             Type type = typeof(T);
             if (_services.TryGetValue(type, out GoogleHttpServiceBase endpoint)) return (T) endpoint;
             T e = callback();

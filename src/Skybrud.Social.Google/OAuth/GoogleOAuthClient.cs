@@ -229,7 +229,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// <typeparam name="T">The type of the raw API implementation.</typeparam>
         /// <param name="callback"></param>
         /// <returns>An instance of <typeparamref name="T"/>.</returns>
-        public T GetApiClient<T>(Func<T> callback) where T : GoogleHttpClientBase {
+        public T GetHttpClient<T>(Func<T> callback) where T : GoogleHttpClientBase {
             Type type = typeof(T);
             if (_apis.TryGetValue(type, out GoogleHttpClientBase api)) return (T) api;
             T e = callback();
