@@ -7,7 +7,7 @@ using Skybrud.Social.Google.OAuth;
 using Skybrud.Social.Google.Scopes;
 
 namespace Skybrud.Social.Google.Options.Authentication {
-    
+
     /// <summary>
     /// Options for authorizing using the OAuth server-side web app flow.
     /// </summary>

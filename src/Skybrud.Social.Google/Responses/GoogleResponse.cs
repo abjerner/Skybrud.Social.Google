@@ -16,7 +16,7 @@ namespace Skybrud.Social.Google.Responses {
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
         public GoogleResponse(IHttpResponse response) : base(response) {
-            
+
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
 

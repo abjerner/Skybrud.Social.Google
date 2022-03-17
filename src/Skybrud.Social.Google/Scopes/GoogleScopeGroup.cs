@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using Newtonsoft.Json;
 using Skybrud.Social.Google.Attributes;
 
 namespace Skybrud.Social.Google.Scopes {

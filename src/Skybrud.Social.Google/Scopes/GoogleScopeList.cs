@@ -36,7 +36,7 @@ namespace Skybrud.Social.Google.Scopes {
         #endregion
 
         #region Member methods
-        
+
         /// <summary>
         /// Adds the specified <paramref name="scope"/> to the list.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Skybrud.Social.Google.Scopes {
         #endregion
 
         #region Operator overloading
-        
+
         /// <summary>
         /// Initializes a new collection based on a single <paramref name="scope"/>.
         /// </summary>

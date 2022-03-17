@@ -10,13 +10,13 @@ using Skybrud.Social.Google.Responses.Authentication;
 using Skybrud.Social.Google.Scopes;
 
 namespace Skybrud.Social.Google.OAuth {
-    
+
     /// <summary>
     /// A client for handling the communication with the Google APIs using OAuth 2.0. The client is also responsible
     /// for the raw communication with the various Google APIs.
     /// </summary>
     public class GoogleOAuthClient : HttpClient {
-        
+
         private readonly Dictionary<Type, GoogleHttpClientBase> _apis = new();
 
         #region Properties
@@ -88,7 +88,7 @@ namespace Skybrud.Social.Google.OAuth {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope));
         }
 
-        
+
         /// <summary>
         /// Gets the authorization URL at accounts.google.com for your application.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Skybrud.Social.Google.OAuth {
         public string GetAuthorizationUrl(string state, string scope, bool offline) {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, offline ? GoogleAccessType.Offline : GoogleAccessType.Online));
         }
-        
+
         /// <summary>
         /// Gets the authorization URL at accounts.google.com for your application.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Skybrud.Social.Google.OAuth {
         public string GetAuthorizationUrl(string state, GoogleScopeList scope) {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope));
         }
-        
+
         /// <summary>
         /// Gets the authorization URL at accounts.google.com for your application.
         /// </summary>

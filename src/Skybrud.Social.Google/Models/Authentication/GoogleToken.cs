@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.Models.Authentication {
-    
+
     /// <summary>
     /// Class representing information about an access token.
     /// </summary>
@@ -35,7 +35,7 @@ namespace Skybrud.Social.Google.Models.Authentication {
         #endregion
 
         #region Constructors
-        
+
         /// <summary>
         /// Initializes a new instance from the specified <paramref name="json"/> object.
         /// </summary>

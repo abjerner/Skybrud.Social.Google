@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.Models {
-    
+
     /// <summary>
     /// Class representing a Google account/user. Not all properties may be present since it both
     /// depends on the scope of the application as well as what information the user has specified
@@ -92,7 +92,7 @@ namespace Skybrud.Social.Google.Models {
         #endregion
 
         #region Constructors
-        
+
         /// <summary>
         /// Initializes a new instance from the specified <paramref name="json"/> object.
         /// </summary>
@@ -113,9 +113,9 @@ namespace Skybrud.Social.Google.Models {
         }
 
         #endregion
-        
+
         #region Static methods
-        
+
         /// <summary>
         /// Gets a user from the specified <paramref name="json"/> object.
         /// </summary>

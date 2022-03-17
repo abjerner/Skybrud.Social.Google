@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Models.Authentication {
     /// application for a given set of scopes.
     /// </summary>
     public enum GoogleApprovalPrompt {
-    
+
         /// <summary>
         /// Indicates that the authenticating user only should see the consent page if one or more scopes haven't
         /// already been granted.
@@ -18,7 +18,7 @@ namespace Skybrud.Social.Google.Models.Authentication {
         /// Indicates that the authenticatig user always should see the content page.
         /// </summary>
         Force
-    
+
     }
 
 }

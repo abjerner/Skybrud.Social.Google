@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Google.Models {
-    
+
     /// <summary>
     /// Class representing a resource in the Google ecosystem. A resource can be described as an object that can be
     /// requested through one of the various APIs, and holds properties for <c>kind</c> and <c>etag</c>.

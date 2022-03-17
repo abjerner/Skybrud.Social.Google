@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
     /// obtaining a refresh token the first time your application exchanges an authorization code for a user.
     /// </summary>
     public enum GoogleAccessType {
-    
+
         /// <summary>
         /// Indicates that your app should only be granted online access. This means that you will be granted an access
         /// token that will have a lifetime of an hour.
@@ -20,7 +20,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// for the authenticated user with the user having to do anything.
         /// </summary>
         Offline
-    
+
     }
 
 }

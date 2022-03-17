@@ -4,7 +4,7 @@ using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Exceptions;
 
 namespace Skybrud.Social.Google.Exceptions {
-    
+
     /// <summary>
     /// Class representing an error returned by the Google API.
     /// </summary>

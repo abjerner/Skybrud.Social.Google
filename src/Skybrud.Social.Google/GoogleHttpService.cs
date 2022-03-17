@@ -56,7 +56,7 @@ namespace Skybrud.Social.Google {
 
             // Initialize a new service
             return new GoogleHttpService(client);
-        
+
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Skybrud.Social.Google {
 
             // Initialize a new service
             return new GoogleHttpService(client);
-        
+
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Skybrud.Social.Google {
 
             // Initialize a new service
             return new GoogleHttpService(client);
-        
+
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Skybrud.Social.Google {
         /// <param name="clientSecret">The client secret.</param>
         /// <param name="refreshToken">The refresh token of the user.</param>
         public static GoogleHttpService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
-            
+
             // Validation
             if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
             if (string.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));

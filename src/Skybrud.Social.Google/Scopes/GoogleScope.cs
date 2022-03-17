@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 
 namespace Skybrud.Social.Google.Scopes {
-    
+
     /// <summary>
     /// Class representing a scope in the Google ecosystem.
     /// </summary>
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Google.Scopes {
         internal GoogleScope(string alias) {
             Alias = alias;
         }
-        
+
         /// <summary>
         /// Initializes a new scope with the specified <paramref name="alias"/>, <paramref name="title"/> and
         /// <paramref name="description"/>.
@@ -53,7 +53,7 @@ namespace Skybrud.Social.Google.Scopes {
         }
 
         #endregion
-        
+
         #region Member methods
 
         /// <inheritdoc />
@@ -62,7 +62,7 @@ namespace Skybrud.Social.Google.Scopes {
         }
 
         #endregion
-        
+
         #region Operators
 
         /// <summary>
