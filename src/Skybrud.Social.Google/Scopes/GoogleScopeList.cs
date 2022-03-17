@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,32 +6,30 @@ namespace Skybrud.Social.Google.Scopes {
     /// <summary>
     /// Class representing a collection of scopes for the Google ecosystem.
     /// </summary>
-    public class GoogleScopeCollection {
+    public class GoogleScopeList {
 
         #region Private fields
 
-        private readonly List<GoogleScope> _list = new List<GoogleScope>();
+        private readonly List<GoogleScope> _list = new();
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Gets an array of all scopes in the collection.
+        /// Gets an array of all scopes in the list.
         /// </summary>
-        public GoogleScope[] Items {
-            get { return _list.ToArray(); }
-        }
+        public GoogleScope[] Items => _list.ToArray();
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new collection from the specified <code>scopes</code>.
+        /// Initializes a new collection from the specified <paramref name="scopes"/>.
         /// </summary>
-        /// <param name="scopes"></param>
-        public GoogleScopeCollection(params GoogleScope[] scopes) {
+        /// <param name="scopes">The scopes that should initially make up the list.</param>
+        public GoogleScopeList(params GoogleScope[] scopes) {
             _list.AddRange(scopes);
         }
 
@@ -41,7 +38,7 @@ namespace Skybrud.Social.Google.Scopes {
         #region Member methods
         
         /// <summary>
-        /// Adds the specified <paramref name="scope"/> to the collection.
+        /// Adds the specified <paramref name="scope"/> to the list.
         /// </summary>
         /// <param name="scope">The scope to be added.</param>
         public void Add(GoogleScope scope) {
@@ -49,7 +46,7 @@ namespace Skybrud.Social.Google.Scopes {
         }
 
         /// <summary>
-        /// Removes the specified <paramref name="scope"/> from the collection.
+        /// Removes the specified <paramref name="scope"/> from the list.
         /// </summary>
         /// <param name="scope">The scope to be removed.</param>
         public void Remove(GoogleScope scope) {
@@ -57,11 +54,10 @@ namespace Skybrud.Social.Google.Scopes {
         }
 
         /// <summary>
-        /// Gets whether the specified <paramref name="scope"/> has been added to the collection.
+        /// Gets whether the specified <paramref name="scope"/> has been added to the list.
         /// </summary>
         /// <param name="scope">The scope.</param>
-        /// <returns>Returns <code>true</code> if <paramref name="scope"/> has been added to the collection, otherwise
-        /// <code>false</code>.</returns>
+        /// <returns><c>true</c> if <paramref name="scope"/> has been added to the list; otherwise, <c>false</c>.</returns>
         public bool Contains(GoogleScope scope) {
             return _list.Contains(scope);
         }
@@ -87,7 +83,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// </summary>
         /// <returns>A string representation of the collection.</returns>
         public override string ToString() {
-            return String.Join(" ", from scope in _list select scope.Alias);
+            return string.Join(" ", from scope in _list select scope.Alias);
         }
 
         #endregion
@@ -99,8 +95,8 @@ namespace Skybrud.Social.Google.Scopes {
         /// </summary>
         /// <param name="scope">The scope the collection should be based on.</param>
         /// <returns>A new collection based on a single <paramref name="scope"/>.</returns>
-        public static implicit operator GoogleScopeCollection(GoogleScope scope) {
-            return new GoogleScopeCollection(scope);
+        public static implicit operator GoogleScopeList(GoogleScope scope) {
+            return new(scope);
         }
 
         /// <summary>
@@ -108,8 +104,8 @@ namespace Skybrud.Social.Google.Scopes {
         /// </summary>
         /// <param name="array">The array of scopes the collection should be based on.</param>
         /// <returns>A new collection based on an <paramref name="array"/> of scopes.</returns>
-        public static implicit operator GoogleScopeCollection(GoogleScope[] array) {
-            return new GoogleScopeCollection(array ?? new GoogleScope[0]);
+        public static implicit operator GoogleScopeList(GoogleScope[] array) {
+            return new(array ?? new GoogleScope[0]);
         }
 
         #endregion

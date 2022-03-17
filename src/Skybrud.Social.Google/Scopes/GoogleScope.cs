@@ -67,13 +67,13 @@ namespace Skybrud.Social.Google.Scopes {
 
         /// <summary>
         /// Adds two instances of <see cref="GoogleScope"/>, resulting in an instance
-        /// <see cref="GoogleScopeCollection"/> containing both scopes.
+        /// <see cref="GoogleScopeList"/> containing both scopes.
         /// </summary>
         /// <param name="left">The left scope.</param>
         /// <param name="right">The right scope.</param>
-        /// <returns>An instance of <see cref="GoogleScopeCollection"/> containing both scopes.</returns>
-        public static GoogleScopeCollection operator +(GoogleScope left, GoogleScope right) {
-            return new GoogleScopeCollection(left, right);
+        /// <returns>An instance of <see cref="GoogleScopeList"/> containing both scopes.</returns>
+        public static GoogleScopeList operator +(GoogleScope left, GoogleScope right) {
+            return new GoogleScopeList(left, right);
         }
 
         #endregion

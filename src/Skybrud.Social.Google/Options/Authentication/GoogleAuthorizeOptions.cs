@@ -62,7 +62,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// </summary>
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
-        public GoogleAuthorizeOptions(string state, GoogleScopeCollection scope) {
+        public GoogleAuthorizeOptions(string state, GoogleScopeList scope) {
             State = state;
             Scope = scope;
         }
@@ -73,7 +73,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
         /// <param name="accessType">Whether the application should be enabled for offline access.</param>
-        public GoogleAuthorizeOptions(string state, GoogleScopeCollection scope, GoogleAccessType accessType) {
+        public GoogleAuthorizeOptions(string state, GoogleScopeList scope, GoogleAccessType accessType) {
             State = state;
             Scope = scope;
             AccessType = accessType;
@@ -86,7 +86,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// <param name="scope">The scope of the application.</param>
         /// <param name="accessType">Whether the application should be enabled for offline access.</param>
         /// <param name="prompt">A list of prompts to present the user. If <see cref="GooglePromptOption.None"/>, the user will be prompted only the first time your app requests access.</param>
-        public GoogleAuthorizeOptions(string state, GoogleScopeCollection scope, GoogleAccessType accessType, GooglePromptOption prompt) {
+        public GoogleAuthorizeOptions(string state, GoogleScopeList scope, GoogleAccessType accessType, GooglePromptOption prompt) {
             State = state;
             Scope = scope;
             AccessType = accessType;
@@ -106,7 +106,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// <see>
         ///     <cref>https://developers.google.com/identity/protocols/googlescopes</cref>
         /// </see>
-        public GoogleScopeCollection Scope { get; set; }
+        public GoogleScopeList Scope { get; set; }
 
         /// <summary>
         /// Indicates whether your application can refresh access tokens when the user is not present at the browser.

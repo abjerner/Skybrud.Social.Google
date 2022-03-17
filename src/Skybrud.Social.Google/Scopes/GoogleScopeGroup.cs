@@ -45,7 +45,7 @@ namespace Skybrud.Social.Google.Scopes {
 
         #region Static methods
 
-#if NET_FRAMEWORK
+#if I_CAN_HAS_APP_DOMAIN
 
         /// <summary>
         /// Gets an array of all known Google scopes.

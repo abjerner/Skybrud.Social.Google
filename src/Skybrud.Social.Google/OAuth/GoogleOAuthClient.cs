@@ -104,7 +104,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// </summary>
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
-        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope) {
+        public string GetAuthorizationUrl(string state, GoogleScopeList scope) {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope));
         }
         
@@ -114,7 +114,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// <param name="state">The state of the application.</param>
         /// <param name="scope">The scope of the application.</param>
         /// <param name="offline">Whether the application should be enabled for offline access.</param>
-        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, bool offline) {
+        public string GetAuthorizationUrl(string state, GoogleScopeList scope, bool offline) {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, offline ? GoogleAccessType.Offline : GoogleAccessType.Online));
         }
 
@@ -136,7 +136,7 @@ namespace Skybrud.Social.Google.OAuth {
         /// <param name="scope">The scope of the application.</param>
         /// <param name="accessType">Whether the application should be enabled for offline access.</param>
         /// <param name="prompt">A list of prompts to present the user. If <see cref="GooglePromptOption.None"/>, the user will be prompted only the first time your app requests access.</param>
-        public string GetAuthorizationUrl(string state, GoogleScopeCollection scope, GoogleAccessType accessType, GooglePromptOption prompt) {
+        public string GetAuthorizationUrl(string state, GoogleScopeList scope, GoogleAccessType accessType, GooglePromptOption prompt) {
             return GetAuthorizationUrl(new GoogleAuthorizeOptions(state, scope, accessType, prompt));
         }
 
