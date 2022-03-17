@@ -10,7 +10,7 @@ namespace Skybrud.Social.Google {
     /// </summary>
     public class GoogleUtils {
 
-#if NET_FRAMEWORK
+#if I_CAN_HAS_APP_DOMAIN
 
         /// <summary>
         /// Returns an array of scopes parsed from the specified <paramref name="value"/>.
