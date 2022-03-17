@@ -8,12 +8,12 @@ namespace Skybrud.Social.Google.Exceptions {
 
         #region Properties
 
-        public string Error { get; private set; }
+        public string Error { get; }
 
         /// <summary>
         /// A more user-friendly description of the error. The description may not be specified for all errors.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         #endregion
 

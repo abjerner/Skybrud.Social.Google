@@ -8,7 +8,7 @@ namespace Skybrud.Social.Google.Http {
     /// <summary>
     /// Class serving as a base class for the implementation for the various Google APIs.
     /// </summary>
-    public class GoogleApiHttpClientBase : HttpClient {
+    public class GoogleHttpClientBase : HttpClient {
 
         /// <summary>
         /// Gets a reference to the parent Google client.
@@ -19,7 +19,7 @@ namespace Skybrud.Social.Google.Http {
         /// Initializes a new instance based on the specified <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The parent Google client.</param>
-        protected GoogleApiHttpClientBase(GoogleOAuthClient client) {
+        protected GoogleHttpClientBase(GoogleOAuthClient client) {
             Client = client;
         }
 

@@ -17,7 +17,7 @@ namespace Skybrud.Social.Google.OAuth {
     /// </summary>
     public class GoogleOAuthClient : HttpClient {
         
-        private readonly Dictionary<Type, GoogleApiHttpClientBase> _apis = new Dictionary<Type, GoogleApiHttpClientBase>();
+        private readonly Dictionary<Type, GoogleHttpClientBase> _apis = new();
 
         #region Properties
 
@@ -42,9 +42,9 @@ namespace Skybrud.Social.Google.OAuth {
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// Gets or sets the server key.
+        /// Gets or sets the API key.
         /// </summary>
-        public string ServerKey { get; set; }
+        public string ApiKey { get; set; }
 
         #endregion
 
@@ -178,7 +178,7 @@ namespace Skybrud.Social.Google.OAuth {
             IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
-            return GoogleTokenResponse.ParseResponse(response);
+            return new GoogleTokenResponse(response);
 
         }
 
@@ -209,7 +209,7 @@ namespace Skybrud.Social.Google.OAuth {
             IHttpResponse response = request.GetResponse();
 
             // Parse the JSON response
-            return GoogleTokenResponse.ParseResponse(response);
+            return new GoogleTokenResponse(response);
 
         }
 
@@ -229,9 +229,9 @@ namespace Skybrud.Social.Google.OAuth {
         /// <typeparam name="T">The type of the raw API implementation.</typeparam>
         /// <param name="callback"></param>
         /// <returns>An instance of <typeparamref name="T"/>.</returns>
-        public T GetApiClient<T>(Func<T> callback) where T : GoogleApiHttpClientBase {
+        public T GetApiClient<T>(Func<T> callback) where T : GoogleHttpClientBase {
             Type type = typeof(T);
-            if (_apis.TryGetValue(type, out GoogleApiHttpClientBase api)) return (T) api;
+            if (_apis.TryGetValue(type, out GoogleHttpClientBase api)) return (T) api;
             T e = callback();
             _apis.Add(type, e);
             return e;
@@ -247,12 +247,12 @@ namespace Skybrud.Social.Google.OAuth {
             if (!string.IsNullOrWhiteSpace(AccessToken)) {
                 // TODO: Specify access token in HTTP header instead
                 request.QueryString.Set("access_token", AccessToken);
-            } else if (!string.IsNullOrWhiteSpace(ServerKey)) {
-                request.QueryString.Set("key", ServerKey);
+            } else if (!string.IsNullOrWhiteSpace(ApiKey)) {
+                request.QueryString.Set("key", ApiKey);
             }
 
             // Prepend scheme and host name if not already specified
-            if (request.Url.StartsWith("/")) request.Url = "https://www.googleapis.com" + request.Url;
+            if (request.Url.StartsWith("/")) request.Url = $"https://www.googleapis.com{request.Url}";
 
         }
 

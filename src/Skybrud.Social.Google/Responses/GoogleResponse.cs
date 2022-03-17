@@ -9,26 +9,14 @@ namespace Skybrud.Social.Google.Responses {
     /// <summary>
     /// Class representing a response from the one of the Google APIs.
     /// </summary>
-    public class GoogleApiResponse : HttpResponseBase {
-
-        #region Constructors
+    public class GoogleResponse : HttpResponseBase {
 
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
-        protected GoogleApiResponse(IHttpResponse response) : base(response) { }
-
-        #endregion
-
-        #region Static methods
-
-        /// <summary>
-        /// Validates the specified <paramref name="response"/>.
-        /// </summary>
-        /// <param name="response">The response to be validated.</param>
-        public static void ValidateResponse(IHttpResponse response) {
-
+        public GoogleResponse(IHttpResponse response) : base(response) {
+            
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
 
@@ -38,14 +26,12 @@ namespace Skybrud.Social.Google.Responses {
 
         }
 
-        #endregion
-
     }
 
     /// <summary>
     /// Class representing a response from the one of the Google APIs.
     /// </summary>
-    public class GoogleApiResponse<T> : GoogleApiResponse {
+    public class GoogleResponse<T> : GoogleResponse {
 
         #region Properties
 
@@ -62,7 +48,7 @@ namespace Skybrud.Social.Google.Responses {
         /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
-        protected GoogleApiResponse(IHttpResponse response) : base(response) { }
+        public GoogleResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 

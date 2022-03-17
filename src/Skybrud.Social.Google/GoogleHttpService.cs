@@ -9,9 +9,9 @@ namespace Skybrud.Social.Google {
     /// <summary>
     /// Class working as an entry point to the Google APIs.
     /// </summary>
-    public class GoogleService {
+    public class GoogleHttpService {
 
-        private readonly Dictionary<Type, GoogleApiServiceBase> _services = new Dictionary<Type, GoogleApiServiceBase>();
+        private readonly Dictionary<Type, GoogleHttpServiceBase> _services = new();
 
         #region Properties
 
@@ -24,7 +24,7 @@ namespace Skybrud.Social.Google {
 
         #region Constructors
 
-        private GoogleService(GoogleOAuthClient client) {
+        private GoogleHttpService(GoogleOAuthClient client) {
             Client = client;
         }
 
@@ -35,9 +35,9 @@ namespace Skybrud.Social.Google {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        /// <returns>An instance of <see cref="GoogleGetUserInfoResponse"/> representing the response.</returns>
-        public GoogleGetUserInfoResponse GetUserInfo() {
-            return GoogleGetUserInfoResponse.ParseResponse(Client.GetUserInfo());
+        /// <returns>An instance of <see cref="GoogleUserInfoResponse"/> representing the response.</returns>
+        public GoogleUserInfoResponse GetUserInfo() {
+            return new(Client.GetUserInfo());
         }
 
         #endregion
@@ -48,14 +48,14 @@ namespace Skybrud.Social.Google {
         /// Initializes a new instance based on the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
-        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
-        public static GoogleService CreateFromOAuthClient(GoogleOAuthClient client) {
+        /// <returns>An instance of <see cref="GoogleHttpService"/>.</returns>
+        public static GoogleHttpService CreateFromOAuthClient(GoogleOAuthClient client) {
 
             // Validate the OAuth client
             if (client == null) throw new ArgumentNullException(nameof(client));
 
             // Initialize a new service
-            return new GoogleService(client);
+            return new GoogleHttpService(client);
         
         }
 
@@ -64,8 +64,8 @@ namespace Skybrud.Social.Google {
         /// Google Accounts API.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
-        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
-        public static GoogleService CreateFromAccessToken(string accessToken) {
+        /// <returns>An instance of <see cref="GoogleHttpService"/>.</returns>
+        public static GoogleHttpService CreateFromAccessToken(string accessToken) {
 
             // Validate the server key
             if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
@@ -76,29 +76,29 @@ namespace Skybrud.Social.Google {
             };
 
             // Initialize a new service
-            return new GoogleService(client);
+            return new GoogleHttpService(client);
         
         }
 
         /// <summary>
-        /// Initializes a new instance based on the specified <paramref name="serverKey"/>. The server key is tied to
+        /// Initializes a new instance based on the specified <paramref name="apiKey"/>. The API key is tied to
         /// your app, whereas an access token or refresh token is tied the a specific user of your app. Calling this
         /// method will not make any calls to the Google Accounts API.
         /// </summary>
-        /// <param name="serverKey">The server key of your app.</param>
-        /// <returns>An instance of <see cref="GoogleService"/>.</returns>
-        public static GoogleService CreateFromServerKey(string serverKey) {
+        /// <param name="apiKey">The API key of your app.</param>
+        /// <returns>An instance of <see cref="GoogleHttpService"/>.</returns>
+        public static GoogleHttpService CreateFromApiKey(string apiKey) {
 
             // Validate the server key
-            if (string.IsNullOrWhiteSpace(serverKey)) throw new ArgumentNullException(nameof(serverKey));
+            if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(nameof(apiKey));
 
             // Initialize a new OAuth client
-            GoogleOAuthClient client = new GoogleOAuthClient {
-                ServerKey = serverKey
+            GoogleOAuthClient client = new() {
+                ApiKey = apiKey
             };
 
             // Initialize a new service
-            return new GoogleService(client);
+            return new GoogleHttpService(client);
         
         }
 
@@ -110,7 +110,7 @@ namespace Skybrud.Social.Google {
         /// <param name="clientId">The client ID.</param>
         /// <param name="clientSecret">The client secret.</param>
         /// <param name="refreshToken">The refresh token of the user.</param>
-        public static GoogleService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
+        public static GoogleHttpService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
             
             // Validation
             if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
@@ -118,7 +118,7 @@ namespace Skybrud.Social.Google {
             if (string.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
 
             // Initialize a new OAuth client with the specified client id and client secret
-            GoogleOAuthClient client = new GoogleOAuthClient {
+            GoogleOAuthClient client = new() {
                 ClientId = clientId,
                 ClientSecret = clientSecret
             };
@@ -140,9 +140,9 @@ namespace Skybrud.Social.Google {
         /// <typeparam name="T">The type of the API implementation.</typeparam>
         /// <param name="callback"></param>
         /// <returns>An instance of <typeparamref name="T"/>.</returns>
-        public T GetApiService<T>(Func<T> callback) where T : GoogleApiServiceBase {
+        public T GetApiService<T>(Func<T> callback) where T : GoogleHttpServiceBase {
             Type type = typeof(T);
-            if (_services.TryGetValue(type, out GoogleApiServiceBase endpoint)) return (T) endpoint;
+            if (_services.TryGetValue(type, out GoogleHttpServiceBase endpoint)) return (T) endpoint;
             T e = callback();
             _services.Add(type, e);
             return e;

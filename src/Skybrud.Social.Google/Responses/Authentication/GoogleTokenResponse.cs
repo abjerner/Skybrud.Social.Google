@@ -6,26 +6,14 @@ namespace Skybrud.Social.Google.Responses.Authentication {
     /// <summary>
     /// Class representing a response with information about an access token (<see cref="GoogleToken"/>).
     /// </summary>
-    public class GoogleTokenResponse : GoogleApiResponse<GoogleToken> {
-
-        #region Constructors
-
-        private GoogleTokenResponse(IHttpResponse response) : base(response) {
-
-            // Parse the response body
-            Body = ParseJsonObject(response.Body, GoogleToken.Parse);
-
-        }
-
-        #endregion
-
+    public class GoogleTokenResponse : GoogleResponse<GoogleToken> {
+        
         /// <summary>
-        /// Parses the specified <paramref name="response"/> into an instance of <see cref="GoogleTokenResponse"/>.
+        /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
-        /// <param name="response">The response to be parsed.</param>
-        /// <returns>An instance of <see cref="GoogleTokenResponse"/> representing the response.</returns>
-        public static GoogleTokenResponse ParseResponse(IHttpResponse response) {
-            return response == null ? null : new GoogleTokenResponse(response);
+        /// <param name="response">The underlying raw response the instance should be based on.</param>
+        public GoogleTokenResponse(IHttpResponse response) : base(response) {
+            Body = ParseJsonObject(response.Body, GoogleToken.Parse);
         }
 
     }
