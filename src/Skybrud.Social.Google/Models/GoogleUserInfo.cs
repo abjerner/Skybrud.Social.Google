@@ -1,4 +1,5 @@
 
+using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
@@ -37,7 +38,7 @@ namespace Skybrud.Social.Google.Models {
         /// Gets the URL to the Google+ profile of the user, or <c>null</c> if the user doesn't have a Google+
         /// profile.
         /// </summary>
-        public string Profile { get; }
+        public string? Profile { get; }
 
         /// <summary>
         /// Gets the URL to the profile picture of the user, or <c>null</c> if the user doesn't have a profile
@@ -60,23 +61,23 @@ namespace Skybrud.Social.Google.Models {
         /// <summary>
         /// Gets the gender of the user.
         /// </summary>
-        public string Gender { get; }
+        public string? Gender { get; }
 
         /// <summary>
         /// Gets the birth date of the user.
         /// </summary>
-        public string Birthdate { get; }
+        public string? Birthdate { get; }
 
         /// <summary>
         /// Gets the locale of the user.
         /// </summary>
-        public string Locale { get; }
+        public string? Locale { get; }
 
         /// <summary>
         /// Gets the hosted Google Apps domain of the user, or <c>null</c> if the user is not a part of a hosted
         /// domain.
         /// </summary>
-        public string HostedDomain { get; }
+        public string? HostedDomain { get; }
 
         /// <summary>
         /// Gets whether the user is part of a hosted Google Apps domain. The underlying <c>hd</c> property is
@@ -98,14 +99,14 @@ namespace Skybrud.Social.Google.Models {
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
         protected GoogleUserInfo(JObject json) : base(json) {
-            Id = json.GetString("id");
-            Name = json.GetString("name");
-            GivenName = json.GetString("given_name");
-            FamilyName = json.GetString("family_name");
+            Id = json.GetString("id")!;
+            Name = json.GetString("name")!;
+            GivenName = json.GetString("given_name")!;
+            FamilyName = json.GetString("family_name")!;
             Profile = json.GetString("profile");
-            Picture = json.GetString("picture");
-            Email = json.GetString("email");
-            IsEmailVerified = json.GetBoolean("email_verified");
+            Picture = json.GetString("picture")!;
+            Email = json.GetString("email")!;
+            IsEmailVerified = json.GetBoolean("email_verified")!;
             Gender = json.GetString("gender");
             Birthdate = json.GetString("birthdate");
             Locale = json.GetString("locale");
@@ -121,7 +122,8 @@ namespace Skybrud.Social.Google.Models {
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>An instance of <see cref="GoogleUserInfo"/> representing the user.</returns>
-        public static GoogleUserInfo Parse(JObject json) {
+        [return: NotNullIfNotNull("json")]
+        public static GoogleUserInfo? Parse(JObject? json) {
             return json == null ? null : new GoogleUserInfo(json);
         }
 

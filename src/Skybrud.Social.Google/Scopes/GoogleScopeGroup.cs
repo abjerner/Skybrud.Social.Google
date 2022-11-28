@@ -57,15 +57,15 @@ namespace Skybrud.Social.Google.Scopes {
                 from a in AppDomain.CurrentDomain.GetAssemblies()
                 from t in a.GetTypes()
                 let attributes = t.GetCustomAttributes(typeof(GoogleScopesAttribute), false)
-                where attributes != null && attributes.Length > 0
+                where attributes is { Length: > 0 }
                 select new { Type = t, Attribute = attributes.Cast<GoogleScopesAttribute>().First() }
             ).OrderBy(x => x.Attribute.Weight).ThenBy(x => x.Attribute.Name);
 
-            List<GoogleScopeGroup> groups = new List<GoogleScopeGroup>();
+            List<GoogleScopeGroup> groups = new();
     
             foreach (var type in types) {
 
-                FieldInfo field = type.Type.GetField("All", BindingFlags.Static | BindingFlags.Public);
+                FieldInfo? field = type.Type.GetField("All", BindingFlags.Static | BindingFlags.Public);
                 if (field == null) continue;
 
                 GoogleScope[] value = (GoogleScope[]) field.GetValue(null);

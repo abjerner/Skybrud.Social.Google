@@ -14,12 +14,12 @@ namespace Skybrud.Social.Google.Models {
         /// <summary>
         /// Gets the <c>kind</c> of the resource.
         /// </summary>
-        public string Kind { get; private set; }
+        public string Kind { get; }
 
         /// <summary>
         /// Gets the <c>etag</c> of the resource.
         /// </summary>
-        public string ETag { get; private set; }
+        public string ETag { get; }
 
         #endregion
 
@@ -30,8 +30,8 @@ namespace Skybrud.Social.Google.Models {
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
         protected GoogleResource(JObject json) : base(json) {
-            Kind = json.GetString("kind");
-            ETag = json.GetString("etag");
+            Kind = json.GetString("kind")!;
+            ETag = json.GetString("etag")!;
         }
 
         #endregion

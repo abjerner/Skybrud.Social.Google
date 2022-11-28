@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Skybrud.Essentials.Collections;
 
 namespace Skybrud.Social.Google.Scopes {
 
@@ -96,7 +97,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// <param name="scope">The scope the collection should be based on.</param>
         /// <returns>A new collection based on a single <paramref name="scope"/>.</returns>
         public static implicit operator GoogleScopeList(GoogleScope scope) {
-            return new(scope);
+            return new GoogleScopeList(scope);
         }
 
         /// <summary>
@@ -104,8 +105,8 @@ namespace Skybrud.Social.Google.Scopes {
         /// </summary>
         /// <param name="array">The array of scopes the collection should be based on.</param>
         /// <returns>A new collection based on an <paramref name="array"/> of scopes.</returns>
-        public static implicit operator GoogleScopeList(GoogleScope[] array) {
-            return new(array ?? new GoogleScope[0]);
+        public static implicit operator GoogleScopeList(GoogleScope[]? array) {
+            return new GoogleScopeList(array ?? ArrayUtils.Empty<GoogleScope>());
         }
 
         #endregion

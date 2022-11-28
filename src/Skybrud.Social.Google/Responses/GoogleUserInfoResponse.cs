@@ -13,7 +13,7 @@ namespace Skybrud.Social.Google.Responses {
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
         public GoogleUserInfoResponse(IHttpResponse response) : base(response) {
-            Body = ParseJsonObject(response.Body, GoogleUserInfo.Parse);
+            Body = ParseJsonObject(response.Body, GoogleUserInfo.Parse)!;
         }
 
     }

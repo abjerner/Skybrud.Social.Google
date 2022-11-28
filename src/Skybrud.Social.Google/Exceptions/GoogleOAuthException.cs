@@ -13,13 +13,13 @@ namespace Skybrud.Social.Google.Exceptions {
         /// <summary>
         /// A more user-friendly description of the error. The description may not be specified for all errors.
         /// </summary>
-        public string Description { get; }
+        public string? Description { get; }
 
         #endregion
 
         #region Constructors
 
-        public GoogleOAuthException(string error, string description) : base(description ?? error) {
+        public GoogleOAuthException(string error, string? description) : base(description ?? error) {
             Error = error;
             Description = description;
         }

@@ -19,7 +19,9 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// <summary>
         /// Initializes a new instance with default options.
         /// </summary>
-        public GoogleAuthorizeOptions() { }
+        public GoogleAuthorizeOptions() {
+            Scope = new GoogleScopeList();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified options.
@@ -124,7 +126,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         /// Specifies any string value that your application uses to maintain state between your authorization request
         /// and the authorization server's response.
         /// </summary>
-        public string State { get; set; }
+        public string? State { get; set; }
 
         /// <summary>
         /// Enables applications to use incremental authorization to request access to additional scopes in context. If
@@ -143,7 +145,7 @@ namespace Skybrud.Social.Google.Options.Authentication {
         ///
         /// Set the parameter value to an email address or sub identifier, which is equivalent to the user's Google ID.
         /// </summary>
-        public string LoginHint { get; set; }
+        public string? LoginHint { get; set; }
 
         /// <summary>
         /// A list of prompts to present the user. If you don't specify this parameter, the user will be prompted only
@@ -167,12 +169,12 @@ namespace Skybrud.Social.Google.Options.Authentication {
             IHttpQueryString query = new HttpQueryString();
 
             query.Add("response_type", "code");
-            query.Add("client_id", client.ClientId);
+            query.Add("client_id", client.ClientId!);
             query.Add("access_type", StringUtils.ToUnderscore(AccessType));
             query.Add("prompt", ToString(Prompt));
             query.Add("scope", Scope + string.Empty);
-            query.Add("redirect_uri", client.RedirectUri);
-            query.Add("state", State);
+            query.Add("redirect_uri", client.RedirectUri!);
+            query.Add("state", State!);
 
             return query;
 

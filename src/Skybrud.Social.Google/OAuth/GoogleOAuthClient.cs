@@ -24,27 +24,27 @@ namespace Skybrud.Social.Google.OAuth {
         /// <summary>
         /// Gets or sets the ID of the client/application.
         /// </summary>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the the secret of the client/application. Guard this with your life!
         /// </summary>
-        public string ClientSecret { get; set; }
+        public string? ClientSecret { get; set; }
 
         /// <summary>
         /// Gets or sets the redirect URL. Must be specified in Google's APIs console.
         /// </summary>
-        public string RedirectUri { get; set; }
+        public string? RedirectUri { get; set; }
 
         /// <summary>
         /// Gets or sets the access token.
         /// </summary>
-        public string AccessToken { get; set; }
+        public string? AccessToken { get; set; }
 
         /// <summary>
         /// Gets or sets the API key.
         /// </summary>
-        public string ApiKey { get; set; }
+        public string? ApiKey { get; set; }
 
         #endregion
 
@@ -166,9 +166,9 @@ namespace Skybrud.Social.Google.OAuth {
             // Declare the POST data
             IHttpPostData postData = new HttpPostData();
             postData.Add("code", code);
-            postData.Add("client_id", ClientId);
-            postData.Add("client_secret", ClientSecret);
-            postData.Add("redirect_uri", RedirectUri);
+            postData.Add("client_id", ClientId!);
+            postData.Add("client_secret", ClientSecret!);
+            postData.Add("redirect_uri", RedirectUri!);
             postData.Add("grant_type", "authorization_code");
 
             // Initialize the request
@@ -197,8 +197,8 @@ namespace Skybrud.Social.Google.OAuth {
 
             // Declare the POST data
             IHttpPostData postData = new HttpPostData();
-            postData.Add("client_id", ClientId);
-            postData.Add("client_secret", ClientSecret);
+            postData.Add("client_id", ClientId!);
+            postData.Add("client_secret", ClientSecret!);
             postData.Add("refresh_token", refreshToken);
             postData.Add("grant_type", "refresh_token");
 
@@ -246,9 +246,9 @@ namespace Skybrud.Social.Google.OAuth {
             // Append the access token or server if specified
             if (!string.IsNullOrWhiteSpace(AccessToken)) {
                 // TODO: Specify access token in HTTP header instead
-                request.QueryString.Set("access_token", AccessToken);
+                request.QueryString.Set("access_token", AccessToken!);
             } else if (!string.IsNullOrWhiteSpace(ApiKey)) {
-                request.QueryString.Set("key", ApiKey);
+                request.QueryString.Set("key", ApiKey!);
             }
 
             // Prepend scheme and host name if not already specified

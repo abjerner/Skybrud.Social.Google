@@ -71,7 +71,7 @@ namespace Skybrud.Social.Google {
             if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
 
             // Initialize a new OAuth client
-            GoogleOAuthClient client = new GoogleOAuthClient {
+            GoogleOAuthClient client = new() {
                 AccessToken = accessToken
             };
 

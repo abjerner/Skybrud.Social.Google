@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Skybrud.Essentials.Strings;
 using Skybrud.Social.Google.Scopes;
@@ -19,10 +20,10 @@ namespace Skybrud.Social.Google {
         /// <returns>An array of <see cref="GoogleScope"/>.</returns>
         public static GoogleScope[] ParseScopes(string value) {
 
-            List<GoogleScope> list = new List<GoogleScope>();
+            List<GoogleScope> list = new();
 
             foreach (string alias in StringUtils.ParseStringArray(value)) {
-                if (TryParseScope(alias, out GoogleScope scope)) {
+                if (TryParseScope(alias, out GoogleScope? scope)) {
                     list.Add(scope);
                 }
             }
@@ -37,7 +38,7 @@ namespace Skybrud.Social.Google {
         /// <param name="value">The alias of a known scope.</param>
         /// <param name="scope">The scope if a match was found.</param>
         /// <returns><c>true</c> if a matching scope was found; otherwise <c>false</c>.</returns>
-        public static bool TryParseScope(string value, out GoogleScope scope) {
+        public static bool TryParseScope(string value, [NotNullWhen(true)] out GoogleScope? scope) {
 
             scope = null;
 

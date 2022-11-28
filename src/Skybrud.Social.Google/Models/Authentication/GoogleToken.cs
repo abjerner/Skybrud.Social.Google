@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
@@ -41,10 +42,10 @@ namespace Skybrud.Social.Google.Models.Authentication {
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
         protected GoogleToken(JObject json) : base(json) {
-            AccessToken = json.GetString("access_token");
-            RefreshToken = json.GetString("refresh_token");
+            AccessToken = json.GetString("access_token")!;
+            RefreshToken = json.GetString("refresh_token")!;
             ExpiresIn = json.GetDouble("expires_in", TimeSpan.FromSeconds);
-            TokenType = json.GetString("token_type");
+            TokenType = json.GetString("token_type")!;
         }
 
         #endregion
@@ -56,7 +57,8 @@ namespace Skybrud.Social.Google.Models.Authentication {
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="GoogleToken"/>.</returns>
-        public static GoogleToken Parse(JObject json) {
+        [return: NotNullIfNotNull("json")]
+        public static GoogleToken? Parse(JObject? json) {
             return json == null ? null : new GoogleToken(json);
         }
 

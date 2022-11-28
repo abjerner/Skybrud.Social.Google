@@ -13,7 +13,7 @@ namespace Skybrud.Social.Google.Responses.Authentication {
         /// </summary>
         /// <param name="response">The underlying raw response the instance should be based on.</param>
         public GoogleTokenResponse(IHttpResponse response) : base(response) {
-            Body = ParseJsonObject(response.Body, GoogleToken.Parse);
+            Body = ParseJsonObject(response.Body, GoogleToken.Parse)!;
         }
 
     }

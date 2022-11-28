@@ -21,7 +21,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#openid</cref>
         /// </see>
-        public static readonly GoogleScope OpenId = new GoogleScope(
+        public static readonly GoogleScope OpenId = new(
             "openid",
             "OpenID",
             "This scope informs the authorization server that the client is making an OpenID Connect request, and requests access to the authenticated user's ID."
@@ -34,7 +34,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#email</cref>
         /// </see>
-        public static readonly GoogleScope Email = new GoogleScope(
+        public static readonly GoogleScope Email = new(
             "email",
             "Email",
             "This scope grants access to the email of the authenticated user. The scope will also grant access to the domain, if the user belongs to a Google Apps domain."
@@ -46,7 +46,7 @@ namespace Skybrud.Social.Google.Scopes {
         /// <see>
         ///     <cref>https://developers.google.com/+/web/api/rest/oauth#profile</cref>
         /// </see>
-        public static readonly GoogleScope Profile = new GoogleScope(
+        public static readonly GoogleScope Profile = new(
             "profile",
             "Profile",
             "This scope grants access to basic profile information of the authenticated user."

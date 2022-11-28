@@ -24,8 +24,8 @@ namespace Skybrud.Social.Google.Scopes {
         /// <summary>
         /// Gets the description of the scope.
         /// </summary>
-        [JsonProperty("description")]
-        public string Description { get; }
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        public string? Description { get; }
 
         #endregion
 
@@ -37,18 +37,19 @@ namespace Skybrud.Social.Google.Scopes {
         /// <param name="alias">The name of the scope.</param>
         internal GoogleScope(string alias) {
             Alias = alias;
+            Name = alias;
         }
 
         /// <summary>
-        /// Initializes a new scope with the specified <paramref name="alias"/>, <paramref name="title"/> and
+        /// Initializes a new scope with the specified <paramref name="alias"/>, <paramref name="name"/> and
         /// <paramref name="description"/>.
         /// </summary>
         /// <param name="alias">The name of the scope.</param>
-        /// <param name="title">The title of the scope.</param>
+        /// <param name="name">The title of the scope.</param>
         /// <param name="description">The description of the scope.</param>
-        public GoogleScope(string alias, string title, string description) {
+        public GoogleScope(string alias, string? name, string description) {
             Alias = alias;
-            Name = title ?? alias;
+            Name = name ?? alias;
             Description = description;
         }
 

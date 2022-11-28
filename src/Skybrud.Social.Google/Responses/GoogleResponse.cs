@@ -21,8 +21,8 @@ namespace Skybrud.Social.Google.Responses {
             if (response.StatusCode == HttpStatusCode.OK) return;
 
             JObject body = JObject.Parse(response.Body);
-            JObject error = body.GetObject("error");
-            throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message"));
+            JObject error = body.GetObject("error")!;
+            throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message")!);
 
         }
 
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Google.Responses {
         /// <summary>
         /// Gets the body of the response.
         /// </summary>
-        public T Body { get; protected set; }
+        public T Body { get; protected set; } = default!;
 
         #endregion
 
