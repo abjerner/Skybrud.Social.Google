@@ -35,9 +35,11 @@ The Google ecosystem features a couple of global scopes, that lets you access ba
   </tbody>
 </table>
 
+
+
+## API specific scopes
+
 Each of the APIs in the Google ecosystem have their own scope:
 
-<div>
-    <a class="btn" href="https://packages.limbo.works/skybrud.social.google.analytics/docs/scope/">Read more about scopes in the Analytics API</a>
-    <a class="btn" href="https://packages.limbo.works/skybrud.social.google.youtube/docs/scope/">Read more about scopes in the YouTube API</a>
-</div>
+- [Read more about scopes in the Analytics API](https://packages.limbo.works/skybrud.social.google.analytics/docs/scope/)
+- [Read more about scopes in the YouTube API](https://packages.limbo.works/skybrud.social.google.youtube/docs/scope/)
