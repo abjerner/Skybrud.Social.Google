@@ -2,7 +2,7 @@
 
 **Skybrud.Social.Google** is a small package for handling authentication with the Google API as well as making requests to other APIs in the Google ecosystem.
 
-# Getting Started
+## Getting Started
 
 - [**Installation**](./installation.md)
 - [**Authentication**](./authentication.md)
