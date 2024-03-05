@@ -1,26 +1,24 @@
-namespace Skybrud.Social.Google.Options.Authentication {
+namespace Skybrud.Social.Google.Options.Authentication;
+
+/// <summary>
+/// Indicates whether your application needs to access a Google API when the user is not present at the browser.
+/// This parameter defaults to <see cref="Online"/>. If your application needs to refresh access tokens when the
+/// user is not present at the browser, then use <see cref="Offline"/>. This will result in your application
+/// obtaining a refresh token the first time your application exchanges an authorization code for a user.
+/// </summary>
+public enum GoogleAccessType {
 
     /// <summary>
-    /// Indicates whether your application needs to access a Google API when the user is not present at the browser.
-    /// This parameter defaults to <see cref="Online"/>. If your application needs to refresh access tokens when the
-    /// user is not present at the browser, then use <see cref="Offline"/>. This will result in your application
-    /// obtaining a refresh token the first time your application exchanges an authorization code for a user.
+    /// Indicates that your app should only be granted online access. This means that you will be granted an access
+    /// token that will have a lifetime of an hour.
     /// </summary>
-    public enum GoogleAccessType {
+    Online,
 
-        /// <summary>
-        /// Indicates that your app should only be granted online access. This means that you will be granted an access
-        /// token that will have a lifetime of an hour.
-        /// </summary>
-        Online,
-
-        /// <summary>
-        /// Indicates that your app should be granted offline access. Thus means that you will be granted an access
-        /// token with a lifetime of an hour as well as a refresh token that can be used to obtain new access tokens
-        /// for the authenticated user with the user having to do anything.
-        /// </summary>
-        Offline
-
-    }
+    /// <summary>
+    /// Indicates that your app should be granted offline access. Thus means that you will be granted an access
+    /// token with a lifetime of an hour as well as a refresh token that can be used to obtain new access tokens
+    /// for the authenticated user with the user having to do anything.
+    /// </summary>
+    Offline
 
 }

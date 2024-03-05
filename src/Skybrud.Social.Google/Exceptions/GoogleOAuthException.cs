@@ -2,30 +2,28 @@ using System;
 
 #pragma warning disable 1591
 
-namespace Skybrud.Social.Google.Exceptions {
+namespace Skybrud.Social.Google.Exceptions;
 
-    public class GoogleOAuthException : Exception {
+public class GoogleOAuthException : Exception {
 
-        #region Properties
+    #region Properties
 
-        public string Error { get; }
+    public string Error { get; }
 
-        /// <summary>
-        /// A more user-friendly description of the error. The description may not be specified for all errors.
-        /// </summary>
-        public string? Description { get; }
+    /// <summary>
+    /// A more user-friendly description of the error. The description may not be specified for all errors.
+    /// </summary>
+    public string? Description { get; }
 
-        #endregion
+    #endregion
 
-        #region Constructors
+    #region Constructors
 
-        public GoogleOAuthException(string error, string? description) : base(description ?? error) {
-            Error = error;
-            Description = description;
-        }
-
-        #endregion
-
+    public GoogleOAuthException(string error, string? description) : base(description ?? error) {
+        Error = error;
+        Description = description;
     }
+
+    #endregion
 
 }

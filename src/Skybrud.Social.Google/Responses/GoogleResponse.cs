@@ -4,54 +4,52 @@ using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Google.Exceptions;
 
-namespace Skybrud.Social.Google.Responses {
+namespace Skybrud.Social.Google.Responses;
+
+/// <summary>
+/// Class representing a response from the one of the Google APIs.
+/// </summary>
+public class GoogleResponse : HttpResponseBase {
 
     /// <summary>
-    /// Class representing a response from the one of the Google APIs.
+    /// Initializes a new instance based on the specified <paramref name="response"/>.
     /// </summary>
-    public class GoogleResponse : HttpResponseBase {
+    /// <param name="response">The underlying raw response the instance should be based on.</param>
+    public GoogleResponse(IHttpResponse response) : base(response) {
 
-        /// <summary>
-        /// Initializes a new instance based on the specified <paramref name="response"/>.
-        /// </summary>
-        /// <param name="response">The underlying raw response the instance should be based on.</param>
-        public GoogleResponse(IHttpResponse response) : base(response) {
+        // Skip error checking if the server responds with an OK status code
+        if (response.StatusCode == HttpStatusCode.OK) return;
 
-            // Skip error checking if the server responds with an OK status code
-            if (response.StatusCode == HttpStatusCode.OK) return;
-
-            JObject body = JObject.Parse(response.Body);
-            JObject error = body.GetObject("error")!;
-            throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message")!);
-
-        }
+        JObject body = JObject.Parse(response.Body);
+        JObject error = body.GetObject("error")!;
+        throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message")!);
 
     }
 
+}
+
+/// <summary>
+/// Class representing a response from the one of the Google APIs.
+/// </summary>
+public class GoogleResponse<T> : GoogleResponse {
+
+    #region Properties
+
     /// <summary>
-    /// Class representing a response from the one of the Google APIs.
+    /// Gets the body of the response.
     /// </summary>
-    public class GoogleResponse<T> : GoogleResponse {
+    public T Body { get; protected set; } = default!;
 
-        #region Properties
+    #endregion
 
-        /// <summary>
-        /// Gets the body of the response.
-        /// </summary>
-        public T Body { get; protected set; } = default!;
+    #region Constructors
 
-        #endregion
+    /// <summary>
+    /// Initializes a new instance based on the specified <paramref name="response"/>.
+    /// </summary>
+    /// <param name="response">The underlying raw response the instance should be based on.</param>
+    public GoogleResponse(IHttpResponse response) : base(response) { }
 
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance based on the specified <paramref name="response"/>.
-        /// </summary>
-        /// <param name="response">The underlying raw response the instance should be based on.</param>
-        public GoogleResponse(IHttpResponse response) : base(response) { }
-
-        #endregion
-
-    }
+    #endregion
 
 }
