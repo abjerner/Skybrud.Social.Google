@@ -106,7 +106,7 @@ public class GoogleUserInfo : GoogleObject {
         Profile = json.GetString("profile");
         Picture = json.GetString("picture")!;
         Email = json.GetString("email")!;
-        IsEmailVerified = json.GetBoolean("email_verified")!;
+        IsEmailVerified = json.GetBoolean("email_verified");
         Gender = json.GetString("gender");
         Birthdate = json.GetString("birthdate");
         Locale = json.GetString("locale");
