@@ -8,6 +8,15 @@ namespace Skybrud.Social.Google.Models;
 /// </summary>
 public class GoogleObject : JsonObjectBase {
 
+    #region Properties
+
+    /// <summary>
+    /// Gets the internal <see cref="JObject"/> the object was created from.
+    /// </summary>
+    public new JObject JObject => base.JObject!;
+
+    #endregion
+
     #region Constructors
 
     /// <summary>

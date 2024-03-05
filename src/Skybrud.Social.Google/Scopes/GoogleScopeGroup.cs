@@ -25,7 +25,7 @@ public class GoogleScopeGroup {
     /// Gets an array with the scopes of the group.
     /// </summary>
     [JsonProperty("scopes")]
-    public GoogleScope[] Scopes { get; }
+    public IReadOnlyList<GoogleScope> Scopes { get; }
 
     #endregion
 
@@ -45,13 +45,11 @@ public class GoogleScopeGroup {
 
     #region Static methods
 
-#if I_CAN_HAS_APP_DOMAIN
-
     /// <summary>
     /// Gets an array of all known Google scopes.
     /// </summary>
     /// <returns>An array of <see cref="GoogleScopeGroup"/>.</returns>
-    public static GoogleScopeGroup[] GetAll() {
+    public static IReadOnlyList<GoogleScopeGroup> GetAll() {
 
         var types = (
             from a in AppDomain.CurrentDomain.GetAssemblies()
@@ -74,11 +72,9 @@ public class GoogleScopeGroup {
 
         }
 
-        return groups.ToArray();
+        return groups;
 
     }
-
-#endif
 
     #endregion
 

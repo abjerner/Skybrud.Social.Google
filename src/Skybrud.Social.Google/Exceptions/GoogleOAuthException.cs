@@ -4,7 +4,7 @@ using System;
 
 namespace Skybrud.Social.Google.Exceptions;
 
-public class GoogleOAuthException : Exception {
+public class GoogleOAuthException : GoogleException {
 
     #region Properties
 

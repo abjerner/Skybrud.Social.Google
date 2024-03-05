@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <LangVersion>10.0</LangVersion>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net45;net46;net47</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;net46;net47</TargetFrameworks>
     <BuildInParallel>false</BuildInParallel>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -14,7 +14,7 @@
     <Company>Limbo</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
-    <Copyright>Copyright © 2022</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString(`yyyy`))</Copyright>
     <Description>Authentication and service implementation for the Google API.</Description>
   </PropertyGroup>
 
@@ -31,13 +31,9 @@
 
   <!-- Include NuGet dependencies -->
   <ItemGroup>
-    <PackageReference Include="Skybrud.Essentials.Http" Version="1.1.1" />
+    <PackageReference Include="Skybrud.Essentials.Http" Version="1.2.0" />
     <PackageReference Include="Nullable" Version="1.3.1" PrivateAssets="all" />
   </ItemGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0' OR '$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46' OR '$(TargetFramework)'=='net47'">
-    <DefineConstants>I_CAN_HAS_APP_DOMAIN</DefineConstants>
-  </PropertyGroup>
 
   <!-- Include package icon for NuGet -->
   <ItemGroup>

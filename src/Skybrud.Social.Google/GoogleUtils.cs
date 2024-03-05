@@ -11,14 +11,12 @@ namespace Skybrud.Social.Google;
 /// </summary>
 public class GoogleUtils {
 
-#if I_CAN_HAS_APP_DOMAIN
-
     /// <summary>
     /// Returns an array of scopes parsed from the specified <paramref name="value"/>.
     /// </summary>
     /// <param name="value">A string with the scopes to be parsed.</param>
     /// <returns>An array of <see cref="GoogleScope"/>.</returns>
-    public static GoogleScope[] ParseScopes(string value) {
+    public static IReadOnlyList<GoogleScope> ParseScopes(string value) {
 
         List<GoogleScope> list = new();
 
@@ -63,7 +61,5 @@ public class GoogleUtils {
         }
 
     }
-
-#endif
 
 }
