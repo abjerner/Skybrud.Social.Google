@@ -3,14 +3,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>12</LangVersion>
     <TargetFrameworks>netstandard2.0;net45;net46;net47</TargetFrameworks>
     <BuildInParallel>false</BuildInParallel>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Company>Limbo</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
@@ -23,7 +23,7 @@
     <PackageId>Skybrud.Social.Google</PackageId>
     <PackageTags>Skybrud, Social, Google, OAuth, JSON, Limbo</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://packages.skybrud.dk/skybrud.social.google/</PackageProjectUrl>
+    <PackageProjectUrl>https://packages.limbo.works/skybrud.social.google/</PackageProjectUrl>
     <PackageIcon>Limbo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Google</RepositoryUrl>

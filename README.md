@@ -25,13 +25,13 @@
 Install the package via [**NuGet**](https://www.nuget.org/packages/Skybrud.Social.Google) - either via the .NET CLI:
 
 ```
-dotnet add package Skybrud.Social.Google --version 1.0.2
+dotnet add package Skybrud.Social.Google --version 1.0.3
 ```
 
 or the NuGet Package Manager:
 
 ```
-Install-Package Skybrud.Social.Google -Version 1.0.2
+Install-Package Skybrud.Social.Google -Version 1.0.3
 ```
 
 
@@ -74,7 +74,7 @@ The [**releases page**][Releases] lists all releases, and each there will be som
 
 
 
-[Website]: http://social.skybrud.dk/google/
+[Website]: https://packages.limbo.works/skybrud.social.google/
 [NuGetPackage]: https://www.nuget.org/packages/Skybrud.Social.Google
 [GitHubRelease]: https://github.com/abjerner/Skybrud.Social.Google/releases/latest
 [Releases]: https://github.com/abjerner/Skybrud.Social.Google/releases
