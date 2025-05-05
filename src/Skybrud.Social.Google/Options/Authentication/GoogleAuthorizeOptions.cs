@@ -20,7 +20,7 @@ public class GoogleAuthorizeOptions {
     /// Initializes a new instance with default options.
     /// </summary>
     public GoogleAuthorizeOptions() {
-        Scope = new GoogleScopeList();
+        Scope = [];
     }
 
     /// <summary>

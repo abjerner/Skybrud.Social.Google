@@ -18,7 +18,7 @@ public class GoogleUtils {
     /// <returns>An array of <see cref="GoogleScope"/>.</returns>
     public static IReadOnlyList<GoogleScope> ParseScopes(string value) {
 
-        List<GoogleScope> list = new();
+        List<GoogleScope> list = [];
 
         foreach (string alias in StringUtils.ParseStringArray(value)) {
             if (TryParseScope(alias, out GoogleScope? scope)) {
