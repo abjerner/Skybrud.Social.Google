@@ -27,7 +27,7 @@ public class GoogleOAuthClient : HttpClient {
     public string? ClientId { get; set; }
 
     /// <summary>
-    /// Gets or sets the the secret of the client/application. Guard this with your life!
+    /// Gets or sets the secret of the client/application. Guard this with your life!
     /// </summary>
     public string? ClientSecret { get; set; }
 

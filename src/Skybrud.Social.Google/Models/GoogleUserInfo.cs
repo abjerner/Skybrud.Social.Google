@@ -7,7 +7,7 @@ namespace Skybrud.Social.Google.Models;
 
 /// <summary>
 /// Class representing a Google account/user. Not all properties may be present since it both
-/// depends on the scope of the application as well as what information the user has specified
+/// depends on the scope of the application and what information the user has specified
 /// and is sharing.
 /// </summary>
 public class GoogleUserInfo : GoogleObject {

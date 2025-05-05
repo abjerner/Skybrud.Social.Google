@@ -36,7 +36,7 @@ public class GoogleHttpException : GoogleException, IHttpException {
     #region Constructors
 
     /// <summary>
-    /// Initializes a new innstance from the specified <paramref name="response"/>.
+    /// Initializes a new instance from the specified <paramref name="response"/>.
     /// </summary>
     /// <param name="response">The response.</param>
     /// <param name="code">The error code parsed from the response body.</param>

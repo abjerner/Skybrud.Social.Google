@@ -15,7 +15,7 @@ public enum GoogleApprovalPrompt {
     Auto,
 
     /// <summary>
-    /// Indicates that the authenticatig user always should see the content page.
+    /// Indicates that the authenticating user always should see the content page.
     /// </summary>
     Force
 
