@@ -3,6 +3,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abjerner/Skybrud.Social.Google/blob/v1/main/LICENSE.md)
 [![NuGet](https://img.shields.io/nuget/v/Skybrud.Social.Google.svg)](https://www.nuget.org/packages/Skybrud.Social.Google)
 [![NuGet](https://img.shields.io/nuget/dt/Skybrud.Social.Google.svg)](https://www.nuget.org/packages/Skybrud.Social.Google)
+[![Skybrud.Social.Google at packages.limbo.works](https://img.shields.io/badge/limbo-packages-blue)](https://packages.limbo.works/skybrud.social.google/)
 
 **Skybrud.Social.Google** is an authentication and service implementation for the Google API - targeting both .NET Framework and .NET Standard.
 
@@ -25,13 +26,13 @@
 Install the package via [**NuGet**](https://www.nuget.org/packages/Skybrud.Social.Google) - either via the .NET CLI:
 
 ```
-dotnet add package Skybrud.Social.Google --version 1.0.3
+dotnet add package Skybrud.Social.Google
 ```
 
 or the NuGet Package Manager:
 
 ```
-Install-Package Skybrud.Social.Google -Version 1.0.3
+Install-Package Skybrud.Social.Google
 ```
 
 
