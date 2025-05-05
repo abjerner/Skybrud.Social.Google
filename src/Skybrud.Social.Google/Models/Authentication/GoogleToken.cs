@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 
 namespace Skybrud.Social.Google.Models.Authentication;
 
@@ -21,7 +21,7 @@ public class GoogleToken : GoogleObject {
     /// Gets a refresh token that can be used to obtain a new access tokens. Refresh tokens are valid until the
     /// user revokes access. This field is only present if offline access is requested during the authorization.
     /// </summary>
-    public string RefreshToken { get; }
+    public string? RefreshToken { get; }
 
     /// <summary>
     /// Gets the remaining lifetime on the access token.
@@ -42,10 +42,10 @@ public class GoogleToken : GoogleObject {
     /// </summary>
     /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
     protected GoogleToken(JObject json) : base(json) {
-        AccessToken = json.GetString("access_token")!;
-        RefreshToken = json.GetString("refresh_token")!;
+        AccessToken = json.GetRequiredString("access_token");
+        RefreshToken = json.GetString("refresh_token");
         ExpiresIn = json.GetDouble("expires_in", TimeSpan.FromSeconds);
-        TokenType = json.GetString("token_type")!;
+        TokenType = json.GetRequiredString("token_type");
     }
 
     #endregion

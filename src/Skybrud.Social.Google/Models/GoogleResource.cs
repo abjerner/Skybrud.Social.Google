@@ -1,5 +1,5 @@
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 
 namespace Skybrud.Social.Google.Models;
 
@@ -30,8 +30,8 @@ public class GoogleResource : GoogleObject {
     /// </summary>
     /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
     protected GoogleResource(JObject json) : base(json) {
-        Kind = json.GetString("kind")!;
-        ETag = json.GetString("etag")!;
+        Kind = json.GetRequiredString("kind");
+        ETag = json.GetRequiredString("etag");
     }
 
     #endregion

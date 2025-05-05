@@ -1,7 +1,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 
 namespace Skybrud.Social.Google.Models;
 
@@ -44,13 +44,13 @@ public class GoogleUserInfo : GoogleObject {
     /// Gets the URL to the profile picture of the user, or <c>null</c> if the user doesn't have a profile
     /// picture.
     /// </summary>
-    public string Picture { get; }
+    public string? Picture { get; }
 
     /// <summary>
     /// Gets the email address of the user. The underlying <c>email</c> property is only part of the response
     /// if the <c>email</c> scope has been granted by the user.
     /// </summary>
-    public string Email { get; }
+    public string? Email { get; }
 
     /// <summary>
     /// Gets whether the email address of the user has been verified. The underlying <c>email_verified</c>
@@ -64,7 +64,7 @@ public class GoogleUserInfo : GoogleObject {
     public string? Gender { get; }
 
     /// <summary>
-    /// Gets the birth date of the user.
+    /// Gets the birthdate of the user.
     /// </summary>
     public string? Birthdate { get; }
 
@@ -83,11 +83,13 @@ public class GoogleUserInfo : GoogleObject {
     /// Gets whether the user is part of a hosted Google Apps domain. The underlying <c>hd</c> property is
     /// only part of the response if the <c>email</c> scope has been granted by the user.
     /// </summary>
+    [MemberNotNullWhen(true, nameof(HostedDomain))]
     public bool HasHostedDomain => !string.IsNullOrWhiteSpace(HostedDomain);
 
     /// <summary>
     /// Gets whether the email of the user was part of the properties returned in the response.
     /// </summary>
+    [MemberNotNullWhen(true, nameof(Email))]
     public bool HasEmail => !string.IsNullOrWhiteSpace(Email);
 
     #endregion
@@ -99,13 +101,13 @@ public class GoogleUserInfo : GoogleObject {
     /// </summary>
     /// <param name="json">The instance of <see cref="JObject"/> representing the object.</param>
     protected GoogleUserInfo(JObject json) : base(json) {
-        Id = json.GetString("id")!;
+        Id = json.GetRequiredString("id");
         Name = json.GetString("name")!;
         GivenName = json.GetString("given_name")!;
         FamilyName = json.GetString("family_name")!;
         Profile = json.GetString("profile");
-        Picture = json.GetString("picture")!;
-        Email = json.GetString("email")!;
+        Picture = json.GetString("picture");
+        Email = json.GetString("email");
         IsEmailVerified = json.GetBoolean("email_verified");
         Gender = json.GetString("gender");
         Birthdate = json.GetString("birthdate");

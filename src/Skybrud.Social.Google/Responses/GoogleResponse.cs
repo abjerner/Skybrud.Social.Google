@@ -1,7 +1,7 @@
 using System.Net;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Http;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Social.Google.Exceptions;
 
 namespace Skybrud.Social.Google.Responses;
@@ -21,7 +21,7 @@ public class GoogleResponse : HttpResponseBase {
         if (response.StatusCode == HttpStatusCode.OK) return;
 
         JObject body = JObject.Parse(response.Body);
-        JObject error = body.GetObject("error")!;
+        JObject error = body.GetRequiredObject("error");
         throw new GoogleHttpException(response, error.GetInt32("code"), error.GetString("message")!);
 
     }
