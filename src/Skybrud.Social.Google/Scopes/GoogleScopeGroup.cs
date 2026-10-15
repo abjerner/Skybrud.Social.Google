@@ -59,7 +59,7 @@ public class GoogleScopeGroup {
             select new { Type = t, Attribute = attributes.Cast<GoogleScopesAttribute>().First() }
         ).OrderBy(x => x.Attribute.Weight).ThenBy(x => x.Attribute.Name);
 
-        List<GoogleScopeGroup> groups = new();
+        List<GoogleScopeGroup> groups = [];
 
         foreach (var type in types) {
 

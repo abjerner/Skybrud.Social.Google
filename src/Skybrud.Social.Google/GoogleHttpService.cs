@@ -37,7 +37,7 @@ public class GoogleHttpService {
     /// </summary>
     /// <returns>An instance of <see cref="GoogleUserInfoResponse"/> representing the response.</returns>
     public GoogleUserInfoResponse GetUserInfo() {
-        return new(Client.GetUserInfo());
+        return new GoogleUserInfoResponse(Client.GetUserInfo());
     }
 
     #endregion
@@ -82,7 +82,7 @@ public class GoogleHttpService {
 
     /// <summary>
     /// Initializes a new instance based on the specified <paramref name="apiKey"/>. The API key is tied to
-    /// your app, whereas an access token or refresh token is tied the a specific user of your app. Calling this
+    /// your app, whereas an access token or refresh token is tied to a specific user of your app. Calling this
     /// method will not make any calls to the Google Accounts API.
     /// </summary>
     /// <param name="apiKey">The API key of your app.</param>

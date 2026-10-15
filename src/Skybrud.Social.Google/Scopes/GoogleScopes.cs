@@ -55,7 +55,7 @@ public static class GoogleScopes {
     /// <summary>
     /// Gets an array of all basic scopes.
     /// </summary>
-    public static readonly GoogleScope[] All = { OpenId, Email, Profile };
+    public static readonly GoogleScope[] All = [OpenId, Email, Profile];
 
     #endregion
 
