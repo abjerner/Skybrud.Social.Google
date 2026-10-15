@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Company>Limbo</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
